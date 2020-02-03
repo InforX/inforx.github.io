@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="区块链烧脑篇," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1第一部分，烧脑篇，介绍区块链的技术概念，目标本源和技术演进，以及信息安全相关的风险。 区块链现在已经成为市场的超级热点，开设区块链分享的课程也有很多，比如42章经曲凯他们搞的课程质量也是非常不错的，实话说，我们开始准备决定这门课程的时候，他们还没公布课程，所以当他们公布的时候我也觉得有点猝不及防，所以这对我的课程也提出了一些挑战，一方面，针对第一次接触这类课程的同学，我会尽量覆盖其他优秀课程的基">
+<meta name="keywords" content="区块链烧脑篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链之烧脑篇">
+<meta property="og:url" content="https://inforscan.com/2018/08/27/区块链之烧脑篇/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="1第一部分，烧脑篇，介绍区块链的技术概念，目标本源和技术演进，以及信息安全相关的风险。 区块链现在已经成为市场的超级热点，开设区块链分享的课程也有很多，比如42章经曲凯他们搞的课程质量也是非常不错的，实话说，我们开始准备决定这门课程的时候，他们还没公布课程，所以当他们公布的时候我也觉得有点猝不及防，所以这对我的课程也提出了一些挑战，一方面，针对第一次接触这类课程的同学，我会尽量覆盖其他优秀课程的基">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/28/PLyGjI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/28/PLyYut.png">
+<meta property="og:updated_time" content="2018-08-28T02:07:55.512Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="区块链之烧脑篇">
+<meta name="twitter:description" content="1第一部分，烧脑篇，介绍区块链的技术概念，目标本源和技术演进，以及信息安全相关的风险。 区块链现在已经成为市场的超级热点，开设区块链分享的课程也有很多，比如42章经曲凯他们搞的课程质量也是非常不错的，实话说，我们开始准备决定这门课程的时候，他们还没公布课程，所以当他们公布的时候我也觉得有点猝不及防，所以这对我的课程也提出了一些挑战，一方面，针对第一次接触这类课程的同学，我会尽量覆盖其他优秀课程的基">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/08/28/PLyGjI.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2018/08/27/区块链之烧脑篇/"/>
+
+
+
+
+
+  <title>区块链之烧脑篇 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2018/08/27/区块链之烧脑篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">区块链之烧脑篇</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T21:45:56+08:00">
+                2018-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/" itemprop="url" rel="index">
+                    <span itemprop="name">区块链</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一部分，烧脑篇，介绍区块链的技术概念，目标本源和技术演进，以及信息安全相关的风险。</span><br></pre></td></tr></table></figure>
+<p>区块链现在已经成为市场的超级热点，开设区块链分享的课程也有很多，比如42章经曲凯他们搞的课程质量也是非常不错的，实话说，我们开始准备决定这门课程的时候，他们还没公布课程，所以当他们公布的时候我也觉得有点猝不及防，所以这对我的课程也提出了一些挑战，一方面，针对第一次接触这类课程的同学，我会尽量覆盖其他优秀课程的基本内容；但另一方面，我也必须准备一些他们尚未触及的信息常识，也希望大家能觉得这个课程有独特的价值。</p>
+<p> 当然，必须承认，我自己也并不是这个领域的专家，所以可能水平有限，以及也必须照顾更多同学的基础，所以一些过于复杂的技术原理，概念和深入的内容，可能这里不会涉及；此外这里不涉及炒币话题，如有这方面的问题，烦请移步到其他擅长割韭菜的炒币社群。这里1个小时内可以随时退费。</p>
+<p> 关于比特币为什么值钱这个话题，我个人觉得是这样的，从美国金融危机之后，很多国家的经济恢复都是货币超发，货币超发等于什么呢？等于打劫所有人去补坏人的窟窿，坏人犯错好人埋单，这是很多国家经济政策的问题。</p>
+<p> 我们说货币来自于公权的信用，但公权的信用真的可靠么？非洲有津巴布韦，美洲有委内瑞拉。就算次一级的，阿根廷，尼日利亚，也都经历过货币汇率的暴跌，南美，非洲，乃至东南亚，很多国家的公权信用根本受不住冲击。这为数字货币提供了群众土壤。</p>
+<p> 比特币背后代表的是算法信用，基于共识算法来保障信用，这先受到了极客们的追捧，其货币紧缩特性，也让那些对通涨不满的人开始关注和接受。可以说，比特币是现实政治的反面，但与此同时，也为黑暗面所利用，成为违法交易的帮凶，这也成为比特币价值的基础之一。</p>
+<p> <strong>第一部分，烧脑篇</strong></p>
+<p><strong>讲讲区块链的一些技术常识和技术理念</strong><br> 1.区块链的价值是共识，这个已经很多人强调过了，共识来自于公开的算法，而共识算法是人类在数学，计算机算法领域非常卓越的成就，它并不是为区块链专门设计的，但区块链是一个非常典型的共识算法的应用场景。那么什么是共识算法，说简单点，就是，在不可靠的网络环境里，在不可信任的数据传输中，寻求一个保障信息传递和验证可靠的算法策略；当然，这个可靠也是相对的，不是绝对的，比如说，假设坏人无法掌握超过半数的信息节点。如果坏人真的掌握了超过半数的信息节点，那么实际上是可以对传递的信息进行篡改，这样共识就会崩溃。<br> 共识算法其实分很多种，目前最常提到的，比特币和以太坊所用到的，是叫做POW的共识算法，基于工作量证明的一种信息保障的算法。</p>
+<p> 这里解释一下，以太坊当前是基于POW的共识算法，但其未来将切换为POS的共识算法。这个后续会阐述。<br> 那么到底区块链是怎么工作的呢，以POW算法为例。</p>
+<p> 首先，每条交易，记账信息，是一条记录，每条记录都会发布到各个不同的节点，节点将检查最新的记录打包到一个新的区块上，然后通过算力证明，将区块发布到网络。但这里的算力证明其实是有极大的偶然性随机性，也就是有非常多的矿机，现状可能是几十万台同时打包和发布数据，但只有一个幸运的矿机，获得了证明，生成了新的区块，并获得了区块的奖励。</p>
+<p> 当这个区块发布后，其他的节点会很快得到这个信息，然后放弃掉当前已经打完包的数据，开始接受新的数据，进行下一步数据打包，并试图证明算力获得发布权力和区块奖励。</p>
+<p> 所以其实，POW共识算法里，算力竞争中的空耗也是惊人的。</p>
+<p> 但也正是因为所有节点的概率一致，保证了任意节点被入侵，被篡改，其数据信息，不会被其他节点接受，也就是保障了主链的安全性。</p>
+<p> 挖矿赚钱的话题在诱惑篇，别着急哈。<br> POW目前的局限是出块速度被限定了，比特币差不多10分钟出一个区块，所有交易均需要记录在区块内，所以这样也就限制了交易频率，由于一个区块只有1M，可以承载的交易信息是有限的，所以目前比特币的交易频次被限定在非常低的量级上，差不多一秒才可以支撑不到10个交易。</p>
+<p> 那么升级的方案呢，就有如下几种，第一是提高区块大小，比如第一次硬分叉后，比特现金把区块大小提升到了8M区块；第二是提升出快效率，并同比降低出块奖励，以太坊的出块速度就明显比比特币要快的多。但出块太多存在节点存储和网络传输的压力，那么就提出第三个方案，区块分片化存储的方案，现在比特币这样的区块链虽然是去中心化分布式存储，但每个全节点存储的是记录全集，也就是规模总量和本地查询明显是受到制约的。</p>
+<p> 使用分布式存储的方式，让每个节点只存储某个子集是否可以呢？这样结合第二个方案，就可以极大提升系统的承载能力，并且不会对节点存储和网络传输带来过大的压力。但这里也存在一些其他应用中的问题，我觉得这个是值得讨论研究的，我也是最近在看这方面的一些资料，但目前我也不能说我就知道最合适的路径在哪里，只是提出来，比特币能否扩容，其实还是有很多技术值得讨论的。</p>
+<p> 当然，还有闪电网络的解决方案，闪电网络是指将小额的，频繁交易，先通过一些分支节点进行储存和计算，并在一定时间内整合归并到主链，这和以前我们做数据库优化分享中，合并写入的逻辑基本是一样的。可以极大减少主链的写入压力，提升主链的容量。</p>
+<p> 烧脑篇，我希望大家对一些技术原理有更进一步的理解，我猜很多人更期待诱惑篇，看看赚钱路径啥的，不好意思，我觉得还是先难后易，区块链其实还是有很多不成熟，需要优化完善的地方，比特币也好，以太坊也好，其实可能都不足以承载区块链的未来。</p>
+<p> 继续这个话题，既然POW存在大量算力空耗的问题，所以也就出现了基于其他共识算法的区块链应用，那么一个被认为可行的是POS共识算法，也就是基于拥有的数量和时间获得证明的算法。简单解读类似于存本取息，你在系统中存的钱越多，存的时间越长，你所获得的收益就越多，这样算力竞争的意义被弱化，而拥有的意义被强化。</p>
+<p> 以太坊的规划目标是变更为POS。但POS也存在一些问题，比如马太效应，最后系统决策和收益依然会集中在少数寡头手里，除此之外，当矿工热潮退却后，如何保证有效的工作节点数量来完成运算，也是值得观察的。<br> 在POS之上又有人提出了DPOS，在基于拥有数量的基础上，投票选举工作节点的模式，由投票委任的节点负责运算打包，一旦出现坏区块或者故障，会有一套机制保障自动切换到其他节点，实现平滑过渡，目前EOS主推这样的一个共识模式，作为其平台的基础架构，从白皮书指标看是相当不错的，但产品并未上线，是否经过实践考验有待观察，实话说，我对其白皮书的技术指标是比较质疑的，当然，不排除我判断力有限的因素。</p>
+<p> 实际上，我认为这里存在这样两个极端，共识与效率，POW实际上是为了实现网络共识，极大的牺牲了效率。我们说支付宝为什么效率那么高，是基于中心系统，现在任何一个互联网公司做一个支付交易系统都可以比比特币的效率高，但无法形成有效的共识基础。所以我个人觉得，仅仅为个人思考，如果想要有效提升区块链的效率，可能完全的去中心是很难的，多中心是一种兼顾效率与共识的策略，实际上dpos已经可以理解为多中心系统，现在即便是POW共识算法也避免不了大矿场的垄断，一昧强调去中心化可能是一厢情愿的。</p>
+<p> <strong>下面我解读一下常见的发币和区块链平台的区别。</strong><br> 比特币 是区块链的第一个实际场景应用，那么作为共识最广泛的产品，比特币其架构的核心价值在于其可以作为一个账本系统，完成一些国际贸易，跨境交易中信用凭证的问题，在传统金融中，交易的信用成本是蛮高的，而区块链本身在这个领域是有天然优势的。</p>
+<p> 但作为最早的区块链应用，比特币的问题也蛮多的，比如算力空耗严重，以及交易支撑能力极为有限，不要说支付宝，微信支付这样的量级，国内任何一个第三方支付接口的性能诉求比特币的架构可能都支撑不住。此外，不支持智能合约，不支持零知识证明，说实话，现有的比特币架构是有点跟不上时代的。</p>
+<p> 比特币架构危机在两年前已经体现，这也导致了第一次硬分叉的出现，对于第一次硬分叉，一些忠实的比特币支持者认为所有硬分叉都是撕裂共识，是非常拒绝的，但在厦门我线下分享的时候，大部分听众是程序员，我列举了当时比特币遇到的困境，并现场提问，我说面对这样的情况，你们是希望通过补丁的方式维持旧有系统，继续前进，还是支持重构，牺牲一些旧有系统用户，结果大部分选择支持重构。</p>
+<p> 在这里也涉及了一个比特币的价值讨论问题，你是把它当作资产，还是当作货币，当作资产，确实不需要频繁交易，维持共识最重要，当作货币，那么架构的升级就理所当然。</p>
+<p> 以太坊可以认为是区块链的第二代平台，因为对智能合约的支持，以太坊的应用想象空间增加了很多，而且其出块效率也明显高于比特币。交易结算周期也明显有了更好的表现。</p>
+<p> 由于智能合约的出现，以及以太坊的开放平台的支持，实际上任何人都可以快速的创建自己的token，也就是现在说的发币，或者说ICO，市面上的ICO，99%都是在以太坊的平台上，鼓捣出来的一个token而已，所以，实话说，一点技术含量都没有。</p>
+<p> <strong>下面重点解释一下智能合约。</strong><br> 智能合约，也就是说，在区块中传递的合约，或者说传递的字符串，不是单纯的字符串和信息，而是一段可执行的脚本，比如说，有触发条件，有交互能力。</p>
+<p><img src="https://s1.ax1x.com/2018/08/28/PLyGjI.png" alt="智能合约"></p>
+<p> 好吧，98%，可以么。<br> 再加上一个词，图灵完备，什么是图灵完备，就是说不考虑硬件限制的情况下，这个脚本的支持性可以满足所有图灵机的功能诉求，图灵机也可以简单理解为全功能计算机。</p>
+<p> 那么支持图灵完备的智能合约，如果我们用通俗的比喻，就是你甚至可以发布一个大吉大利，今晚吃鸡的游戏到这个平台上。</p>
+<p> 但现实是不可能的，因为不可能有这么大的区块来支持，也不可能有这么强的算力来支持，稍微复杂一点的代码就可以把整个区块链网络搞崩溃，光一个简单宠物猫就导致了以太坊大堵塞。</p>
+<p> 所以图灵完备只是一个理想态，现状是受到网络环境，算力环境的极大制约，其实比特币本身也是支持简单脚本合约的，但是非常有限的一些脚本支持，远不如以太坊的支持性强，肯定无法实现图灵完备这样的级别。</p>
+<p> 所以，我们说以太坊是一种虚拟货币，这个定义是错的，以太坊是一个平台，上面跑了几千种虚拟货币，其中之一是以太坊自身的代币。而这个平台不但可以发布货币，还可以发布应用，智能合约的应用，这个想象力是蛮大的。</p>
+<p> 第一，代码是公开可验证的；第二是跑在所有区块上，没有中央服务器，通过共识算法保障，不用担心被篡改。<br> 智能合约的第一个成功应用就是电子猫，发布方一旦发布出去，后面就连发布方自己都无法更改。</p>
+<p> 之后的成功案例就变成电子赌场了，这个东西确实蛮适合赌场的，第一，公信力好，庄家是不能作弊的，甚至可以说是没有庄家的，代码是可以公开验证的，而且没有中央服务器。第二，确实很难被监控被追踪，一旦入局不可逆转，而且金额走向无法追踪。国内某些区块链大佬已经搞起这个来了，具体我就不点名了。</p>
+<p> 当然，我们希望还有更多可以用于正途的成功案例，但以太坊的架构也存在一定制约，由于太多平台，或者说太多骗子借助以太坊发币，以及其他应用，以太坊现在面临的拥堵也非常严重，现在以太坊也开始分叉了，但具体的技术细节我就不是很了解了。</p>
+<p> 说一下硬分叉，刚才也提到了比特币的第一次硬分叉，所谓硬分叉，是分叉方约定，在某个区块节点开始，启用新的系统架构继续前进，不再和主链保持一致，但同时也继承了该节点之前的所有区块。在这个节点之后，双方各自挖各自的矿，各自爆各自的块，各自走各自的路。</p>
+<p> 其实硬分叉不需要主链允许或通过，任何人都可以发起硬分叉，都可以基于自己的理解和判断发起一个新的分支，但对于信仰者来说，每个分叉都是对共识的撕裂，是在破坏共识。共识算法本身就是防范故障或者恶意分叉的，而人为强行分叉显然是算法所不能处理的。</p>
+<p> 那么为什么后来那么多人硬分叉，以及对于其他人来说硬分叉的意义在哪里，这个已经不是技术问题，我先卖个关子，放在诱惑篇解读。</p>
+<p> 最近有个新的东西ICO很火，很多人也问我点评，就是EOS。</p>
+<p> 我上面提到，99%的ICO是基于以太坊的，其实EOS的ICO，目前而言，也是基于以太坊的。但EOS要做的并不只是躺在以太坊身上薅点韭菜的钱。他们的野心还是蛮大的，按照白皮书的说法，感觉是想成为第三代区块链的平台，（前面提到了比特币是一代，以太坊是第二代，这个基本是公认的了）。</p>
+<p> 问题是他白皮书的指标过于靓丽，以至于我看上去有点不太相信。</p>
+<p> 目前EOS平台并未上线运营，所有都只是白皮书的说法，所以是否可以真的能实现，依然需要时间检验。<br> 但EOS发起人有其他项目是上线运营的，比如STEEM，请注意不是STEAM。一个基于区块链的社区，很有意思的是，也算是诱惑篇的一点前奏吧，想试试低成本赚点钱的，可以去steemit.com上注册个账号发帖去，那，点到为止吧。</p>
+<p> <strong>回到烧脑，下一个概念是零知识证明。</strong></p>
+<p> 简单说就是，在不透露交易细节的情况下验证了交易记录。这也是一种算法保障的。<br> 零知识证明可以有效保护交易隐私，隐藏交易来源并防止追溯，同时也能保证交易是安全的，因为任何试图修改交易的行为都无法通过验证。<br> 目前一些新的区块链平台方案越来越多宣称支持零知识证明。<br> 但实际上很多都还是计划中。<br> 除此之外的一些技术概念，如隔离见证，都是一些补丁方案里提到的，这些技术不具备通用性，也并非区块链的核心技术，这里不展开了。<br> <strong>那么烧脑篇的最后一部分，讲讲有关信息安全的常识。</strong><br> <strong>第一，算力劫持</strong>，其实共识算法并非是完美无瑕的，其存在的假设前提是，大部分节点是正确的，可信任的。所以不同的共识算法，理论上都存在一些风险，就是如果坏人掌握了足够多的节点。比如说基于POW共识的比特币，如果一家矿场或者矿池掌握了超过全网51%的算力，理论上可以劫持所有交易，改变交易数据。而基于DPOS的需要保障2/3的节点是可靠的，否则也存在强行分叉或者干扰主链的风险。<br> 在历史上这样的风险还是发生过的，但最终还是通过协商解决了。</p>
+<p> <strong>第二，重放攻击</strong>，这是硬分叉首先需要小心解决的问题，如果系统设计不周全，会导致在分叉上执行的交易被复制到主链，从而带来币拥有者未确认的交易发生，造成损失。所以很多交易所和钱包服务商，不敢去支持名目繁多的分叉币，也是担心由此带来风险。但从设计上来说，这个问题是可以处理的。具体逻辑有兴趣的自行搜索。</p>
+<p><img src="https://s1.ax1x.com/2018/08/28/PLyYut.png" alt="重放攻击"></p>
+<p> <strong>第三，关于私钥安全</strong>，由于新入场的区块链玩家很多，实际上很多人并不明白区块链私钥的意义和价值，会出现这样的情况，认为在交易所，或者钱包的账号和密码是最关键的，保护好了账号密码就万无一失，但糊里糊涂就被人钓鱼，把私钥拱手送出。</p>
+<p> 现在其实想设计一个钓鱼攻略，来窃取新玩家的私钥，是非常容易的，网上有很多这样帮助用户保存和转移私钥的工具，其实有些是风险很高的，所以我希望这里的读者知道，私钥是非常非常关键的，如果私钥被别人拿走了，那么人家可以拿走你的一切，根本无需所谓账号密码。</p>
+<p> 无环DAG没研究过啊，这是入门课程咋办？</p>
+<p> 有些人可能不理解什么是私钥，你开通一个比特币钱包后，会有一串字符串是私钥，有些钱包会告诉你，有些钱包工具不会告诉你，但让你备份钱包的时候，会让你记住很多单词和排序，这些单词排序是可以恢复私钥的，如果这些单词排序被我拿走，我是可以生成你的私钥并拿走你的一切的。</p>
+<p> 这里安全性的风险之大，其实是很多玩家所不了解的，如果你只在手机或电脑装了一个本地钱包，而没有做任何备份处理，你的手机或电脑丢了，或者硬盘损坏了，你的币就没有了。如果你装的是在线钱包，恭喜你，你可以在网上登陆找回，那么你账号密码被人窥破，你的币就没了。你账号密码都安全，但你不留神把私钥放到哪里被人看到了，或者那串备份单词被人看到了，你的币就没了。你一切都安全，然而在线钱包或交易所失窃了，你的币也没了。。。</p>
+<p> 但你的钱包地址是可以给人看的，这个没任何问题。否则你怎么交易和接受币呢。</p>
+<p> 说个题外话，公开交易地址是非常安全的，而且公开地址后，所有交易记录是可查的，如果某人说自己是比特币首富，公开比特币地址，每个人都可以验证，哪怕在某个时间段拥有足够多的比特币，也是一种证明。如果以比特币首富为标签，又坚决不肯公开地址，那么，至少我是不信的，而且在技术币圈都觉得是忽悠，但在营销币圈，还是可以混的风生水起的。</p>
+<p> <strong>第四，交易平台和钱包工具的安全</strong>，这在历史上出现过很多起，最近也出现过，一些交易所失窃，或者钱包工具失窃，导致用户的币丢失，而且基本上全都无可挽回。这里还存在几个问题，一是平台本身的技术安全性，二是平台员工的安全性，三是平台所有者会不会存在一些坏目的，坏心思。 其中二又是个特别难解的问题，你说我系统安全做的很好，但当这里面利益足够大时，员工安全谁能保障。</p>
+<p> 那么有人会说了，传统银行和金融不也存在这样的问题么，但传统金融和银行，中心化的存储，能有效追溯数据，并通过法律来制约这样的行为，也就是你可以干坏事，但你逃不了干系。而区块链，你们不是说去中心化么，去中心化千般好，但别忘了，你同时也失去了中心化的保护。当零知识证明普及的时候，偷币行为就更加没法追溯了。 共识算法保护的是那个字符串背后的资产，而无法保护这个字符串属于谁。</p>
+<p> 前段时间韩国交易所出现了严重的黑客入侵事故，导致比特币市值瞬跌，我在备课的时候又出现日本交易所的类似事故，基本上都是没办法追索，而在历史上也出现过类似的事情，曾经最大的比特币交易所也是因此彻底关闭了。所以比特币的发展史，区块链的发展史，在任何时间段，安全所带来的教训都是惨痛深刻的，而新投资者要注意的就是，从长远看，你丢币的概率甚至高于你长期持有带来亏损的概率。</p>
+<p> <strong>第五，智能合约的安全</strong>，有一个基于区块链众筹的风险投资基金，叫做the DAO，这个众筹计划是用一段智能合约代码约束的，这段代码被发布到了网上，并募集了超过数亿美元的资金，看上去是一个非常不错的故事，但很遗憾，这段代码中有一个安全风险，结果，黑客通过代码漏洞轻松劫持了超过5500万美元，是的，除了一个交易地址，你无法掌握任何更多的信息，也没办法讲窃贼绳之以法。而解决办法也是非常的无奈，因为代码发布后无法再度修改，所以他们只能通过认为可信任的人把所有未被窃取的资金转走并停止在这个智能合约上进行投入，没有任何其他的方法。</p>
+<p> <em>烧脑篇回顾一下，我希望大家能理解几个概念，</em></p>
+<p><strong>1</strong>、共识算法是区块链的核心技术；</p>
+<p><strong>2</strong>、当前的共识算法存在一些问题，是区块链应用场景普及所需要面对的重大问题。</p>
+<p><strong>3</strong>、从比特币到以太坊，实际上区块链的技术方案正在演进，但谁是第三代，目前还有待争议。</p>
+<p><strong>4</strong>、智能合约是区块链应用场景扩展最具有想象力的地方，不过受限于基础架构和算力问题，目前智能合约还很难做出复杂应用，图灵完备在当前阶段尚不具备应用意义。</p>
+<p><strong>5</strong>、零知识证明还没有全面应用起来，但这个逻辑被认可度是非常高的。</p>
+<p><strong>6</strong>、共识算法，零知识证明，都是人类数学和信息科学的重大进步，并不单纯是为区块链服务的，更不是为发币的骗子们服务的。</p>
+<p><strong>7</strong>、硬分叉本身存在一定的技术意义，但后面会解读其商业逻辑。</p>
+<p><strong>8</strong>、信息安全在区块链投资中的重要性非常高，而目前绝大部分新入场的用户对此并没有足够清醒的认识，整个区块链产业出现的严重安全事故已经很多起了，入局者希望能引以为诫。<br> 下面进入大家期待的诱惑篇。<br> 好吧，诱惑篇之前，我再说一个概念，公有链，私有链，联盟链。 公有链是目前我们熟知的比特币，以太坊，瑞波币这些，每个人都可以参与，每个人都可以在上面进行交易，如果支持智能合约，每个人也都可以发布自己的应用。私有链目前是很多金融机构正在考虑的，在自己的体系内搭建一套区块链系统，不公开对外服务，但是提供内部的共识网络，解决诸如信用证书，合同管理等问题。但私有链缺乏共识，也需要公权机</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2018/08/27/区块链之烧脑篇/" title="区块链之烧脑篇">区块链之烧脑篇</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2018/08/27/区块链之烧脑篇/" title="区块链之烧脑篇">https://inforscan.com/2018/08/27/区块链之烧脑篇/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2018年8月27日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/区块链烧脑篇/" rel="tag"><i class="fa fa-tag"></i> 区块链烧脑篇</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/26/2018年春季麻省理工学院（密码学与密码分析）在线视频课程/" rel="next" title="2018年春季麻省理工学院（密码学与密码分析）在线视频课程">
+                <i class="fa fa-chevron-left"></i> 2018年春季麻省理工学院（密码学与密码分析）在线视频课程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/28/区块链之诱惑篇/" rel="prev" title="区块链之诱惑篇">
+                区块链之诱惑篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">394</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">632</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com/" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="arxiv-vanity,开源,Scinapse,学术搜索引擎,公益技术资源,实时内容分析,英国石油和天然气国家数据存储库,激光雷达," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="通过web页面方式阅读Arxiv数据库的论文arxiv-vanity将Arxiv的论文以网页的形式呈现，避免像常规论文一样通过pdf展示，对于阅读英文文献有障碍的同学们，这个网站可以把pdf文件转为web页面形式，然后可以一键翻译为中文。https://www.arxiv-vanity.com Scinapse免费的学术搜索引擎 Scinapse是一个免费的非营利性的学术搜索引擎，由Pluto N">
+<meta name="keywords" content="arxiv-vanity,开源,Scinapse,学术搜索引擎,公益技术资源,实时内容分析,英国石油和天然气国家数据存储库,激光雷达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等">
+<meta property="og:url" content="https://inforscan.com/2019/03/26/干货分享 web方式阅读Arxiv论文 Scinapse免费学术搜索 英国发布130TB的石油和天然气数据等/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="通过web页面方式阅读Arxiv数据库的论文arxiv-vanity将Arxiv的论文以网页的形式呈现，避免像常规论文一样通过pdf展示，对于阅读英文文献有障碍的同学们，这个网站可以把pdf文件转为web页面形式，然后可以一键翻译为中文。https://www.arxiv-vanity.com Scinapse免费的学术搜索引擎 Scinapse是一个免费的非营利性的学术搜索引擎，由Pluto N">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://assets.pluto.network/scinapse/circle%403x.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/153/w630h323/20190326/Pied-hutwezf5115098.png">
+<meta property="og:image" content="https://www.spe.org/media/filer_public/e3/31/e331595a-7594-423f-81d8-b31b2d38bcb5/jpt_2019_3_uk_data_repository_hero.jpg">
+<meta property="og:image" content="https://techcrunch.com/wp-content/uploads/2019/03/OS-1-64-Lidar-SLAM.png?w=730&crop=1">
+<meta property="og:image" content="https://zdnet2.cbsistatic.com/hub/i/2019/03/14/9e97b300-0311-4fa7-8fa9-3d53aa309df1/622f6591fe5deb75dd4070c36698476d/ziplineazuredatacompression.jpg">
+<meta property="og:image" content="https://bair.berkeley.edu/blog/assets/BAIR_Logo.png">
+<meta property="og:updated_time" content="2019-03-26T04:15:38.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等">
+<meta name="twitter:description" content="通过web页面方式阅读Arxiv数据库的论文arxiv-vanity将Arxiv的论文以网页的形式呈现，避免像常规论文一样通过pdf展示，对于阅读英文文献有障碍的同学们，这个网站可以把pdf文件转为web页面形式，然后可以一键翻译为中文。https://www.arxiv-vanity.com Scinapse免费的学术搜索引擎 Scinapse是一个免费的非营利性的学术搜索引擎，由Pluto N">
+<meta name="twitter:image" content="https://assets.pluto.network/scinapse/circle%403x.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2019/03/26/干货分享 web方式阅读Arxiv论文 Scinapse免费学术搜索 英国发布130TB的石油和天然气数据等/"/>
+
+
+
+
+
+  <title>干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2019/03/26/干货分享 web方式阅读Arxiv论文 Scinapse免费学术搜索 英国发布130TB的石油和天然气数据等/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T11:25:47+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/干货资源合集/" itemprop="url" rel="index">
+                    <span itemprop="name">干货资源合集</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="通过web页面方式阅读Arxiv数据库的论文"><a href="#通过web页面方式阅读Arxiv数据库的论文" class="headerlink" title="通过web页面方式阅读Arxiv数据库的论文"></a>通过web页面方式阅读Arxiv数据库的论文</h2><p>arxiv-vanity将Arxiv的论文以网页的形式呈现，避免像常规论文一样通过pdf展示，对于阅读英文文献有障碍的同学们，这个网站可以把pdf文件转为web页面形式，然后可以一键翻译为中文。<br><a href="https://www.arxiv-vanity.com" target="_blank" rel="noopener">https://www.arxiv-vanity.com</a></p>
+<h2 id="Scinapse免费的学术搜索引擎"><a href="#Scinapse免费的学术搜索引擎" class="headerlink" title="Scinapse免费的学术搜索引擎"></a>Scinapse免费的学术搜索引擎</h2><p><img src="https://assets.pluto.network/scinapse/circle%403x.png" alt="img"></p>
+<p>Scinapse是一个免费的非营利性的学术搜索引擎，由Pluto Network提供论文服务。目前网站已经索引了超过4万多种期刊累计超过2亿篇论文。标记为开放存储论文，可以直接下载pdf文件，否则将转到原始论文页进行查看。主要来源数据库 <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank" rel="noopener">Microsoft Academic Graph</a> (MAG), Semantic Scholar <a href="http://labs.semanticscholar.org/corpus/" target="_blank" rel="noopener">Open Research Corpus</a> (ORC), Springer Nature <a href="https://www.springernature.com/gp/researchers/scigraph" target="_blank" rel="noopener">SciGraph</a>, and <a href="https://www.nlm.nih.gov/databases/download/pubmed_medline.html" target="_blank" rel="noopener">PubMed</a>. </p>
+<h2 id="谷歌为记者推出了一种新的实时数据产品"><a href="#谷歌为记者推出了一种新的实时数据产品" class="headerlink" title="谷歌为记者推出了一种新的实时数据产品"></a>谷歌为记者推出了一种新的实时数据产品</h2><p>据外媒TechCrunch，去年谷歌宣布将投资3亿美元用于其News Initiative计划，其中包括为独立新闻工作以及谷歌开发的产品提供资金。其中一个产品是“新闻消费者分析”(News Consumer Insights)，其已被BuzzFeed、Business Insider和Conde Nast等媒体使用。现在，谷歌正在使用名为“实时内容分析”（Real-time Content Insights）的新工具构建NCI产品。顾名思义，RCI专注于告诉出版商网站上发生的事情，以及帮助他们识别可吸引更多读者的热门新闻报道。</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/153/w630h323/20190326/Pied-hutwezf5115098.png" alt="img"></p>
+<h2 id="英国发布130TB的石油和天然气数据"><a href="#英国发布130TB的石油和天然气数据" class="headerlink" title="英国发布130TB的石油和天然气数据"></a>英国发布130TB的石油和天然气数据</h2><p>英国石油和天然气管理局（OGA）通过推出<a href="https://ndr.ogauthority.co.uk/dp/controller/PLEASE_LOGIN_PAGE" target="_blank" rel="noopener">英国石油和天然气国家数据存储库（NDR）</a>向公众提供大约130TB的井，地球物理，现场和基础设施数据。</p>
+<p><img src="https://www.spe.org/media/filer_public/e3/31/e331595a-7594-423f-81d8-b31b2d38bcb5/jpt_2019_3_uk_data_repository_hero.jpg" alt="img">该数据集涵盖了50多年来的12，500个海上井筒、5，000次地震勘测和3，000条管道。OGA在新闻发布会上表示，此次发布旨在帮助促进英国大陆架的新投资，技术和勘探活动，最终推动经济复苏。<br>OGA 已经建立的<a href="https://data-ogauthority.opendata.arcgis.com/" target="_blank" rel="noopener">开放数据站点</a>包括许可次数，勘探，钻探和生产的数据，包括Buchan油田的生产仪表板。</p>
+<p>去年Equinor发布了另一个大的<a href="https://www.spe.org/en/jpt/jpt-article-detail/?art=4329" target="_blank" rel="noopener">北海数据</a>后，国家发展报告才公布。挪威运营商提供了沃尔沃油田40，000份地下和生产数据文件。</p>
+<h2 id="公益技术资源"><a href="#公益技术资源" class="headerlink" title="公益技术资源"></a>公益技术资源</h2><p>随着互联网信息技术渗透到社会的各个方面，了解技术的人们需要成为公共政策讨论的一部分。我们需要为公共利益工作的技术人员。我们需要公益技术人员。<br>定义这个术语很困难。福特基金会的<a href="https://www.fordfoundation.org/ideas/equals-change-blog/posts/5-reasons-you-might-be-a-public-interest-technologist/" target="_blank" rel="noopener">一篇博客</a>文章将公益技术专家描述为“专注于社会公正，共同利益和/或公共利益的技术从业者。”该领域的一组学者写道，“公共利益技术指的是研究和应用技术专长来提高公共利益/产生公共利益/促进公共利益。“<br>这是一个以公共政策为重点的公益技术人员的资源页面。<a href="https://public-interest-tech.com" target="_blank" rel="noopener">https://public-interest-tech.com</a></p>
+<h2 id="激光雷达初创公司Ouster再融资6000万美元提高产量"><a href="#激光雷达初创公司Ouster再融资6000万美元提高产量" class="headerlink" title="激光雷达初创公司Ouster再融资6000万美元提高产量"></a>激光雷达初创公司Ouster再融资6000万美元提高产量</h2><p>总部位于美国旧金山的激光雷达初创公司Ouster宣布，在其A轮融资筹得2700万美元（约合1.8亿元人民币）后，其又融资筹集了6000万美元（约合4.0亿元人民币）。　据<a href="https://techcrunch.com/2019/03/25/lidar-startup-ouster-raises-60-million-in-production-run-up/" target="_blank" rel="noopener">外媒报道</a>，当地时间3月25日，总部位于美国旧金山的激光雷达初创公司Ouster宣布，在其A轮融资筹得2700万美元（约合1.8亿元人民币）后，其又融资筹集了6000万美元（约合4.0亿元人民币）。此次最新一轮融资由Runway Growth Capital领投，硅谷银行（Silicon Valley Bank）、考克斯企业（Cox Enterprises）、Constellation Tech Ventures、Fontinalis Partners、Carthona Capital以及其他企业参投，使该公司总融资额达9000万美元（约合6.0亿元人民币）。</p>
+<p><img src="https://techcrunch.com/wp-content/uploads/2019/03/OS-1-64-Lidar-SLAM.png?w=730&amp;crop=1" alt="Ousteræ¿åé·è¾¾"></p>
+<h2 id="微软开源用于-Azure-数据压缩的算法、硬件和源码"><a href="#微软开源用于-Azure-数据压缩的算法、硬件和源码" class="headerlink" title="微软开源用于 Azure 数据压缩的算法、硬件和源码"></a>微软开源用于 Azure 数据压缩的算法、硬件和源码</h2><p>微软正在向 OCP（开源计算项目，Open Compute Project）发布 “<a href="https://www.zdnet.com/article/microsoft-open-sources-algorithm-hardware-and-source-code-for-azure-data-compression/" target="_blank" rel="noopener">Project Zipline” 数据压缩算法</a>，以及相关的硬件规格和源码。</p>
+<p><img src="https://zdnet2.cbsistatic.com/hub/i/2019/03/14/9e97b300-0311-4fa7-8fa9-3d53aa309df1/622f6591fe5deb75dd4070c36698476d/ziplineazuredatacompression.jpg" alt="ziplineazuredatacompression.jpg"></p>
+<p>微软正在开源云压缩算法，并优化着云存储的硬件实现。微软将该算法命名为 <a href="https://azure.microsoft.com/en-us/blog/hardware-innovation-for-data-growth-challenges-at-cloud-scale/" target="_blank" rel="noopener">“Project Zipline</a>”，加上相关的硬件规范和源码发布到 OCP。</p>
+<h2 id="加州大学伯克利分校人工智能研究（BAIR）实验室公开共享研究"><a href="#加州大学伯克利分校人工智能研究（BAIR）实验室公开共享研究" class="headerlink" title="加州大学伯克利分校人工智能研究（BAIR）实验室公开共享研究"></a>加州大学伯克利分校人工智能研究（BAIR）实验室公开共享研究</h2><p><img src="https://bair.berkeley.edu/blog/assets/BAIR_Logo.png" alt="img"></p>
+<p><a href="https://bair.berkeley.edu/blog/2019/03/24/bair-commons/" target="_blank" rel="noopener">加州大学伯克利分校人工智能研究（BAIR）实验室</a>很高兴地宣布BAIR开放研究共享委员会，这是一个新的工业联盟计划，旨在加速尖端人工智能研究。人工智能研究在大学和企业研究环境中都在迅速发展，现有的合作已经由个体研究人员与研究人员的合作推动。BAIR Commons旨在加强和简化学生，教师和企业研究学者的这种协作式前沿研究。</p>
+<h2 id="可能是世界上最大的猥亵儿童数据库"><a href="#可能是世界上最大的猥亵儿童数据库" class="headerlink" title="可能是世界上最大的猥亵儿童数据库"></a>可能是世界上最大的猥亵儿童数据库</h2><p>耶和华见证人建立了可能是世界上最大的无证猥亵儿童骚扰者数据库：至少二十年的名字和地址 - 可能数以万计 - 并且涉嫌滥用的详细行为，其中大多数从未发生过与执法部门共享，所有内容均在Microsoft SharePoint文件中进行扫描和搜索。近几十年来，全世界对滥用指控的关注主要集中在天主教会和其他宗教团体。耶和华见证人（一个拥有超过850万成员的基督教教派）中的虐待行为受到的关注较少。<a href="https://www.theatlantic.com/family/archive/2019/03/the-secret-jehovahs-witness-database-of-child-molesters/584311/" target="_blank" rel="noopener">原文阅读</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2019/03/26/干货分享 web方式阅读Arxiv论文 Scinapse免费学术搜索 英国发布130TB的石油和天然气数据等/" title="干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等">干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2019/03/26/干货分享 web方式阅读Arxiv论文 Scinapse免费学术搜索 英国发布130TB的石油和天然气数据等/" title="干货分享： web方式阅读Arxiv论文|Scinapse免费学术搜索|英国发布130TB的石油和天然气数据等">https://inforscan.com/2019/03/26/干货分享 web方式阅读Arxiv论文 Scinapse免费学术搜索 英国发布130TB的石油和天然气数据等/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2019年3月26日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/arxiv-vanity/" rel="tag"><i class="fa fa-tag"></i> arxiv-vanity</a>
+          
+            <a href="/tags/开源/" rel="tag"><i class="fa fa-tag"></i> 开源</a>
+          
+            <a href="/tags/Scinapse/" rel="tag"><i class="fa fa-tag"></i> Scinapse</a>
+          
+            <a href="/tags/学术搜索引擎/" rel="tag"><i class="fa fa-tag"></i> 学术搜索引擎</a>
+          
+            <a href="/tags/公益技术资源/" rel="tag"><i class="fa fa-tag"></i> 公益技术资源</a>
+          
+            <a href="/tags/实时内容分析/" rel="tag"><i class="fa fa-tag"></i> 实时内容分析</a>
+          
+            <a href="/tags/英国石油和天然气国家数据存储库/" rel="tag"><i class="fa fa-tag"></i> 英国石油和天然气国家数据存储库</a>
+          
+            <a href="/tags/激光雷达/" rel="tag"><i class="fa fa-tag"></i> 激光雷达</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/推荐几个优质的工具、资源平台/" rel="next" title="推荐几个优质的工具、资源平台">
+                <i class="fa fa-chevron-left"></i> 推荐几个优质的工具、资源平台
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/title  利用新闻聚合工具 Nuzzel跟踪领域内重要信息/" rel="prev" title="利用新闻聚合工具 Nuzzel跟踪领域内重要信息">
+                利用新闻聚合工具 Nuzzel跟踪领域内重要信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">394</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">632</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com/" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过web页面方式阅读Arxiv数据库的论文"><span class="nav-number">1.</span> <span class="nav-text">通过web页面方式阅读Arxiv数据库的论文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scinapse免费的学术搜索引擎"><span class="nav-number">2.</span> <span class="nav-text">Scinapse免费的学术搜索引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌为记者推出了一种新的实时数据产品"><span class="nav-number">3.</span> <span class="nav-text">谷歌为记者推出了一种新的实时数据产品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#英国发布130TB的石油和天然气数据"><span class="nav-number">4.</span> <span class="nav-text">英国发布130TB的石油和天然气数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公益技术资源"><span class="nav-number">5.</span> <span class="nav-text">公益技术资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激光雷达初创公司Ouster再融资6000万美元提高产量"><span class="nav-number">6.</span> <span class="nav-text">激光雷达初创公司Ouster再融资6000万美元提高产量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微软开源用于-Azure-数据压缩的算法、硬件和源码"><span class="nav-number">7.</span> <span class="nav-text">微软开源用于 Azure 数据压缩的算法、硬件和源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加州大学伯克利分校人工智能研究（BAIR）实验室公开共享研究"><span class="nav-number">8.</span> <span class="nav-text">加州大学伯克利分校人工智能研究（BAIR）实验室公开共享研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能是世界上最大的猥亵儿童数据库"><span class="nav-number">9.</span> <span class="nav-text">可能是世界上最大的猥亵儿童数据库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

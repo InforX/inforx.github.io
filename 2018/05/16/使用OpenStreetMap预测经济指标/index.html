@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="效率工具,经济指标,世界协作地图," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="OpenStreetMap（OSM）是一个庞大的世界协作地图，主要由志愿者建立和维护。另一方面，存在衡量一个国家的经济增长，繁荣和生产的各种指标。如果我们使用OpenStreetMap预测这些经济指标怎么办？ 该项目的一个启示来自外部空间衡量经济增长的出版物，他们试图预测夜间卫星数据的国家GDP增长。他们的目标是有一种衡量经济增长的替代方法，因为很难获得有关经济增长的可靠数据，特别是在农村地区。">
+<meta name="keywords" content="效率工具,经济指标,世界协作地图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用OpenStreetMap预测经济指标">
+<meta property="og:url" content="https://inforscan.com/2018/05/16/使用OpenStreetMap预测经济指标/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="OpenStreetMap（OSM）是一个庞大的世界协作地图，主要由志愿者建立和维护。另一方面，存在衡量一个国家的经济增长，繁荣和生产的各种指标。如果我们使用OpenStreetMap预测这些经济指标怎么办？ 该项目的一个启示来自外部空间衡量经济增长的出版物，他们试图预测夜间卫星数据的国家GDP增长。他们的目标是有一种衡量经济增长的替代方法，因为很难获得有关经济增长的可靠数据，特别是在农村地区。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/eastern_europe_in_lights.jpg">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_4_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_6_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_8_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_14_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_16_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_20_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_22_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_24_0.png">
+<meta property="og:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_26_0.png">
+<meta property="og:updated_time" content="2018-08-26T12:48:54.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用OpenStreetMap预测经济指标">
+<meta name="twitter:description" content="OpenStreetMap（OSM）是一个庞大的世界协作地图，主要由志愿者建立和维护。另一方面，存在衡量一个国家的经济增长，繁荣和生产的各种指标。如果我们使用OpenStreetMap预测这些经济指标怎么办？ 该项目的一个启示来自外部空间衡量经济增长的出版物，他们试图预测夜间卫星数据的国家GDP增长。他们的目标是有一种衡量经济增长的替代方法，因为很难获得有关经济增长的可靠数据，特别是在农村地区。">
+<meta name="twitter:image" content="https://janakiev.com/assets/osm_predict_economic_indicators_files/eastern_europe_in_lights.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2018/05/16/使用OpenStreetMap预测经济指标/"/>
+
+
+
+
+
+  <title>使用OpenStreetMap预测经济指标 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2018/05/16/使用OpenStreetMap预测经济指标/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">使用OpenStreetMap预测经济指标</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T20:25:56+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a>（OSM）是一个庞大的世界协作地图，主要由志愿者建立和维护。另一方面，存在衡量一个国家的经济增长，繁荣和生产的各种指标。如果我们使用OpenStreetMap预测这些经济指标怎么办？</p>
+<p>该项目的一个启示<em>来自外部空间衡量经济增长</em>的出版物，他们试图预测夜间卫星数据的国家GDP增长。他们的目标是有一种衡量经济增长的替代方法，因为很难获得有关经济增长的可靠数据，特别是在农村地区。</p>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/eastern_europe_in_lights.jpg" alt="外太空经济学"></p>
+<p><em>Henderson，J。Vernon，Adam Storeygard和David N. Weil。“衡量外太空的经济增长。”美国经济评论102.2（2012）：994-1028。</em></p>
+<p>这里我们将重点关注各种设施，如大学，自动取款机，停车位以及欧盟（EU）和欧洲自由贸易协会（EFTA）成员国内的OSM中的其他设施。目标是了解哪些设施与选定的经济指标最相关。可以在此<a href="https://github.com/njanakiev/osm-predict-economic-measurements" target="_blank" rel="noopener">存储库中</a>找到从OSM收集和清除数据的所有必要脚本以及经济指标。</p>
+<h1 id="经济学的测量"><a href="#经济学的测量" class="headerlink" title="经济学的测量"></a>经济学的测量</h1><p>有多种方法可以衡量某个国家的宏观经济表现。经济表现的关键指标包括经济增长（如实际GDP增长），通货膨胀，失业和经常账户（如低赤字）。该项目的重点是三个特定指标，即国内生产总值（GDP），人类发展指数（HDI）和巨无霸指数。</p>
+<p>但在获得指标之前，我们需要快速了解<a href="https://en.wikipedia.org/wiki/Purchasing_power_parity" target="_blank" rel="noopener">购买力平价</a>（PPP）。<a href="https://en.wikipedia.org/wiki/Purchasing_power" target="_blank" rel="noopener">购买力</a>是指一种货币可以获得的商品数量，PPP是两个国家购买力的比率。这是通过一篮子商品方法来实现的，其中购买力平价率是通过比较不同国家的相同商品的价格来确定的。PPP通常用于在两国国内生产总值（GDP）之间进行更准确的比较，而不是在使用市场汇率时可以做出的比较。在这个项目中，国内生产总值和国民总收入是以购买力平价为基础，将它们转换为国际美元作为共同货币。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">plt.style.use(&apos;ggplot&apos;)</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df_targets = pd.read_csv(&apos;data/economic_measurements.csv&apos;, index_col=&apos;country&apos;)</span><br><span class="line">df_targets.drop(columns=&apos;country_code&apos;, inplace=True)</span><br><span class="line">df_targets = df_targets[[&apos;Population&apos;, &apos;GNI&apos;, &apos;GDP&apos;, &apos;BM Dollar&apos;, &apos;HDI&apos;]]</span><br><span class="line">df_targets.head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>人口</th>
+<th>GNI</th>
+<th>GDP</th>
+<th>BM美元</th>
+<th>HDI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国家</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>比利时</td>
+<td>11338476.0</td>
+<td>42367.993039</td>
+<td>46428.671425</td>
+<td>5.019425</td>
+<td>0.895514</td>
+</tr>
+<tr>
+<td>保加利亚</td>
+<td>7127822.0</td>
+<td>17758.415202</td>
+<td>19242.622616</td>
+<td>为NaN</td>
+<td>0.793642</td>
+</tr>
+<tr>
+<td>捷克共和国</td>
+<td>10566332.0</td>
+<td>29279.681889</td>
+<td>34749.212363</td>
+<td>3.807779</td>
+<td>0.877842</td>
+</tr>
+<tr>
+<td>丹麦</td>
+<td>5728010.0</td>
+<td>47160.293155</td>
+<td>49029.014839</td>
+<td>4.932020</td>
+<td>0.924649</td>
+</tr>
+<tr>
+<td>德国</td>
+<td>82487842.0</td>
+<td>45126.504599</td>
+<td>48860.525292</td>
+<td>4.774575</td>
+<td>0.925669</td>
+</tr>
+</tbody>
+</table>
+<h2 id="国内生产总值和国民总收入"><a href="#国内生产总值和国民总收入" class="headerlink" title="国内生产总值和国民总收入"></a>国内生产总值和国民总收入</h2><p>其中一个最着名的经济指标是<a href="https://en.wikipedia.org/wiki/Gross_domestic_product" target="_blank" rel="noopener">国内生产总值</a>（GDP），<a href="http://stats.oecd.org/glossary/detail.asp?ID=1163" target="_blank" rel="noopener">经合组织</a>将其定义<em>为生产总量，等于所有从事生产的居民和机构单位的总增加值之和</em>。简单来说，它衡量一个国家在一段时间内（例如一年内）生产的所有商品和服务的市场价值。</p>
+<p>另一方面，国民<a href="https://en.wikipedia.org/wiki/Gross_national_income" target="_blank" rel="noopener">总收入</a>（GNI）衡量一个国家的收入。与GDP的主要区别在于GDP仅统计从国内来源获得的收入，GNI包括从国外获得的净收入。在大多数情况下，GDP和GNI都很接近。但如果国民总收入远高于国内生产总值，这可能意味着该国获得了大量的外援。在相反的情况下，国内生产总值要高得多，这可能意味着在这个国家有跨国公司的子公司，因为低税率，可以在下面对爱尔兰和卢森堡的比较中看出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df_plot = df_targets[[&apos;GNI&apos;, &apos;GDP&apos;]].sort_values(by=&apos;GNI&apos;, ascending=False).dropna()</span><br><span class="line">df_plot.plot(kind=&apos;bar&apos;, figsize=(16, 6), fontsize=15)</span><br><span class="line">plt.xlabel(&apos;&apos;); plt.legend(fontsize=15);</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_4_0.png" alt="PNG"></p>
+<h2 id="人类发展指数"><a href="#人类发展指数" class="headerlink" title="人类发展指数"></a>人类发展指数</h2><p>在<a href="http://hdr.undp.org/en/content/human-development-index-hdi" target="_blank" rel="noopener">人类发展指数</a>（HDI）是由预期寿命，教育的综合指数和其使用的人类发展排名国家的人均收入指标。该指数由巴基斯坦经济学家<em>Mahbub ul Haq</em>为<a href="http://www.undp.org/content/undp/en/home.html" target="_blank" rel="noopener">联合国开发计划署</a>（开发计划署）制定，旨在评估一个国家的发展，而不仅仅是经济增长。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df_plot = df_targets[&apos;HDI&apos;].sort_values(ascending=False)</span><br><span class="line">df_plot.plot(kind=&apos;bar&apos;, figsize=(16, 6), fontsize=15, color=&apos;C1&apos;)</span><br><span class="line">plt.title(&apos;Human Development Index&apos;, fontsize=20); plt.xlabel(&apos;&apos;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_6_0.png" alt="PNG"></p>
+<h2 id="巨无霸指数"><a href="#巨无霸指数" class="headerlink" title="巨无霸指数"></a>巨无霸指数</h2><p>我们选择的最后一个指标是由“经济学人”杂志于1986年创建的<a href="https://www.economist.com/content/big-mac-index" target="_blank" rel="noopener">巨无霸指数</a>，作为比较货币对美元的购买力的非正式方式。麦当劳在119个不同的国家有售，麦当劳的一个特别之处在于其商店的产品一致性。这意味着在世界各地的不同经济体中，相同的成分以相同的方式制造相同的物品，使得巨无霸成为PPP市场一篮子商品的合适候选者。与其他货币相比，这可以有效地显示哪些货币低于或高估。这使其成为之前讨论的购买力平价的一个主要例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df_plot = df_targets[&apos;BM Dollar&apos;].sort_values(ascending=False).dropna()</span><br><span class="line">df_plot.plot(kind=&apos;bar&apos;, figsize=(16, 6), fontsize=15, color=&apos;C1&apos;)</span><br><span class="line">plt.title(&apos;Big Mac Dollar Price&apos;, fontsize=20);</span><br><span class="line">plt.xlabel(&apos;&apos;); plt.ylabel(&apos;Dollar&apos;, fontsize=15);</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_8_0.png" alt="PNG"></p>
+<h1 id="从OpenStreetMap加载数据"><a href="#从OpenStreetMap加载数据" class="headerlink" title="从OpenStreetMap加载数据"></a>从OpenStreetMap加载数据</h1><p>有了我们的经济指标，我们现在可以继续选择OSM中所需的设施。OSM中有各种<a href="https://wiki.openstreetmap.org/wiki/Elements" target="_blank" rel="noopener">元素</a>，可以与由键值对组成的<a href="https://wiki.openstreetmap.org/wiki/Tags" target="_blank" rel="noopener">标记</a>相关联。一个有用的关键是<a href="https://wiki.openstreetmap.org/wiki/Key:amenity" target="_blank" rel="noopener">舒适</a>键，它标记了<em>大学</em>，<em>学校</em>，<em>餐馆</em>或其他各种社区设施。</p>
+<p>我们的数据采集的目标是为每个国家的舒适度密钥（例如舒适性=停车）获取50个最常用的值。在OSM中找到关键值标签的全球统计数据的一个很棒的网站是<a href="https://taginfo.openstreetmap.org/" target="_blank" rel="noopener">taginfo</a>，其中最常见的设施可以在此<a href="https://taginfo.openstreetmap.org/keys/amenity#values" target="_blank" rel="noopener">列表中</a>找到。使用<a href="https://taginfo.openstreetmap.org/taginfo/apidoc" target="_blank" rel="noopener">taginfo API</a>自动收集了50个最常见的值。下一步是收集每个国家的50个设施中每个设施的计数。这是通过<a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank" rel="noopener">Overpass API</a>和<a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL" target="_blank" rel="noopener">Overpass QL完成的</a>，它可以实现对OSM的特定访问，而无需下载整个数据集。有关如何使用Overpass API的更多信息，请参阅<a href="https://janakiev.com/blog/openstreetmap-with-python-and-overpass-api/" target="_blank" rel="noopener">本文</a>。下一个示例代码段显示了如何获取德国所有工作台的数量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">overpass_url = &quot;http://overpass-api.de/api/interpreter&quot;</span><br><span class="line">overpass_query = &quot;&quot;&quot;</span><br><span class="line">area[&quot;ISO3166-1&quot;=&quot;DE&quot;][admin_level=2]-&gt;.search;</span><br><span class="line">node[&quot;amenity&quot;=&quot;bench&quot;](area.search);</span><br><span class="line">out count;&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">response = requests.get(overpass_url, params=&#123;&apos;data&apos;: overpass_query&#125;)</span><br><span class="line">print(response.text)</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;osm version=&quot;0.6&quot; generator=&quot;Overpass API 0.7.55 579b1eec&quot;&gt;</span><br><span class="line">&lt;note&gt;The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.&lt;/note&gt;</span><br><span class="line">&lt;meta osm_base=&quot;2018-05-16T10:51:02Z&quot; areas=&quot;2018-05-16T10:42:02Z&quot;/&gt;</span><br><span class="line"></span><br><span class="line">  &lt;count id=&quot;0&quot;&gt;</span><br><span class="line">    &lt;tag k=&quot;nodes&quot; v=&quot;333165&quot;/&gt;</span><br><span class="line">    &lt;tag k=&quot;ways&quot; v=&quot;0&quot;/&gt;</span><br><span class="line">    &lt;tag k=&quot;relations&quot; v=&quot;0&quot;/&gt;</span><br><span class="line">    &lt;tag k=&quot;areas&quot; v=&quot;0&quot;/&gt;</span><br><span class="line">    &lt;tag k=&quot;total&quot; v=&quot;333165&quot;/&gt;</span><br><span class="line">  &lt;/count&gt;</span><br><span class="line"></span><br><span class="line">&lt;/osm&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="加载并标准化OSM计数"><a href="#加载并标准化OSM计数" class="headerlink" title="加载并标准化OSM计数"></a>加载并标准化OSM计数</h2><p>下一步是为每个国家/地区加载设施。由于我们还有每个国家的人口，我们希望将计数标准化以具有人均舒适度。这样可以更轻松地比较各个国家/地区。此外，我们希望将所有设施替换为0到0.1，这在使用对数刻度可视化数据集时很有用。</p>
+<p>人口数据来自<a href="https://data.worldbank.org/" target="_blank" rel="noopener">世界银行开放数据</a>，人口数量来自2016年。同样适用于GDP和GNI数据，这些数据也来自世界银行2016年。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df_amenity = pd.read_csv(&apos;data/country_amenity_counts.csv&apos;)</span><br><span class="line">df_amenity.set_index(&apos;country&apos;, inplace=True)</span><br><span class="line">df_amenity.drop(columns=&apos;country_code&apos;, inplace=True)</span><br><span class="line"></span><br><span class="line"># Replace 0 values with 0.1</span><br><span class="line">df_amenity = df_amenity.applymap(lambda x: 0.1 if x == 0 else float(x))</span><br><span class="line"></span><br><span class="line"># Normalize amenities    </span><br><span class="line">df_amenity_normalized = df_amenity.apply( </span><br><span class="line">    lambda row: row / df_targets[&apos;Population&apos;].loc[row.name], axis=1)</span><br><span class="line"></span><br><span class="line">df_amenity.head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>停車處</th>
+<th>宗教场所</th>
+<th>学校</th>
+<th>长凳</th>
+<th>餐厅</th>
+<th>汽油</th>
+<th>咖啡店</th>
+<th>快餐</th>
+<th>银行</th>
+<th>废纸篓</th>
+<th>…</th>
+<th>waste_disposal</th>
+<th>市井</th>
+<th>公交站</th>
+<th>大学</th>
+<th>学院</th>
+<th>parking_entrance</th>
+<th>游泳池</th>
+<th>剧院</th>
+<th>出租车</th>
+<th>兽医</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国家</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>比利时</td>
+<td>33209.0</td>
+<td>6644.0</td>
+<td>5936.0</td>
+<td>15257.0</td>
+<td>7549.0</td>
+<td>2414.0</td>
+<td>2496.0</td>
+<td>3441.0</td>
+<td>2529.0</td>
+<td>9439.0</td>
+<td>…</td>
+<td>80.0</td>
+<td>124.0</td>
+<td>79.0</td>
+<td>520.0</td>
+<td>248.0</td>
+<td>430.0</td>
+<td>408.0</td>
+<td>333.0</td>
+<td>79.0</td>
+<td>370.0</td>
+</tr>
+<tr>
+<td>保加利亚</td>
+<td>4978.0</td>
+<td>1964.0</td>
+<td>1686.0</td>
+<td>372.0</td>
+<td>2828.0</td>
+<td>1437.0</td>
+<td>1353.0</td>
+<td>710.0</td>
+<td>925.0</td>
+<td>72.0</td>
+<td>…</td>
+<td>68.0</td>
+<td>182.0</td>
+<td>222.0</td>
+<td>162.0</td>
+<td>51.0</td>
+<td>56.0</td>
+<td>84.0</td>
+<td>121.0</td>
+<td>193.0</td>
+<td>81.0</td>
+</tr>
+<tr>
+<td>捷克共和国</td>
+<td>29815.0</td>
+<td>8010.0</td>
+<td>3768.0</td>
+<td>14759.0</td>
+<td>10271.0</td>
+<td>2580.0</td>
+<td>2057.0</td>
+<td>2069.0</td>
+<td>1291.0</td>
+<td>2424.0</td>
+<td>…</td>
+<td>335.0</td>
+<td>98.0</td>
+<td>444.0</td>
+<td>280.0</td>
+<td>487.0</td>
+<td>352.0</td>
+<td>118.0</td>
+<td>374.0</td>
+<td>65.0</td>
+<td>290.0</td>
+</tr>
+<tr>
+<td>丹麦</td>
+<td>32094.0</td>
+<td>2620.0</td>
+<td>2249.0</td>
+<td>4168.0</td>
+<td>2840.0</td>
+<td>1810.0</td>
+<td>3067.0</td>
+<td>6780.0</td>
+<td>682.0</td>
+<td>1122.0</td>
+<td>…</td>
+<td>100.0</td>
+<td>49.0</td>
+<td>219.0</td>
+<td>181.0</td>
+<td>126.0</td>
+<td>263.0</td>
+<td>18.0</td>
+<td>178.0</td>
+<td>131.0</td>
+<td>65.0</td>
+</tr>
+<tr>
+<td>德国</td>
+<td>403687.0</td>
+<td>62159.0</td>
+<td>38465.0</td>
+<td>333044.0</td>
+<td>94386.0</td>
+<td>17898.0</td>
+<td>28377.0</td>
+<td>31867.0</td>
+<td>25452.0</td>
+<td>61599.0</td>
+<td>…</td>
+<td>2054.0</td>
+<td>1494.0</td>
+<td>1842.0</td>
+<td>2624.0</td>
+<td>1188.0</td>
+<td>8359.0</td>
+<td>120.0</td>
+<td>2596.0</td>
+<td>4054.0</td>
+<td>3417.0</td>
+</tr>
+</tbody>
+</table>
+<p>5行×50列</p>
+<p>现在让我们来看看设施的分布情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_amenity.plot(kind=&apos;box&apos;, figsize=(16, 9), rot=90, logy=True, fontsize=15);</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_14_0.png" alt="PNG"></p>
+<p>通过这些数据，我们可以探索哪个国家拥有最多的长椅，餐厅，学校或任何其他能够满足我们兴趣的便利设施。请注意，由于OSM主要基于社区贡献，因此数据可能不完整，或者在某些地方甚至比其他地方更详细。重要的是要意识到这种可能的偏见，但我们可以假设大多数设施，作为更重要的标签，在这方面更完整。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for i, amenity in enumerate([&apos;restaurant&apos;, &apos;bench&apos;, &apos;school&apos;, &apos;cafe&apos;]):</span><br><span class="line">    plt.subplot(2, 2, i + 1)</span><br><span class="line">    df_plot = df_amenity_normalized[amenity].sort_values(ascending=True).iloc[-10:]</span><br><span class="line">    df_plot.plot(kind=&apos;barh&apos;, color=&apos;C1&apos;, figsize=(16, 9), fontsize=15);</span><br><span class="line">    plt.ylabel(&apos;&apos;);</span><br><span class="line">    plt.xlabel(&apos;&#123;&#125; per Capita&apos;.format(amenity.replace(&apos;_&apos;, &apos; &apos;).title()), fontsize=15);</span><br><span class="line">    plt.xticks(rotation=90);</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_16_0.png" alt="PNG"></p>
+<h1 id="设施与经济指标的相关性"><a href="#设施与经济指标的相关性" class="headerlink" title="设施与经济指标的相关性"></a>设施与经济指标的相关性</h1><p>现在，我们将计算每个设施与所有选定经济指标的相关性，以确定哪一个似乎影响最大。我们使用<a href="https://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient" target="_blank" rel="noopener">Pearson Correlation Coefficient</a>来测量线性相关性。对于所有经济指标，我们将使用标准化的舒适度计数，对于人口，我们将采用总的舒适性计数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from scipy.stats import pearsonr</span><br><span class="line"></span><br><span class="line">correlations, pvalues = [], []</span><br><span class="line">for value in df_amenity:</span><br><span class="line">    correlation_row, pvalue_row = [], []</span><br><span class="line">    for economic_index in df_targets:</span><br><span class="line">        if economic_index == &apos;Population&apos;:</span><br><span class="line">            df_tmp = pd.concat([df_amenity[value], </span><br><span class="line">                                df_targets[economic_index]], axis=1).dropna()</span><br><span class="line">        else:</span><br><span class="line">            df_tmp = pd.concat([df_amenity_normalized[value], </span><br><span class="line">                                df_targets[economic_index]],axis=1).dropna()</span><br><span class="line">            </span><br><span class="line">        r, p = pearsonr(df_tmp[value], df_tmp[economic_index])</span><br><span class="line">        correlation_row.append(r)</span><br><span class="line">        pvalue_row.append(p)</span><br><span class="line">    correlations.append(correlation_row)</span><br><span class="line">    pvalues.append(pvalue_row)</span><br><span class="line">    </span><br><span class="line">df_corr = pd.DataFrame(correlations, index=df_amenity.columns, </span><br><span class="line">                       columns=df_targets.columns)</span><br><span class="line">df_pvalues = pd.DataFrame(pvalues, index=df_amenity.columns, </span><br><span class="line">                          columns=df_targets.columns)</span><br><span class="line">df_corr.head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>人口</th>
+<th>GNI</th>
+<th>GDP</th>
+<th>BM美元</th>
+<th>HDI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停車處</td>
+<td>0.891240</td>
+<td>0.685818</td>
+<td>0.475158</td>
+<td>0.466304</td>
+<td>0.535464</td>
+</tr>
+<tr>
+<td>宗教场所</td>
+<td>0.970164</td>
+<td>0.097026</td>
+<td>0.230531</td>
+<td>-0.023596</td>
+<td>0.101451</td>
+</tr>
+<tr>
+<td>学校</td>
+<td>0.955610</td>
+<td>0.750329</td>
+<td>0.747299</td>
+<td>0.654575</td>
+<td>0.716739</td>
+</tr>
+<tr>
+<td>长凳</td>
+<td>0.707870</td>
+<td>0.587585</td>
+<td>0.739734</td>
+<td>0.218858</td>
+<td>0.431660</td>
+</tr>
+<tr>
+<td>餐厅</td>
+<td>0.898616</td>
+<td>0.389412</td>
+<td>0.512864</td>
+<td>0.276159</td>
+<td>0.311712</td>
+</tr>
+</tbody>
+</table>
+<p>让我们来看一个相当明显的相关性，人口与设施数量之间的相关性。我们想看看哪些设施与人口最相关。我们希望所有设施都应该与人口有一定的相关性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df_plot = df_corr[&apos;Population&apos;].sort_values()</span><br><span class="line">plt.figure(figsize=(16, 9))</span><br><span class="line">plt.subplot(2, 1, 1)</span><br><span class="line">df_plot[-10:].plot(kind=&apos;barh&apos;, fontsize=15, color=&apos;C1&apos;, </span><br><span class="line">                   title=&apos;Pearson Correlation Coefficient&apos;);</span><br><span class="line">plt.xlim([0, 1])</span><br><span class="line">plt.subplot(2, 1, 2)</span><br><span class="line">df_plot[:10].plot(kind=&apos;barh&apos;, fontsize=15, color=&apos;C1&apos;);</span><br><span class="line">plt.xlim([0, 1])</span><br><span class="line">plt.subplots_adjust(hspace=0.1)</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_20_0.png" alt="PNG"></p>
+<p>事实上，我们可以看到存在相关性。在查看这些图之后，我们可以看到，在许多情况下，异常值显着地扭曲了相关性，因为我们只有32个国家可以合作。根据数据，它<code>amenity=university</code>具有最强的相关性，因此预测人口最好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">df_plot = pd.concat([df_targets, df_amenity], axis=1)</span><br><span class="line">measurement = &apos;Population&apos;</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(16, 9))</span><br><span class="line">for i, amenity in enumerate([&apos;university&apos;, &apos;clinic&apos;]):</span><br><span class="line">    plt.subplot(1, 2, i + 1)</span><br><span class="line">    sns.regplot(x=measurement, y=amenity, data=df_plot, </span><br><span class="line">                fit_reg=True, ax=plt.gca())</span><br><span class="line">    plt.ylabel(amenity.replace(&apos;_&apos;, &apos; &apos;).title())</span><br><span class="line">    plt.title(&apos;Correlation R = &#123;:.5f&#125;, P-value = &#123;:.2e&#125;&apos;.format(</span><br><span class="line">        df_corr.loc[amenity][measurement],</span><br><span class="line">        df_pvalues.loc[amenity][measurement]),</span><br><span class="line">        fontsize=18);</span><br><span class="line">    </span><br><span class="line">    for i, country in enumerate(df_plot.index):</span><br><span class="line">        if not np.isnan(df_plot[measurement][i]):</span><br><span class="line">            plt.annotate(country, </span><br><span class="line">                         (df_plot[measurement][i], df_plot[amenity][i]), </span><br><span class="line">                         fontsize=12, color=&apos;C0&apos;, alpha=0.7)</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_22_0.png" alt="PNG"></p>
+<p>预计这将与此相关，但仍然有趣的是看到与人口最相关的设施。接下来，我们将看看其他指标以及它们如何与每个设施相关联</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(20, 20))</span><br><span class="line">for i, value in enumerate([&apos;GDP&apos;, &apos;GNI&apos;, &apos;HDI&apos;, &apos;BM Dollar&apos;]):</span><br><span class="line">    plt.subplot(2, 2, i + 1);</span><br><span class="line">    df_corr[value].sort_values().plot(kind=&apos;barh&apos;, fontsize=12, </span><br><span class="line">                                      ax=plt.gca(), color=&apos;C0&apos;);</span><br><span class="line">    plt.title(value, fontsize=20);</span><br><span class="line">plt.tight_layout();</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_24_0.png" alt="PNG"></p>
+<p>奇怪的是，我们可以看到学校和市场似乎分别对正负相关具有最强的相关性。让我们仔细看看这些发行版。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">df_plot = pd.concat([df_targets, df_amenity_normalized], axis=1)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(16, 20))</span><br><span class="line">for k, measurement in enumerate([&apos;GDP&apos;, &apos;GNI&apos;, &apos;HDI&apos;, &apos;BM Dollar&apos;]):</span><br><span class="line">    for i, amenity in enumerate([&apos;school&apos;, &apos;marketplace&apos;]):</span><br><span class="line">        plt.subplot(4, 2, 2*k + i + 1)</span><br><span class="line">        sns.regplot(x=measurement, y=amenity, data=df_plot, fit_reg=True, ax=plt.gca())</span><br><span class="line">        plt.ylabel(amenity.replace(&apos;_&apos;, &apos; &apos;).title())</span><br><span class="line">        plt.xlabel(measurement, fontsize=18)</span><br><span class="line">        plt.title(&apos;Correlation R = &#123;:.5f&#125;, P-value = &#123;:.2e&#125;&apos;.format(</span><br><span class="line">            df_corr.loc[amenity][measurement],</span><br><span class="line">            df_pvalues.loc[amenity][measurement]),</span><br><span class="line">            fontsize=18)</span><br><span class="line"></span><br><span class="line">        for i, country in enumerate(df_plot.index):</span><br><span class="line">            if not np.isnan(df_plot[measurement][i]):</span><br><span class="line">                plt.annotate(country, (df_plot[measurement][i], df_plot[amenity][i]), </span><br><span class="line">                             fontsize=12, color=&apos;C0&apos;, alpha=0.7)</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+<p><img src="https://janakiev.com/assets/osm_predict_economic_indicators_files/output_26_0.png" alt="PNG"></p>
+<p>由于我们使用衡量类似事物的经济指标，我们在设施中会发现类似的相关性也就不足为奇了。看到学校和市场在这些指标中保持一致仍然很有趣。将其扩展到其他国家以确定这种一致性是否仍然有效将会很有趣。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>OpenStreetMap提供了一个很好的资源来探索其庞大数据集中隐藏的宝石，而这个项目只是触及了它的表面。还有很多其他的东西需要探索，兔子洞也会落入其中，作为一个随着每个发行版而增长的生活数据集，探索的东西只会增加。最后，所有的计算和必要的脚本来收集来自OSM数据都可以在此找到<a href="https://github.com/njanakiev/osm-predict-economic-measurements" target="_blank" rel="noopener">仓库</a>，这<a href="https://janakiev.com/blog/openstreetmap-with-python-and-overpass-api/" target="_blank" rel="noopener">文章</a>介绍如何从OSM Python和立交桥API加载数据的详细信息。</p>
+<p>与此主题相关的是Geoff Boeing 撰写的一篇关于<a href="http://geoffboeing.com/2017/04/urban-form-analysis-openstreetmap/" target="_blank" rel="noopener">OpenStreetMap Data</a>的<a href="http://geoffboeing.com/2017/04/urban-form-analysis-openstreetmap/" target="_blank" rel="noopener">Urban Form Analysis的</a>文章，该文章讨论了街道网络的分析和可视化以及建筑足迹。另一个很好的读物是<a href="https://hi.stamen.com/openstreetmap-past-s-openstreetmap-future-s-cafddc2a4736" target="_blank" rel="noopener">OpenStreetMap过去</a>的文章<a href="https://hi.stamen.com/openstreetmap-past-s-openstreetmap-future-s-cafddc2a4736" target="_blank" rel="noopener">，以及</a> Alan McConchie的<a href="https://hi.stamen.com/openstreetmap-past-s-openstreetmap-future-s-cafddc2a4736" target="_blank" rel="noopener">OpenStreetMap</a>期刊，它探讨了OSM用户和随时间推移的贡献。在下一篇文章中，我们将探讨国家和城市之间的关系，以及他们的设施。</p>
+<h2 id="使用的数据集和API"><a href="#使用的数据集和API" class="headerlink" title="使用的数据集和API"></a>使用的数据集和API</h2><ul>
+<li><p><a href="http://hdr.undp.org/en/composite/HDI" target="_blank" rel="noopener">人类发展指数及其组成部分</a>和<a href="http://hdr.undp.org/en/data" target="_blank" rel="noopener">人类发展数据（1990-2015）</a></p>
+</li>
+<li><p><a href="https://data.worldbank.org/" target="_blank" rel="noopener">世界银行开放数据</a>与<a href="https://github.com/OliverSherouse/wbdata" target="_blank" rel="noopener">wbdata</a>由Sherouse，Oliver（2014年）。弗吉尼亚州阿灵顿。可从<a href="http://github.com/OliverSherouse/wbdata获得。" target="_blank" rel="noopener">http://github.com/OliverSherouse/wbdata获得。</a></p>
+</li>
+<li><p><a href="https://www.economist.com/content/big-mac-index" target="_blank" rel="noopener">巨无霸指数</a></p>
+</li>
+<li><p><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a>和<a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank" rel="noopener">Overpass API</a></p>
+</li>
+<li><p><a href="https://taginfo.openstreetmap.org/" target="_blank" rel="noopener">Taginfo</a></p>
+<p>以上内容为g翻译，详情请参看原文。<a href="https://janakiev.com/blog/osm-predict-economic-indicators/" target="_blank" rel="noopener">文章来源</a> 来自<a href="https://en.wikipedia.org/wiki/File:OperationsSpecialistVTS.jpg" target="_blank" rel="noopener">维基共享资源的</a>图片</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2018/05/16/使用OpenStreetMap预测经济指标/" title="使用OpenStreetMap预测经济指标">使用OpenStreetMap预测经济指标</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2018/05/16/使用OpenStreetMap预测经济指标/" title="使用OpenStreetMap预测经济指标">https://inforscan.com/2018/05/16/使用OpenStreetMap预测经济指标/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2018年5月16日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/效率工具/" rel="tag"><i class="fa fa-tag"></i> 效率工具</a>
+          
+            <a href="/tags/经济指标/" rel="tag"><i class="fa fa-tag"></i> 经济指标</a>
+          
+            <a href="/tags/世界协作地图/" rel="tag"><i class="fa fa-tag"></i> 世界协作地图</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/05/Moloch开源大规模网络数据捕获索引数据库系统/" rel="next" title="Moloch开源大规模网络数据捕获索引数据库系统">
+                <i class="fa fa-chevron-left"></i> Moloch开源大规模网络数据捕获索引数据库系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/30/麻省理工学院开放式课件网/" rel="prev" title="麻省理工学院开放式课件网">
+                麻省理工学院开放式课件网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">394</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">632</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com/" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#经济学的测量"><span class="nav-number">1.</span> <span class="nav-text">经济学的测量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#国内生产总值和国民总收入"><span class="nav-number">1.1.</span> <span class="nav-text">国内生产总值和国民总收入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人类发展指数"><span class="nav-number">1.2.</span> <span class="nav-text">人类发展指数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#巨无霸指数"><span class="nav-number">1.3.</span> <span class="nav-text">巨无霸指数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从OpenStreetMap加载数据"><span class="nav-number">2.</span> <span class="nav-text">从OpenStreetMap加载数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载并标准化OSM计数"><span class="nav-number">2.1.</span> <span class="nav-text">加载并标准化OSM计数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设施与经济指标的相关性"><span class="nav-number">3.</span> <span class="nav-text">设施与经济指标的相关性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用的数据集和API"><span class="nav-number">4.1.</span> <span class="nav-text">使用的数据集和API</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

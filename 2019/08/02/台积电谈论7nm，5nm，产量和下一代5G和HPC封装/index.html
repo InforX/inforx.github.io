@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="台积电,wikichip,芯片," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在日本举行的2019年VLSI研讨会结束后，台积电举行了一次小型新闻发布会。台积电还在SEMICON West 2019期间发表了封装演讲。本文是对这两个事件的总结。 N7台积电认为他们的7纳米节点（N7）是目前最先进的逻辑技术。WikiChip通常同意这一说法。在最近的VLSI研讨会上，台积电与他们共同撰写了一篇关于他们7纳米节点的论文，我们最近介绍了该论文的设计规则细节。除少数主要客户外，大多">
+<meta name="keywords" content="台积电,wikichip,芯片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="台积电谈论7nm，5nm，产量和下一代5G和HPC封装">
+<meta property="og:url" content="https://inforscan.com/2019/08/02/台积电谈论7nm，5nm，产量和下一代5G和HPC封装/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="在日本举行的2019年VLSI研讨会结束后，台积电举行了一次小型新闻发布会。台积电还在SEMICON West 2019期间发表了封装演讲。本文是对这两个事件的总结。 N7台积电认为他们的7纳米节点（N7）是目前最先进的逻辑技术。WikiChip通常同意这一说法。在最近的VLSI研讨会上，台积电与他们共同撰写了一篇关于他们7纳米节点的论文，我们最近介绍了该论文的设计规则细节。除少数主要客户外，大多">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-tsmc-n7-yield-2.jpg">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/q2-2019-wikichip-tsmc-market-share.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/q2-2019-wikichip-tsmc-wafer-shippment.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-2nd-gen-perf2.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-7nm-density-q2-2019.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/wikichip_tsmc_logic_node_q2_2019.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-tsmc-chiplets-reasons.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-wlsi-tech-platform.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-wlsi-3d.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info-5g.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-3d-mim1.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-3d-mim-1.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-3d-mim2.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-3d-mim-2.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_aip.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-cowos.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-cowos-future.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_os.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_os_future.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_ms.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_uhd.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic4.png">
+<meta property="og:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic2.png">
+<meta property="og:updated_time" content="2019-08-02T01:41:23.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="台积电谈论7nm，5nm，产量和下一代5G和HPC封装">
+<meta name="twitter:description" content="在日本举行的2019年VLSI研讨会结束后，台积电举行了一次小型新闻发布会。台积电还在SEMICON West 2019期间发表了封装演讲。本文是对这两个事件的总结。 N7台积电认为他们的7纳米节点（N7）是目前最先进的逻辑技术。WikiChip通常同意这一说法。在最近的VLSI研讨会上，台积电与他们共同撰写了一篇关于他们7纳米节点的论文，我们最近介绍了该论文的设计规则细节。除少数主要客户外，大多">
+<meta name="twitter:image" content="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-tsmc-n7-yield-2.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2019/08/02/台积电谈论7nm，5nm，产量和下一代5G和HPC封装/"/>
+
+
+
+
+
+  <title>台积电谈论7nm，5nm，产量和下一代5G和HPC封装 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2019/08/02/台积电谈论7nm，5nm，产量和下一代5G和HPC封装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">台积电谈论7nm，5nm，产量和下一代5G和HPC封装</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-02T11:35:47+08:00">
+                2019-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在日本举行的<a href="https://fuse.wikichip.org/news/category/conferences/vlsi/vlsi-2019/" target="_blank" rel="noopener">2019年VLSI研讨会</a>结束后，台积电举行了一次小型新闻发布会。台积电还在SEMICON West 2019期间发表了封装演讲。本文是对这两个事件的<a href="https://fuse.wikichip.org/news/2567/tsmc-talks-7nm-5nm-yield-and-next-gen-5g-and-hpc-packaging/2/" target="_blank" rel="noopener">总结</a>。</p>
+<h3 id="N7"><a href="#N7" class="headerlink" title="N7"></a>N7</h3><p>台积电认为他们的7纳米节点（N7）是目前最先进的逻辑技术。WikiChip通常同意这一说法。在最近的VLSI研讨会上，台积电与他们共同撰写了一篇关于他们7纳米节点的论文，<a href="https://fuse.wikichip.org/news/2408/tsmc-7nm-hd-and-hp-cells-2nd-gen-7nm-and-the-snapdragon-855-dtco/" target="_blank" rel="noopener">我们最近介绍了</a>该论文的设计规则细节。除少数主要客户外，大多数台积电客户据说直接从N16到N7。他们的N10节点被认为是一个短命节点，主要用作产量学习。当从N16转到N7时，N7提供3.3倍的栅极栅密度以及约35-40％的速度提升或65％的低功率。</p>
+<table>
+<thead>
+<tr>
+<th>TSMC节点比较</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>节点</td>
+<td>16纳米</td>
+<td>10纳米</td>
+<td>7纳米</td>
+<td>7nm /10nmΔ</td>
+</tr>
+<tr>
+<td>门</td>
+<td>90纳米</td>
+<td>66纳米</td>
+<td>57纳米</td>
+<td>0.86x</td>
+</tr>
+<tr>
+<td>敏金属</td>
+<td>64纳米</td>
+<td>42纳米</td>
+<td>40纳米</td>
+<td>0.95X</td>
+</tr>
+</tbody>
+</table>
+<p>他们的N7工艺的一个关键亮点是它们的缺陷密度。台积电表示，从他们的N10节点学习，N7 D0减少斜坡是有史以来最快的，平稳到与之前节点相当的水平。随着公司加入HPC，他们开始分别为移动客户和HPC客户报告缺陷密度，芯片尺寸为250平方毫米和更大。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-tsmc-n7-yield-2.jpg" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-tsmc-n7-yield-2.jpg" alt="img"></a></p>
+<p>台积电对其7纳米节点的需求在过去半年中环比略有下降，环比约为1％。收入的绝大部分继续来自他们非常成熟的16纳米节点。然而，第二季度晶圆出货量略有增加，预计第二季度将出现这种情况。当比较较长的趋势时，这实际上是3年来第二季度的最低量。尽管如此，他们认为N7将在全年达到收入的25％。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/q2-2019-wikichip-tsmc-market-share.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/q2-2019-wikichip-tsmc-market-share.png" alt="img"></a>技术节点按收益分享，WikiChip分析</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/q2-2019-wikichip-tsmc-wafer-shippment.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/q2-2019-wikichip-tsmc-wafer-shippment.png" alt="img"></a>台积电晶圆出货，维基芯片分析</p>
+<h3 id="N7P"><a href="#N7P" class="headerlink" title="N7P"></a>N7P</h3><p>台积电已经开始推出一款名为<strong>N7性能增强版（N7P）</strong>的N7流程的优化版本。该过程采用各种其他名称，例如“第2代7nm”和“7nm年2”。不应将此过程与N7 +混淆。N7P是一种优化的基于DUV的过程，它使用相同的设计规则，与N7完全IP兼容。N7P引入了FEOL和MOL优化，据称可以在等功率下提高7％的性能，或者在等速时提高10％的功耗。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-2nd-gen-perf2.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/vlsi-2019-2nd-gen-perf2.png" alt="img"></a></p>
+<h3 id="N7-1"><a href="#N7-1" class="headerlink" title="N7 +"></a>N7 +</h3><p>台积电的N7 +是他们在几个关键层采用EUV的第一个工艺技术。N7 +上季度（Q2）进入量产阶段。台积电表示他们已经证明了与N7相似的产量。与N7工艺相比，据称N7 +的密度提高了1.2倍左右。据称，N7 +在等功率下可提供高出10％的性能，或者在等性能下可提供高达15％的低功耗。在纸面上，N7 +似乎略好于N7P。虽然请记住，这些改进只能通过新的物理重新实施和新的EUV掩模来获得。</p>
+<h3 id="N6"><a href="#N6" class="headerlink" title="N6"></a>N6</h3><p>N6是EU的等效N7。计划使用比N7 +更多的EUV层。它既是设计规则，也是与N7的IP兼容，旨在成为大多数客户的主要迁移路径。N6设计可以在N6上再次利用EUV掩模和保真度改进或重新实施，以利用聚合物扩散边缘（PODE）和连续扩散（CNOD）标准细胞基台规则，据说可提供额外的18 ％密度改善。值得强调的是，N6的独特之处在于它实际上将在明年初进入风险生产并在2020年年底之前崛起。这意味着它将在N5之后崛起。出于这个原因，台积电表示N6建立在N7 +和N5 EUV学习的基础之上。</p>
+<h3 id="N5"><a href="#N5" class="headerlink" title="N5"></a>N5</h3><p>台积电5纳米工艺是N7之后的下一个“全节点”。N5在今年第一季度进入了风险生产阶段，他们预计这一过程将在2020年上半年出现。台积电已经表示已经开始进行一些流量计划。N5在“多层”上广泛使用EUV。台积电已经证明了非常高的产量，并表示他们在D0方面与N7工艺处于类似的轨迹。N5计划作为一个长期存在的节点，预计在收入方面将比N7更快。</p>
+<p>与N7相比，N5可提供1.8倍的逻辑密度。在性能方面，N5的等功率性能提高15％，iso性能提高30％。与N7一样，N5将有两种风格 - 移动客户和HPC。HPC电池将提供额外的选项，与N7相比，性能提升高达25％。</p>
+<table>
+<thead>
+<tr>
+<th>5 nm的预计设计规则</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>7纳米</td>
+<td>5纳米</td>
+</tr>
+<tr>
+<td>CPP</td>
+<td>57纳米</td>
+<td>48纳米</td>
+</tr>
+<tr>
+<td>MMP</td>
+<td>40纳米</td>
+<td>30纳米</td>
+</tr>
+<tr>
+<td>密度</td>
+<td>91.2 MTr /mm²</td>
+<td>171.3 MTr /mm²</td>
+</tr>
+</tbody>
+</table>
+<p>根据我们的估计，明年初的台阶将成为英特尔和三星之前的“完整节点”。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-7nm-density-q2-2019.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-7nm-density-q2-2019.png" alt="img"></a></p>
+<h3 id="N，P"><a href="#N，P" class="headerlink" title="N，P"></a>N，P</h3><p>与他们的7纳米工艺一样，台积电将提供其N5工艺的优化版本，称为N5性能增强版（N5P）。此过程使用相同的设计规则，与N5完全IP兼容。通过FEOL和MOL优化，N5P在等功率时比N5性能提高7％，在等性能方面提供低15％的性能。他们对于N5P的时间表有点模糊，但他们有时暗示到2020年底或2021年初。</p>
+<h3 id="N3"><a href="#N3" class="headerlink" title="N3"></a>N3</h3><p>台积电表示他们的3纳米工艺进展顺利。N3预计将在2022年左右推出。虽然台积电之前已经谈到GAA作为FinFET的潜在继承者，但台积电和英特尔都在证明，目前更容易制造的FinFET可以在性能上得到足够的扩展。另一个节点。我们目前认为台积电可能会继续使用FinFET作为其N3，但将在后续节点中转移到GAA。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/wikichip_tsmc_logic_node_q2_2019.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/wikichip_tsmc_logic_node_q2_2019.png" alt="img"></a>WikiChip的分析</p>
+<h3 id="下一代封装"><a href="#下一代封装" class="headerlink" title="下一代封装"></a>下一代封装</h3><p>随着前沿节点复杂性和成本的增加，对基于芯片级的解决方案的需求不断增长。三个主要原因是为了良率和分级目的将芯片分成更小的芯片，利用较旧的，成熟的模块和SoC的其他部分节点，这些节点不一定能很好地扩展，并通过HBM等组件实现更高的系统集成。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-tsmc-chiplets-reasons.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-tsmc-chiplets-reasons.png" alt="img"></a></p>
+<p>台积电提供众多技术，作为其晶圆级系统集成（WLSI）平台的一部分，该平台旨在涵盖从低空闲移动应用程序到高性能计算的所有内容。他们的基于芯片的芯片上芯片（CoWoS）套件针对AI，网络和HPC应用，而其集成扇出（InFo）封装则面向网络和移动应用。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-wlsi-tech-platform.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-wlsi-tech-platform.png" alt="img"></a></p>
+<p>TSMC InFO封装是他们的一般扇出晶圆级封装（FOWLP）解决方案，根据应用有许多不同的风格。InFO使用密集RDL和精细间距通过封装过孔（TSMC也通过InFO过孔或TIV调用）。它们集成在基板上的扇出（InFO_oS），带有基板存储器的InFO（InFO_MS）和InFO超高密度（InFO_UHD）适用于从高性能移动设备到网络和HPC应用的任何设备。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-wlsi-3d.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-wlsi-3d.png" alt="img"></a></p>
+<p>特别是对于5G移动平台，TSMC具有InFO POP（InFO_POP），用于移动AP应用，用于RF前端模块（FEM）应用的InFO Antenna-in-package（InFO_AiP）和用于RF前端模块（MUST）的多堆栈（MUST）。基带调制解调器。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info-5g.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info-5g.png" alt="img"></a></p>
+<h3 id="3D-MiM用于更高带宽"><a href="#3D-MiM用于更高带宽" class="headerlink" title="3D-MiM用于更高带宽"></a>3D-MiM用于更高带宽</h3><p>InFO_POP最早的例子之一是2016年发布的Apple A10（先前处理器具有常规POP）。然而，即使InFO_POP也存在由于控制器和TIV音调而导致内存带宽受限的缺点。即将到来的5G和AI边缘/移动应用程序本质上更多的内存带宽受限，这个问题进一步恶化。为了克服这个问题，台积电宣布了3D-MUST-in-MUST封装技术（请注意，MUST代表多堆叠）。3D-MiM通过使用高密度RDL和细间距TIV的集成扇出（InFO）WLS集成，集成了多个垂直堆叠的存储芯片。正如您可能想象的那样，I / O必须暴露在芯片的一侧，这些芯片独立地连接到SoC，形成一个宽I / O接口。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-3d-mim1.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-3d-mim1.png" alt="img"></a></p>
+<p>台积电在单个封装中展示了具有16个存储器芯片的SoC技术。该芯片的占位面积为15毫米×15毫米，z高度仅为0.55毫米。与倒装芯片POP封装相比，该芯片在高度的一半处具有两倍的存储器带宽。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-3d-mim-1.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-3d-mim-1.png" alt="img"></a></p>
+<p>台积电吹捧了许多其他优势。由于没有衬底和没有凸块，因此从存储器I / O到SoC的距离要短得多，从而产生更好的电气性能特性。此外，据说更薄的外形可提供更好的散热性能。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-3d-mim2.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-3d-mim2.png" alt="img"></a></p>
+<p>顺便说一下，3D-MiM不仅限于单个SoC。实际上，台积电谈到了使用多个SoC以及大量存储芯片（例如，具有32个存储芯片的2个SoC），以便创建具有高带宽和低功率的HPC应用，作为当前2.5D（例如HBM）的替代技术。这里的一个关键区别是InFO存储器芯片各自直接连接到SoC而无需基本逻辑芯片。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-3d-mim-2.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/tsmc-3d-mim-2.png" alt="img"></a></p>
+<h3 id="InFO天线封装（InFO-AiP）"><a href="#InFO天线封装（InFO-AiP）" class="headerlink" title="InFO天线封装（InFO_AiP）"></a>InFO天线封装（InFO_AiP）</h3><p>TSMC专门针对5G毫米波系统集成，开发了InFO天线封装（InFO_AiP）。该封装试图解决的是实际芯片和天线之间的链路或互连，这会导致严重的传输损耗。TSMC通过在RDL中实现的插槽耦合贴片以及模塑化合物本身中的嵌入式RF芯片来实现这一点，该芯片直接互连到RDL而没有凸块。</p>
+<p>由于天线和芯片之间的互连的性能是表面粗糙度和芯片与封装之间的过渡的函数，因此InFO材料和RDL均匀性允许更低的传输损耗。与倒装芯片AiP相比，台积电声称它可以提供高达15％的性能，热阻降低15％，同时降低30％。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_aip.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_aip.png" alt="img"></a></p>
+<h3 id="网络和HPC"><a href="#网络和HPC" class="headerlink" title="网络和HPC"></a>网络和HPC</h3><p>对于高性能计算和网络应用，TSMC在基板和存储器（_oS / _MS）上提供CoWoS和InFO。</p>
+<p>CoWoS可以扩展到2个标线，具有0.4μm/0.4μm的激进线/间距。这是一种非常成熟的技术，具有非常高的产量，已经批量生产超过五年。CoWoS已经广泛用于GPU，但也可以在各种网络应用中找到。台积电称到目前为止他们已经有超过15个流片。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-cowos.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-cowos.png" alt="img"></a></p>
+<p>目前，CoWoS支持高达1.5 TB / s的6个HBM2模块。台积电报告研究更高带宽的解决方案以及超过3个掩模版的更大硅片面积。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-cowos-future.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-cowos-future.png" alt="img"></a></p>
+<p>对于网络应用，TSMC在基板上提供InFO，可以达到最多1个掩模版的集成Si区域，但具有1.5μm/1.5μm的略微更宽松的L / S间距。当前技术的最小I / O间距为40μm，最小C4凸点间距为130μm。InFO_oS的生产在2018年第二季度开始增长。他们目前正在努力实现两个以上芯片的集成以及1.5x掩模版尺寸的硅面积。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_os.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_os.png" alt="img"></a></p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_os_future.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_os_future.png" alt="img"></a></p>
+<p>对于AI应用程序和类似的工作负载，TSMC的InFO存储器基板上设计用于与HBM集成。该技术目前具有2μm/2μm的RDL L / S，并且仅限于单个掩模版。在许多方面，台积电向InFO_MS收费是对CoWoS的性能成本敏感的替代方案。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_ms.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_ms.png" alt="img"></a></p>
+<h3 id="InFO超高密度（InFO-UHD）"><a href="#InFO超高密度（InFO-UHD）" class="headerlink" title="InFO超高密度（InFO_UHD）"></a>InFO超高密度（InFO_UHD）</h3><p>驱动性能和功率的两个关键参数是写入密度和凸点间距。这是InFO超高密度封装背后的目标，据报道，台积电已经报道了500线/ mm的0.8 /0.8μmL/ S，并具有高达10000个/mm²的键。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_uhd.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-info_uhd.png" alt="img"></a></p>
+<h3 id="集成系统芯片（SoIC）"><a href="#集成系统芯片（SoIC）" class="headerlink" title="集成系统芯片（SoIC）"></a>集成系统芯片（SoIC）</h3><p>上述所有内容都会导致SoIC。SoIC是他们的下一代“真正的”3D封装技术。SoIC是一种片上芯片（CoW）堆叠方法，允许将许多不同KGD甚至堆栈KGD的混合和匹配集成在一起 - 在尺寸和工艺节点上有所不同。它既是面对面的，也是面对背的技术。因为从外部看，它看起来像任何其他标准芯片，您实际上可以将SoIC与现有技术（如InFO，CoWoS或倒装芯片）组合在同一个封装中。与InFO_UHD一样，它目前具有10000个/mm²的粘合剂，他们认为随着“SoIC +”的推出，它们最终可以达到100万个/mm²的粘合剂。</p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic.png" alt="img"></a></p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic4.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic4.png" alt="img"></a></p>
+<p><a href="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic2.png" target="_blank" rel="noopener"><img src="https://fuse.wikichip.org/wp-content/uploads/2019/07/semicon-2019-tsmc-soic2.png" alt="img"></a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2019/08/02/台积电谈论7nm，5nm，产量和下一代5G和HPC封装/" title="台积电谈论7nm，5nm，产量和下一代5G和HPC封装">台积电谈论7nm，5nm，产量和下一代5G和HPC封装</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2019/08/02/台积电谈论7nm，5nm，产量和下一代5G和HPC封装/" title="台积电谈论7nm，5nm，产量和下一代5G和HPC封装">https://inforscan.com/2019/08/02/台积电谈论7nm，5nm，产量和下一代5G和HPC封装/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2019年8月2日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/台积电/" rel="tag"><i class="fa fa-tag"></i> 台积电</a>
+          
+            <a href="/tags/wikichip/" rel="tag"><i class="fa fa-tag"></i> wikichip</a>
+          
+            <a href="/tags/芯片/" rel="tag"><i class="fa fa-tag"></i> 芯片</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/01/WorldBrain全文搜索你浏览过的所有网页/" rel="next" title="WorldBrain全文搜索你浏览过的所有网页">
+                <i class="fa fa-chevron-left"></i> WorldBrain全文搜索你浏览过的所有网页
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/05/35个教学视频资源网站清单/" rel="prev" title="35个教学视频资源网站清单">
+                35个教学视频资源网站清单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">394</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">632</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com/" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#N7"><span class="nav-number">1.</span> <span class="nav-text">N7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N7P"><span class="nav-number">2.</span> <span class="nav-text">N7P</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N7-1"><span class="nav-number">3.</span> <span class="nav-text">N7 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N6"><span class="nav-number">4.</span> <span class="nav-text">N6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N5"><span class="nav-number">5.</span> <span class="nav-text">N5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N，P"><span class="nav-number">6.</span> <span class="nav-text">N，P</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N3"><span class="nav-number">7.</span> <span class="nav-text">N3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下一代封装"><span class="nav-number">8.</span> <span class="nav-text">下一代封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-MiM用于更高带宽"><span class="nav-number">9.</span> <span class="nav-text">3D-MiM用于更高带宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InFO天线封装（InFO-AiP）"><span class="nav-number">10.</span> <span class="nav-text">InFO天线封装（InFO_AiP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络和HPC"><span class="nav-number">11.</span> <span class="nav-text">网络和HPC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InFO超高密度（InFO-UHD）"><span class="nav-number">12.</span> <span class="nav-text">InFO超高密度（InFO_UHD）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成系统芯片（SoIC）"><span class="nav-number">13.</span> <span class="nav-text">集成系统芯片（SoIC）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

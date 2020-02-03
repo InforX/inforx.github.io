@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python进行数据分析," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第2章中，我们学习了IPython shell和Jupyter notebook的基础。本章中，我们会探索IPython更深层次的功能，可以从控制台或在jupyter使用。 B.1 使用命令历史Ipython维护了一个位于磁盘的小型数据库，用于保存执行的每条指令。它的用途有：  只用最少的输入，就能搜索、补全和执行先前运行过的指令； 在不同session间保存命令历史； 将日志输入/输出历史到一个">
+<meta name="keywords" content="Python进行数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="附录B 更多关于IPython的内容（完）">
+<meta property="og:url" content="https://inforscan.com/2018/12/02/附录B 更多关于IPython的内容（完）/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="第2章中，我们学习了IPython shell和Jupyter notebook的基础。本章中，我们会探索IPython更深层次的功能，可以从控制台或在jupyter使用。 B.1 使用命令历史Ipython维护了一个位于磁盘的小型数据库，用于保存执行的每条指令。它的用途有：  只用最少的输入，就能搜索、补全和执行先前运行过的指令； 在不同session间保存命令历史； 将日志输入/输出历史到一个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7178691-4da7ee14be2da211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7178691-90a4b17e20b5b03a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-02T11:36:35.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="附录B 更多关于IPython的内容（完）">
+<meta name="twitter:description" content="第2章中，我们学习了IPython shell和Jupyter notebook的基础。本章中，我们会探索IPython更深层次的功能，可以从控制台或在jupyter使用。 B.1 使用命令历史Ipython维护了一个位于磁盘的小型数据库，用于保存执行的每条指令。它的用途有：  只用最少的输入，就能搜索、补全和执行先前运行过的指令； 在不同session间保存命令历史； 将日志输入/输出历史到一个">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7178691-4da7ee14be2da211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2018/12/02/附录B 更多关于IPython的内容（完）/"/>
+
+
+
+
+
+  <title>附录B 更多关于IPython的内容（完） | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2018/12/02/附录B 更多关于IPython的内容（完）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">附录B 更多关于IPython的内容（完）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-02T18:25:47+08:00">
+                2018-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/利用Python进行数据分析·第2版/" itemprop="url" rel="index">
+                    <span itemprop="name">利用Python进行数据分析·第2版</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第2章中，我们学习了IPython shell和Jupyter notebook的基础。本章中，我们会探索IPython更深层次的功能，可以从控制台或在jupyter使用。</p>
+<h1 id="B-1-使用命令历史"><a href="#B-1-使用命令历史" class="headerlink" title="B.1 使用命令历史"></a>B.1 使用命令历史</h1><p>Ipython维护了一个位于磁盘的小型数据库，用于保存执行的每条指令。它的用途有：</p>
+<ul>
+<li>只用最少的输入，就能搜索、补全和执行先前运行过的指令；</li>
+<li>在不同session间保存命令历史；</li>
+<li>将日志输入/输出历史到一个文件</li>
+</ul>
+<p>这些功能在shell中，要比notebook更为有用，因为notebook从设计上是将输入和输出的代码放到每个代码格子中。</p>
+<h2 id="搜索和重复使用命令历史"><a href="#搜索和重复使用命令历史" class="headerlink" title="搜索和重复使用命令历史"></a>搜索和重复使用命令历史</h2><p>Ipython可以让你搜索和执行之前的代码或其他命令。这个功能非常有用，因为你可能需要重复执行同样的命令，例如%run命令，或其它代码。假设你必须要执行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In[<span class="number">7</span>]: %run first/second/third/data_script.py</span><br></pre></td></tr></table></figure></p>
+<p>运行成功，然后检查结果，发现计算有错。解决完问题，然后修改了data_script.py，你就可以输入一些%run命令，然后按Ctrl+P或上箭头。这样就可以搜索历史命令，匹配输入字符的命令。多次按Ctrl+P或上箭头，会继续搜索命令。如果你要执行你想要执行的命令，不要害怕。你可以按下Ctrl-N或下箭头，向前移动历史命令。这样做了几次后，你可以不假思索地按下这些键！</p>
+<p>Ctrl-R可以带来如同Unix风格shell（比如bash shell）的readline的部分增量搜索功能。在Windows上，readline功能是被IPython模仿的。要使用这个功能，先按Ctrl-R，然后输入一些包含于输入行的想要搜索的字符：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: a_command = foo(x, y, z)</span><br><span class="line"></span><br><span class="line">(reverse-i-search)`com<span class="string">': a_command = foo(x, y, z)</span></span><br></pre></td></tr></table></figure></p>
+<p>Ctrl-R会循环历史，找到匹配字符的每一行。</p>
+<h2 id="输入和输出变量"><a href="#输入和输出变量" class="headerlink" title="输入和输出变量"></a>输入和输出变量</h2><p>忘记将函数调用的结果分配给变量是非常烦人的。IPython的一个session会在一个特殊变量，存储输入和输出Python对象的引用。前面两个输出会分别存储在 _（一个下划线）和 __（两个下划线）变量：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">24</span>]: <span class="number">2</span> ** <span class="number">27</span></span><br><span class="line">Out[<span class="number">24</span>]: <span class="number">134217728</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">25</span>]: _</span><br><span class="line">Out[<span class="number">25</span>]: <span class="number">134217728</span></span><br></pre></td></tr></table></figure></p>
+<p>输入变量是存储在名字类似_iX的变量中，X是输入行的编号。对于每个输入变量，都有一个对应的输出变量_X。因此在输入第27行之后，会有两个新变量_27 （输出）和_i27（输入）:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">26</span>]: foo = <span class="string">'bar'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">27</span>]: foo</span><br><span class="line">Out[<span class="number">27</span>]: <span class="string">'bar'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">28</span>]: _i27</span><br><span class="line">Out[<span class="number">28</span>]: <span class="string">u'foo'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">29</span>]: _27</span><br><span class="line">Out[<span class="number">29</span>]: <span class="string">'bar'</span></span><br></pre></td></tr></table></figure></p>
+<p>因为输入变量是字符串，它们可以用Python的exec关键字再次执行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: exec(_i27)</span><br></pre></td></tr></table></figure></p>
+<p>这里，_i27是在In [27]输入的代码。</p>
+<p>有几个魔术函数可以让你利用输入和输出历史。%hist可以打印所有或部分的输入历史，加上或不加上编号。%reset可以清理交互命名空间，或输入和输出缓存。%xdel魔术函数可以去除IPython中对一个特别对象的所有引用。对于关于这些魔术方法的更多内容，请查看文档。</p>
+<blockquote>
+<p>警告：当处理非常大的数据集时，要记住IPython的输入和输出的历史会造成被引用的对象不被垃圾回收（释放内存），即使你使用del关键字从交互命名空间删除变量。在这种情况下，小心使用xdel %和%reset可以帮助你避免陷入内存问题。</p>
+</blockquote>
+<h1 id="B-2-与操作系统交互"><a href="#B-2-与操作系统交互" class="headerlink" title="B.2 与操作系统交互"></a>B.2 与操作系统交互</h1><p>IPython的另一个功能是无缝连接文件系统和操作系统。这意味着，在同时做其它事时，无需退出IPython，就可以像Windows或Unix使用命令行操作，包括shell命令、更改目录、用Python对象（列表或字符串）存储结果。它还有简单的命令别名和目录书签功能。</p>
+<p>表B-1总结了调用shell命令的魔术函数和语法。我会在下面几节介绍这些功能。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7178691-4da7ee14be2da211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="表B-1 IPython系统相关命令"></p>
+<h2 id="Shell命令和别名"><a href="#Shell命令和别名" class="headerlink" title="Shell命令和别名"></a>Shell命令和别名</h2><p>用叹号开始一行，是告诉IPython执行叹号后面的所有内容。这意味着你可以删除文件（取决于操作系统，用rm或del）、改变目录或执行任何其他命令。</p>
+<p>通过给变量加上叹号，你可以在一个变量中存储命令的控制台输出。例如，在我联网的基于Linux的主机上，我可以获得IP地址为Python变量：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: ip_info = !ifconfig wlan0 | grep <span class="string">"inet "</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: ip_info[<span class="number">0</span>].strip()</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">'inet addr:10.0.0.11  Bcast:10.0.0.255  Mask:255.255.255.0'</span></span><br></pre></td></tr></table></figure></p>
+<p>返回的Python对象ip_info实际上是一个自定义的列表类型，它包含着多种版本的控制台输出。</p>
+<p>当使用！，IPython还可以替换定义在当前环境的Python值。要这么做，可以在变量名前面加上$符号：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: foo = <span class="string">'test*'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: !ls $foo</span><br><span class="line">test4.py  test.py  test.xml</span><br></pre></td></tr></table></figure></p>
+<p>%alias魔术函数可以自定义shell命令的快捷方式。看一个简单的例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: %alias ll ls -l</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: ll /usr</span><br><span class="line">total <span class="number">332</span></span><br><span class="line">drwxr-xr-x   <span class="number">2</span> root root  <span class="number">69632</span> <span class="number">2012</span><span class="number">-01</span><span class="number">-29</span> <span class="number">20</span>:<span class="number">36</span> bin/</span><br><span class="line">drwxr-xr-x   <span class="number">2</span> root root   <span class="number">4096</span> <span class="number">2010</span><span class="number">-08</span><span class="number">-23</span> <span class="number">12</span>:<span class="number">05</span> games/</span><br><span class="line">drwxr-xr-x <span class="number">123</span> root root  <span class="number">20480</span> <span class="number">2011</span><span class="number">-12</span><span class="number">-26</span> <span class="number">18</span>:<span class="number">08</span> include/</span><br><span class="line">drwxr-xr-x <span class="number">265</span> root root <span class="number">126976</span> <span class="number">2012</span><span class="number">-01</span><span class="number">-29</span> <span class="number">20</span>:<span class="number">36</span> lib/</span><br><span class="line">drwxr-xr-x  <span class="number">44</span> root root  <span class="number">69632</span> <span class="number">2011</span><span class="number">-12</span><span class="number">-26</span> <span class="number">18</span>:<span class="number">08</span> lib32/</span><br><span class="line">lrwxrwxrwx   1 root root      3 2010-08-23 16:02 lib64 -&gt; lib/</span><br><span class="line">drwxr-xr-x  <span class="number">15</span> root root   <span class="number">4096</span> <span class="number">2011</span><span class="number">-10</span><span class="number">-13</span> <span class="number">19</span>:<span class="number">03</span> local/</span><br><span class="line">drwxr-xr-x   <span class="number">2</span> root root  <span class="number">12288</span> <span class="number">2012</span><span class="number">-01</span><span class="number">-12</span> <span class="number">09</span>:<span class="number">32</span> sbin/</span><br><span class="line">drwxr-xr-x <span class="number">387</span> root root  <span class="number">12288</span> <span class="number">2011</span><span class="number">-11</span><span class="number">-04</span> <span class="number">22</span>:<span class="number">53</span> share/</span><br><span class="line">drwxrwsr-x  <span class="number">24</span> root src    <span class="number">4096</span> <span class="number">2011</span><span class="number">-07</span><span class="number">-17</span> <span class="number">18</span>:<span class="number">38</span> src/</span><br></pre></td></tr></table></figure></p>
+<p>你可以执行多个命令，就像在命令行中一样，只需用分号隔开：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">558</span>]: %alias test_alias (cd examples; ls; cd ..)</span><br><span class="line"></span><br><span class="line">In [<span class="number">559</span>]: test_alias</span><br><span class="line">macrodata.csv  spx.csv	tips.csv</span><br></pre></td></tr></table></figure></p>
+<p>当session结束，你定义的别名就会失效。要创建恒久的别名，需要使用配置。</p>
+<h2 id="目录书签系统"><a href="#目录书签系统" class="headerlink" title="目录书签系统"></a>目录书签系统</h2><p>IPython有一个简单的目录书签系统，可以让你保存常用目录的别名，这样在跳来跳去的时候会非常方便。例如，假设你想创建一个书签，指向本书的补充内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: %bookmark py4da /home/wesm/code/pydata-book</span><br></pre></td></tr></table></figure></p>
+<p>这么做之后，当使用%cd魔术命令，就可以使用定义的书签：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">7</span>]: cd py4da</span><br><span class="line">(bookmark:py4da) -&gt; /home/wesm/code/pydata-book</span><br><span class="line">/home/wesm/code/pydata-book</span><br></pre></td></tr></table></figure></p>
+<p>如果书签的名字，与当前工作目录的一个目录重名，你可以使用-b标志来覆写，使用书签的位置。使用%bookmark的-l选项，可以列出所有的书签：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">8</span>]: %bookmark -l</span><br><span class="line">Current bookmarks:</span><br><span class="line">py4da -&gt; /home/wesm/code/pydata-book-source</span><br></pre></td></tr></table></figure></p>
+<p>书签，和别名不同，在session之间是保持的。</p>
+<h1 id="B-3-软件开发工具"><a href="#B-3-软件开发工具" class="headerlink" title="B.3 软件开发工具"></a>B.3 软件开发工具</h1><p>除了作为优秀的交互式计算和数据探索环境，IPython也是有效的Python软件开发工具。在数据分析中，最重要的是要有正确的代码。幸运的是，IPython紧密集成了和加强了Python内置的pdb调试器。第二，需要快速的代码。对于这点，IPython有易于使用的代码计时和分析工具。我会详细介绍这些工具。</p>
+<h2 id="交互调试器"><a href="#交互调试器" class="headerlink" title="交互调试器"></a>交互调试器</h2><p>IPython的调试器用tab补全、语法增强、逐行异常追踪增强了pdb。调试代码的最佳时间就是刚刚发生错误。异常发生之后就输入%debug，就启动了调试器，进入抛出异常的堆栈框架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">2</span>]: run examples/ipython_bug.py</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AssertionError                            Traceback (most recent call last)</span><br><span class="line">/home/wesm/code/pydata-book/examples/ipython_bug.py <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">     <span class="number">13</span>     throws_an_exception()</span><br><span class="line">     <span class="number">14</span></span><br><span class="line">---&gt; 15 calling_things()</span><br><span class="line"></span><br><span class="line">/home/wesm/code/pydata-book/examples/ipython_bug.py <span class="keyword">in</span> calling_things()</span><br><span class="line"><span class="number">11</span> <span class="function"><span class="keyword">def</span> <span class="title">calling_things</span><span class="params">()</span>:</span></span><br><span class="line">     <span class="number">12</span>     works_fine()</span><br><span class="line">---&gt; 13     throws_an_exception()</span><br><span class="line">     <span class="number">14</span></span><br><span class="line">     <span class="number">15</span> calling_things()</span><br><span class="line"></span><br><span class="line">/home/wesm/code/pydata-book/examples/ipython_bug.py <span class="keyword">in</span> throws_an_exception()</span><br><span class="line">      <span class="number">7</span>     a = <span class="number">5</span></span><br><span class="line">      <span class="number">8</span>     b = <span class="number">6</span></span><br><span class="line">----&gt; 9     assert(a + b == 10)</span><br><span class="line">     <span class="number">10</span></span><br><span class="line">     <span class="number">11</span> <span class="function"><span class="keyword">def</span> <span class="title">calling_things</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">AssertionError:</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: %debug</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">9</span>)throws_an_exception()</span><br><span class="line">      <span class="number">8</span>     b = <span class="number">6</span></span><br><span class="line">----&gt; 9     assert(a + b == 10)</span><br><span class="line">     <span class="number">10</span></span><br><span class="line"></span><br><span class="line">ipdb&gt;</span><br></pre></td></tr></table></figure>
+<p>一旦进入调试器，你就可以执行任意的Python代码，在每个堆栈框架中检查所有的对象和数据（解释器会保持它们活跃）。默认是从错误发生的最低级开始。通过u（up）和d（down），你可以在不同等级的堆栈踪迹切换：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ipdb&gt; u</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">13</span>)calling_things()</span><br><span class="line">     <span class="number">12</span>     works_fine()</span><br><span class="line">---&gt; 13     throws_an_exception()</span><br><span class="line">     <span class="number">14</span></span><br></pre></td></tr></table></figure></p>
+<p>执行%pdb命令，可以在发生任何异常时让IPython自动启动调试器，许多用户会发现这个功能非常好用。</p>
+<p>用调试器帮助开发代码也很容易，特别是当你希望设置断点或在函数和脚本间移动，以检查每个阶段的状态。有多种方法可以实现。第一种是使用%run和-d，它会在执行传入脚本的任何代码之前调用调试器。你必须马上按s（step）以进入脚本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">5</span>]: run -d examples/ipython_bug.py</span><br><span class="line">Breakpoint <span class="number">1</span> at /home/wesm/code/pydata-book/examples/ipython_bug.py:<span class="number">1</span></span><br><span class="line">NOTE: Enter <span class="string">'c'</span> at the ipdb&gt;  prompt to start your script.</span><br><span class="line">&gt; &lt;string&gt;(<span class="number">1</span>)&lt;module&gt;()</span><br><span class="line"></span><br><span class="line">ipdb&gt; s</span><br><span class="line">--Call--</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">1</span>)&lt;module&gt;()</span><br><span class="line">1---&gt; 1 def works_fine():</span><br><span class="line">      <span class="number">2</span>     a = <span class="number">5</span></span><br><span class="line">      <span class="number">3</span>     b = <span class="number">6</span></span><br></pre></td></tr></table></figure></p>
+<p>然后，你就可以决定如何工作。例如，在前面的异常，我们可以设置一个断点，就在调用works_fine之前，然后运行脚本，在遇到断点时按c（continue）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ipdb&gt; b <span class="number">12</span></span><br><span class="line">ipdb&gt; c</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">12</span>)calling_things()</span><br><span class="line">     <span class="number">11</span> <span class="function"><span class="keyword">def</span> <span class="title">calling_things</span><span class="params">()</span>:</span></span><br><span class="line">2--&gt; 12     works_fine()</span><br><span class="line">     <span class="number">13</span>     throws_an_exception()</span><br></pre></td></tr></table></figure></p>
+<p>这时，你可以step进入works_fine()，或通过按n（next）执行works_fine()，进入下一行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ipdb&gt; n</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">13</span>)calling_things()</span><br><span class="line"><span class="number">2</span>    <span class="number">12</span>     works_fine()</span><br><span class="line">---&gt; 13     throws_an_exception()</span><br><span class="line">     <span class="number">14</span></span><br></pre></td></tr></table></figure></p>
+<p>然后，我们可以进入throws_an_exception，到达发生错误的一行，查看变量。注意，调试器的命令是在变量名之前，在变量名前面加叹号！可以查看内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">ipdb&gt; s</span><br><span class="line">--Call--</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">6</span>)throws_an_exception()</span><br><span class="line">      <span class="number">5</span></span><br><span class="line">----&gt; 6 def throws_an_exception():</span><br><span class="line">      <span class="number">7</span>     a = <span class="number">5</span></span><br><span class="line"></span><br><span class="line">ipdb&gt; n</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">7</span>)throws_an_exception()</span><br><span class="line">      <span class="number">6</span> <span class="function"><span class="keyword">def</span> <span class="title">throws_an_exception</span><span class="params">()</span>:</span></span><br><span class="line">----&gt; 7     a = 5</span><br><span class="line">      <span class="number">8</span>     b = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">ipdb&gt; n</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">8</span>)throws_an_exception()</span><br><span class="line">      <span class="number">7</span>     a = <span class="number">5</span></span><br><span class="line">----&gt; 8     b = 6</span><br><span class="line">      <span class="number">9</span>     <span class="keyword">assert</span>(a + b == <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">ipdb&gt; n</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">9</span>)throws_an_exception()</span><br><span class="line">      <span class="number">8</span>     b = <span class="number">6</span></span><br><span class="line">----&gt; 9     assert(a + b == 10)</span><br><span class="line">     <span class="number">10</span></span><br><span class="line"></span><br><span class="line">ipdb&gt; !a</span><br><span class="line"><span class="number">5</span></span><br><span class="line">ipdb&gt; !b</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure></p>
+<p>提高使用交互式调试器的熟练度需要练习和经验。表B-2，列出了所有调试器命令。如果你习惯了IDE，你可能觉得终端的调试器在一开始会不顺手，但会觉得越来越好用。一些Python的IDEs有很好的GUI调试器，选择顺手的就好。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7178691-90a4b17e20b5b03a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="表B-2 IPython调试器命令"></p>
+<h2 id="使用调试器的其它方式"><a href="#使用调试器的其它方式" class="headerlink" title="使用调试器的其它方式"></a>使用调试器的其它方式</h2><p>还有一些其它工作可以用到调试器。第一个是使用特殊的set_trace函数（根据pdb.set_trace命名的），这是一个简装的断点。还有两种方法是你可能想用的（像我一样，将其添加到IPython的配置）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.core.debugger <span class="keyword">import</span> Pdb</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_trace</span><span class="params">()</span>:</span></span><br><span class="line">    Pdb(color_scheme=<span class="string">'Linux'</span>).set_trace(sys._getframe().f_back)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">debug</span><span class="params">(f, *args, **kwargs)</span>:</span></span><br><span class="line">    pdb = Pdb(color_scheme=<span class="string">'Linux'</span>)</span><br><span class="line">    <span class="keyword">return</span> pdb.runcall(f, *args, **kwargs)</span><br></pre></td></tr></table></figure></p>
+<p>第一个函数set_trace非常简单。如果你想暂时停下来进行仔细检查（比如发生异常之前），可以在代码的任何位置使用set_trace：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">7</span>]: run examples/ipython_bug.py</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">16</span>)calling_things()</span><br><span class="line">     <span class="number">15</span>     set_trace()</span><br><span class="line">---&gt; 16     throws_an_exception()</span><br><span class="line">     <span class="number">17</span></span><br></pre></td></tr></table></figure></p>
+<p>按c（continue）可以让代码继续正常行进。</p>
+<p>我们刚看的debug函数，可以让你方便的在调用任何函数时使用调试器。假设我们写了一个下面的函数，想逐步分析它的逻辑：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x, y, z=<span class="number">1</span>)</span>:</span></span><br><span class="line">    tmp = x + y</span><br><span class="line">    <span class="keyword">return</span> tmp / z</span><br></pre></td></tr></table></figure></p>
+<p>普通地使用f，就会像f(1, 2, z=3)。而要想进入f，将f作为第一个参数传递给debug，再将位置和关键词参数传递给f：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: debug(f, <span class="number">1</span>, <span class="number">2</span>, z=<span class="number">3</span>)</span><br><span class="line">&gt; &lt;ipython-input&gt;(<span class="number">2</span>)f()</span><br><span class="line">      <span class="number">1</span> <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x, y, z)</span>:</span></span><br><span class="line">----&gt; 2     tmp = x + y</span><br><span class="line">      <span class="number">3</span>     <span class="keyword">return</span> tmp / z</span><br><span class="line"></span><br><span class="line">ipdb&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这两个简单方法节省了我平时的大量时间。</p>
+<p>最后，调试器可以和%run一起使用。脚本通过运行%run -d，就可以直接进入调试器，随意设置断点并启动脚本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: %run -d examples/ipython_bug.py</span><br><span class="line">Breakpoint <span class="number">1</span> at /home/wesm/code/pydata-book/examples/ipython_bug.py:<span class="number">1</span></span><br><span class="line">NOTE: Enter <span class="string">'c'</span> at the ipdb&gt;  prompt to start your script.</span><br><span class="line">&gt; &lt;string&gt;(<span class="number">1</span>)&lt;module&gt;()</span><br><span class="line"></span><br><span class="line">ipdb&gt;</span><br></pre></td></tr></table></figure></p>
+<p>加上-b和行号，可以预设一个断点：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">2</span>]: %run -d -b2 examples/ipython_bug.py</span><br><span class="line"></span><br><span class="line">Breakpoint <span class="number">1</span> at /home/wesm/code/pydata-book/examples/ipython_bug.py:<span class="number">2</span></span><br><span class="line">NOTE: Enter <span class="string">'c'</span> at the ipdb&gt;  prompt to start your script.</span><br><span class="line">&gt; &lt;string&gt;(<span class="number">1</span>)&lt;module&gt;()</span><br><span class="line"></span><br><span class="line">ipdb&gt; c</span><br><span class="line">&gt; /home/wesm/code/pydata-book/examples/ipython_bug.py(<span class="number">2</span>)works_fine()</span><br><span class="line">      <span class="number">1</span> <span class="function"><span class="keyword">def</span> <span class="title">works_fine</span><span class="params">()</span>:</span></span><br><span class="line">1---&gt; 2     a = 5</span><br><span class="line">      <span class="number">3</span>     b = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">ipdb&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码计时：-time-和-timeit"><a href="#代码计时：-time-和-timeit" class="headerlink" title="代码计时：%time 和 %timeit"></a>代码计时：%time 和 %timeit</h2><p>对于大型和长时间运行的数据分析应用，你可能希望测量不同组件或单独函数调用语句的执行时间。你可能想知道哪个函数占用的时间最长。幸运的是，IPython可以让你开发和测试代码时，很容易地获得这些信息。</p>
+<p>手动用time模块和它的函数time.clock和time.time给代码计时，既单调又重复，因为必须要写一些无趣的模板化代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start = time.time()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(iterations):</span><br><span class="line">    <span class="comment"># some code to run here</span></span><br><span class="line">elapsed_per = (time.time() - start) / iterations</span><br></pre></td></tr></table></figure></p>
+<p>因为这是一个很普通的操作，IPython有两个魔术函数，%time和%timeit，可以自动化这个过程。</p>
+<p>%time会运行一次语句，报告总共的执行时间。假设我们有一个大的字符串列表，我们想比较不同的可以挑选出特定开头字符串的方法。这里有一个含有600000字符串的列表，和两个方法，用以选出foo开头的字符串：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># a very large list of strings</span></span><br><span class="line">strings = [<span class="string">'foo'</span>, <span class="string">'foobar'</span>, <span class="string">'baz'</span>, <span class="string">'qux'</span>,</span><br><span class="line">           <span class="string">'python'</span>, <span class="string">'Guido Van Rossum'</span>] * <span class="number">100000</span></span><br><span class="line"></span><br><span class="line">method1 = [x <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> x.startswith(<span class="string">'foo'</span>)]</span><br><span class="line"></span><br><span class="line">method2 = [x <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> x[:<span class="number">3</span>] == <span class="string">'foo'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>看起来它们的性能应该是同级别的，但事实呢？用%time进行一下测量：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">561</span>]: %time method1 = [x <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> x.startswith(<span class="string">'foo'</span>)]</span><br><span class="line">CPU times: user <span class="number">0.19</span> s, sys: <span class="number">0.00</span> s, total: <span class="number">0.19</span> s</span><br><span class="line">Wall time: <span class="number">0.19</span> s</span><br><span class="line"></span><br><span class="line">In [<span class="number">562</span>]: %time method2 = [x <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> x[:<span class="number">3</span>] == <span class="string">'foo'</span>]</span><br><span class="line">CPU times: user <span class="number">0.09</span> s, sys: <span class="number">0.00</span> s, total: <span class="number">0.09</span> s</span><br><span class="line">Wall time: <span class="number">0.09</span> s</span><br></pre></td></tr></table></figure></p>
+<p>Wall time（wall-clock time的简写）是主要关注的。第一个方法是第二个方法的两倍多，但是这种测量方法并不准确。如果用%time多次测量，你就会发现结果是变化的。要想更准确，可以使用%timeit魔术函数。给出任意一条语句，它能多次运行这条语句以得到一个更为准确的时间：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">563</span>]: %timeit [x <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> x.startswith(<span class="string">'foo'</span>)]</span><br><span class="line"><span class="number">10</span> loops, best of <span class="number">3</span>: <span class="number">159</span> ms per loop</span><br><span class="line"></span><br><span class="line">In [<span class="number">564</span>]: %timeit [x <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> x[:<span class="number">3</span>] == <span class="string">'foo'</span>]</span><br><span class="line"><span class="number">10</span> loops, best of <span class="number">3</span>: <span class="number">59.3</span> ms per loop</span><br></pre></td></tr></table></figure></p>
+<p>这个例子说明了解Python标准库、NumPy、pandas和其它库的性能是很有价值的。在大型数据分析中，这些毫秒的时间就会累积起来！</p>
+<p>%timeit特别适合分析执行时间短的语句和函数，即使是微秒或纳秒。这些时间可能看起来毫不重要，但是一个20微秒的函数执行1百万次就比一个5微秒的函数长15秒。在上一个例子中，我们可以直接比较两个字符串操作，以了解它们的性能特点：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">565</span>]: x = <span class="string">'foobar'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">566</span>]: y = <span class="string">'foo'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">567</span>]: %timeit x.startswith(y)</span><br><span class="line"><span class="number">1000000</span> loops, best of <span class="number">3</span>: <span class="number">267</span> ns per loop</span><br><span class="line"></span><br><span class="line">In [<span class="number">568</span>]: %timeit x[:<span class="number">3</span>] == y</span><br><span class="line"><span class="number">10000000</span> loops, best of <span class="number">3</span>: <span class="number">147</span> ns per loop</span><br></pre></td></tr></table></figure></p>
+<h2 id="基础分析：-prun和-run-p"><a href="#基础分析：-prun和-run-p" class="headerlink" title="基础分析：%prun和%run -p"></a>基础分析：%prun和%run -p</h2><p>分析代码与代码计时关系很紧密，除了它关注的是“时间花在了哪里”。Python主要的分析工具是cProfile模块，它并不局限于IPython。cProfile会执行一个程序或任意的代码块，并会跟踪每个函数执行的时间。</p>
+<p>使用cProfile的通常方式是在命令行中运行一整段程序，输出每个函数的累积时间。假设我们有一个简单的在循环中进行线型代数运算的脚本（计算一系列的100×100矩阵的最大绝对特征值）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> eigvals</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_experiment</span><span class="params">(niter=<span class="number">100</span>)</span>:</span></span><br><span class="line">    K = <span class="number">100</span></span><br><span class="line">    results = []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> xrange(niter):</span><br><span class="line">        mat = np.random.randn(K, K)</span><br><span class="line">        max_eigenvalue = np.abs(eigvals(mat)).max()</span><br><span class="line">        results.append(max_eigenvalue)</span><br><span class="line">    <span class="keyword">return</span> results</span><br><span class="line">some_results = run_experiment()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Largest one we saw: %s'</span> % np.max(some_results)</span><br></pre></td></tr></table></figure></p>
+<p>你可以用cProfile运行这个脚本，使用下面的命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m cProfile cprof_example.py</span><br></pre></td></tr></table></figure></p>
+<p>运行之后，你会发现输出是按函数名排序的。这样要看出谁耗费的时间多有点困难，最好用-s指定排序：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ python -m cProfile -s cumulative cprof_example.py</span><br><span class="line">Largest one we saw: <span class="number">11.923204422</span></span><br><span class="line">    <span class="number">15116</span> function calls (<span class="number">14927</span> primitive calls) <span class="keyword">in</span> <span class="number">0.720</span> seconds</span><br><span class="line"></span><br><span class="line">Ordered by: cumulative time</span><br><span class="line"></span><br><span class="line">ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.001</span>    <span class="number">0.001</span>    <span class="number">0.721</span>    <span class="number">0.721</span> cprof_example.py:<span class="number">1</span>(&lt;module&gt;)</span><br><span class="line">   <span class="number">100</span>    <span class="number">0.003</span>    <span class="number">0.000</span>    <span class="number">0.586</span>    <span class="number">0.006</span> linalg.py:<span class="number">702</span>(eigvals)</span><br><span class="line">   <span class="number">200</span>    <span class="number">0.572</span>    <span class="number">0.003</span>    <span class="number">0.572</span>    <span class="number">0.003</span> &#123;numpy.linalg.lapack_lite.dgeev&#125;</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.002</span>    <span class="number">0.002</span>    <span class="number">0.075</span>    <span class="number">0.075</span> __init__.py:<span class="number">106</span>(&lt;module&gt;)</span><br><span class="line">   <span class="number">100</span>    <span class="number">0.059</span>    <span class="number">0.001</span>    <span class="number">0.059</span>    <span class="number">0.001</span> &#123;method <span class="string">'randn'</span>)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.000</span>    <span class="number">0.000</span>    <span class="number">0.044</span>    <span class="number">0.044</span> add_newdocs.py:<span class="number">9</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">2</span>    <span class="number">0.001</span>    <span class="number">0.001</span>    <span class="number">0.037</span>    <span class="number">0.019</span> __init__.py:<span class="number">1</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">2</span>    <span class="number">0.003</span>    <span class="number">0.002</span>    <span class="number">0.030</span>    <span class="number">0.015</span> __init__.py:<span class="number">2</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.000</span>    <span class="number">0.000</span>    <span class="number">0.030</span>    <span class="number">0.030</span> type_check.py:<span class="number">3</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.001</span>    <span class="number">0.001</span>    <span class="number">0.021</span>    <span class="number">0.021</span> __init__.py:<span class="number">15</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.013</span>    <span class="number">0.013</span>    <span class="number">0.013</span>    <span class="number">0.013</span> numeric.py:<span class="number">1</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.000</span>    <span class="number">0.000</span>    <span class="number">0.009</span>    <span class="number">0.009</span> __init__.py:<span class="number">6</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.001</span>    <span class="number">0.001</span>    <span class="number">0.008</span>    <span class="number">0.008</span> __init__.py:<span class="number">45</span>(&lt;module&gt;)</span><br><span class="line">   <span class="number">262</span>    <span class="number">0.005</span>    <span class="number">0.000</span>    <span class="number">0.007</span>    <span class="number">0.000</span> function_base.py:<span class="number">3178</span>(add_newdoc)</span><br><span class="line">   <span class="number">100</span>    <span class="number">0.003</span>    <span class="number">0.000</span>    <span class="number">0.005</span>    <span class="number">0.000</span> linalg.py:<span class="number">162</span>(_assertFinite)</span><br></pre></td></tr></table></figure></p>
+<p>只显示出前15行。扫描cumtime列，可以容易地看出每个函数用了多少时间。如果一个函数调用了其它函数，计时并不会停止。cProfile会记录每个函数的起始和结束时间，使用它们进行计时。</p>
+<p>除了在命令行中使用，cProfile也可以在程序中使用，分析任意代码块，而不必运行新进程。Ipython的%prun和%run -p，有便捷的接口实现这个功能。%prun使用类似cProfile的命令行选项，但是可以分析任意Python语句，而不用整个py文件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">4</span>]: %prun -l <span class="number">7</span> -s cumulative run_experiment()</span><br><span class="line">         <span class="number">4203</span> function calls <span class="keyword">in</span> <span class="number">0.643</span> seconds</span><br><span class="line"></span><br><span class="line">Ordered by: cumulative time</span><br><span class="line">List reduced <span class="keyword">from</span> <span class="number">32</span> to <span class="number">7</span> due to restriction &lt;<span class="number">7</span>&gt;</span><br><span class="line">ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.000</span>    <span class="number">0.000</span>    <span class="number">0.643</span>    <span class="number">0.643</span> &lt;string&gt;:<span class="number">1</span>(&lt;module&gt;)</span><br><span class="line">     <span class="number">1</span>    <span class="number">0.001</span>    <span class="number">0.001</span>    <span class="number">0.643</span>    <span class="number">0.643</span> cprof_example.py:<span class="number">4</span>(run_experiment)</span><br><span class="line">   <span class="number">100</span>    <span class="number">0.003</span>    <span class="number">0.000</span>    <span class="number">0.583</span>    <span class="number">0.006</span> linalg.py:<span class="number">702</span>(eigvals)</span><br><span class="line">   <span class="number">200</span>    <span class="number">0.569</span>    <span class="number">0.003</span>    <span class="number">0.569</span>    <span class="number">0.003</span> &#123;numpy.linalg.lapack_lite.dgeev&#125;</span><br><span class="line">   <span class="number">100</span>    <span class="number">0.058</span>    <span class="number">0.001</span>    <span class="number">0.058</span>    <span class="number">0.001</span> &#123;method <span class="string">'randn'</span>&#125;</span><br><span class="line">   <span class="number">100</span>    <span class="number">0.003</span>    <span class="number">0.000</span>    <span class="number">0.005</span>    <span class="number">0.000</span> linalg.py:<span class="number">162</span>(_assertFinite)</span><br><span class="line">   <span class="number">200</span>    <span class="number">0.002</span>    <span class="number">0.000</span>    <span class="number">0.002</span>    <span class="number">0.000</span> &#123;method <span class="string">'all'</span> of <span class="string">'numpy.ndarray'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相似的，调用<code>%run -p -s cumulative cprof_example.py</code>有和命令行相似的作用，只是你不用离开Ipython。</p>
+<p>在Jupyter notebook中，你可以使用%%prun魔术方法（两个%）来分析一整段代码。这会弹出一个带有分析输出的独立窗口。便于快速回答一些问题，比如“为什么这段代码用了这么长时间”？</p>
+<p>使用IPython或Jupyter，还有一些其它工具可以让分析工作更便于理解。其中之一是SnakeViz（<a href="https://github.com/jiffyclub/snakeviz/），它会使用d3.js产生一个分析结果的交互可视化界面。" target="_blank" rel="noopener">https://github.com/jiffyclub/snakeviz/），它会使用d3.js产生一个分析结果的交互可视化界面。</a></p>
+<h2 id="逐行分析函数"><a href="#逐行分析函数" class="headerlink" title="逐行分析函数"></a>逐行分析函数</h2><p>有些情况下，用%prun（或其它基于cProfile的分析方法）得到的信息，不能获得函数执行时间的整个过程，或者结果过于复杂，加上函数名，很难进行解读。对于这种情况，有一个小库叫做line_profiler（可以通过PyPI或包管理工具获得）。它包含IPython插件，可以启用一个新的魔术函数%lprun，可以对一个函数或多个函数进行逐行分析。你可以通过修改IPython配置（查看IPython文档或本章后面的配置小节）加入下面这行，启用这个插件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A list of dotted module names of IPython extensions to load.</span></span><br><span class="line">c.TerminalIPythonApp.extensions = [<span class="string">'line_profiler'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>你还可以运行命令：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%load_ext line_profiler</span><br></pre></td></tr></table></figure></p>
+<p>line_profiler也可以在程序中使用（查看完整文档），但是在IPython中使用是最为强大的。假设你有一个带有下面代码的模块prof_mod，做一些NumPy数组操作：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy.random <span class="keyword">import</span> randn</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_and_sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    added = x + y</span><br><span class="line">    summed = added.sum(axis=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> summed</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call_function</span><span class="params">()</span>:</span></span><br><span class="line">    x = randn(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">    y = randn(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">    <span class="keyword">return</span> add_and_sum(x, y)</span><br></pre></td></tr></table></figure></p>
+<p>如果想了解add_and_sum函数的性能，%prun可以给出下面内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">569</span>]: %run prof_mod</span><br><span class="line"></span><br><span class="line">In [<span class="number">570</span>]: x = randn(<span class="number">3000</span>, <span class="number">3000</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">571</span>]: y = randn(<span class="number">3000</span>, <span class="number">3000</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">572</span>]: %prun add_and_sum(x, y)</span><br><span class="line">         <span class="number">4</span> function calls <span class="keyword">in</span> <span class="number">0.049</span> seconds</span><br><span class="line">   Ordered by: internal time</span><br><span class="line">   ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span><br><span class="line">        <span class="number">1</span>    <span class="number">0.036</span>    <span class="number">0.036</span>    <span class="number">0.046</span>    <span class="number">0.046</span> prof_mod.py:<span class="number">3</span>(add_and_sum)</span><br><span class="line">        <span class="number">1</span>    <span class="number">0.009</span>    <span class="number">0.009</span>    <span class="number">0.009</span>    <span class="number">0.009</span> &#123;method <span class="string">'sum'</span> of <span class="string">'numpy.ndarray'</span>&#125;</span><br><span class="line">        <span class="number">1</span>    <span class="number">0.003</span>    <span class="number">0.003</span>    <span class="number">0.049</span>    <span class="number">0.049</span> &lt;string&gt;:<span class="number">1</span>(&lt;module&gt;)</span><br></pre></td></tr></table></figure></p>
+<p>上面的做法启发性不大。激活了IPython插件line_profiler，新的命令%lprun就能用了。使用中的不同点是，我们必须告诉%lprun要分析的函数是哪个。语法是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%lprun -f func1 -f func2 statement_to_profile</span><br></pre></td></tr></table></figure></p>
+<p>我们想分析add_and_sum，运行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">573</span>]: %lprun -f add_and_sum add_and_sum(x, y)</span><br><span class="line">Timer unit: <span class="number">1e-06</span> s</span><br><span class="line">File: prof_mod.py</span><br><span class="line">Function: add_and_sum at line <span class="number">3</span></span><br><span class="line">Total time: <span class="number">0.045936</span> s</span><br><span class="line">Line <span class="comment">#      Hits         Time  Per Hit   % Time  Line Contents</span></span><br><span class="line">==============================================================</span><br><span class="line">     <span class="number">3</span>                                           <span class="function"><span class="keyword">def</span> <span class="title">add_and_sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">     <span class="number">4</span>         <span class="number">1</span>        <span class="number">36510</span>  <span class="number">36510.0</span>     <span class="number">79.5</span>      added = x + y</span><br><span class="line">     <span class="number">5</span>         <span class="number">1</span>         <span class="number">9425</span>   <span class="number">9425.0</span>     <span class="number">20.5</span>      summed = added.sum(axis=<span class="number">1</span>)</span><br><span class="line">     <span class="number">6</span>         <span class="number">1</span>            <span class="number">1</span>      <span class="number">1.0</span>      <span class="number">0.0</span>      <span class="keyword">return</span> summed</span><br></pre></td></tr></table></figure></p>
+<p>这样就容易诠释了。我们分析了和代码语句中一样的函数。看之前的模块代码，我们可以调用call_function并对它和add_and_sum进行分析，得到一个完整的代码性能概括：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">574</span>]: %lprun -f add_and_sum -f call_function call_function()</span><br><span class="line">Timer unit: <span class="number">1e-06</span> s</span><br><span class="line">File: prof_mod.py</span><br><span class="line">Function: add_and_sum at line <span class="number">3</span></span><br><span class="line">Total time: <span class="number">0.005526</span> s</span><br><span class="line">Line <span class="comment">#      Hits         Time  Per Hit   % Time  Line Contents</span></span><br><span class="line">==============================================================</span><br><span class="line">     <span class="number">3</span>                                           <span class="function"><span class="keyword">def</span> <span class="title">add_and_sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">     <span class="number">4</span>         <span class="number">1</span>         <span class="number">4375</span>   <span class="number">4375.0</span>     <span class="number">79.2</span>      added = x + y</span><br><span class="line">     <span class="number">5</span>         <span class="number">1</span>         <span class="number">1149</span>   <span class="number">1149.0</span>     <span class="number">20.8</span>      summed = added.sum(axis=<span class="number">1</span>)</span><br><span class="line">     <span class="number">6</span>         <span class="number">1</span>            <span class="number">2</span>      <span class="number">2.0</span>      <span class="number">0.0</span>      <span class="keyword">return</span> summed</span><br><span class="line">File: prof_mod.py</span><br><span class="line">Function: call_function at line <span class="number">8</span></span><br><span class="line">Total time: <span class="number">0.121016</span> s</span><br><span class="line">Line <span class="comment">#      Hits         Time  Per Hit   % Time  Line Contents</span></span><br><span class="line">==============================================================</span><br><span class="line">     <span class="number">8</span>                                           <span class="function"><span class="keyword">def</span> <span class="title">call_function</span><span class="params">()</span>:</span></span><br><span class="line">     <span class="number">9</span>         <span class="number">1</span>        <span class="number">57169</span>  <span class="number">57169.0</span>     <span class="number">47.2</span>      x = randn(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">    <span class="number">10</span>         <span class="number">1</span>        <span class="number">58304</span>  <span class="number">58304.0</span>     <span class="number">48.2</span>      y = randn(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">    <span class="number">11</span>         <span class="number">1</span>         <span class="number">5543</span>   <span class="number">5543.0</span>      <span class="number">4.6</span>      <span class="keyword">return</span> add_and_sum(x, y)</span><br></pre></td></tr></table></figure></p>
+<p>我的经验是用%prun (cProfile)进行宏观分析，%lprun (line_profiler)做微观分析。最好对这两个工具都了解清楚。</p>
+<blockquote>
+<p>笔记：使用%lprun必须要指明函数名的原因是追踪每行的执行时间的损耗过多。追踪无用的函数会显著地改变结果。</p>
+</blockquote>
+<h1 id="B-4-使用IPython高效开发的技巧"><a href="#B-4-使用IPython高效开发的技巧" class="headerlink" title="B.4 使用IPython高效开发的技巧"></a>B.4 使用IPython高效开发的技巧</h1><p>方便快捷地写代码、调试和使用是每个人的目标。除了代码风格，流程细节（比如代码重载）也需要一些调整。</p>
+<p>因此，这一节的内容更像是门艺术而不是科学，还需要你不断的试验，以达成高效。最终，你要能结构优化代码，并且能省时省力地检查程序或函数的结果。我发现用IPython设计的软件比起命令行，要更适合工作。尤其是当发生错误时，你需要检查自己或别人写的数月或数年前写的代码的错误。</p>
+<h2 id="重载模块依赖"><a href="#重载模块依赖" class="headerlink" title="重载模块依赖"></a>重载模块依赖</h2><p>在Python中，当你输入import some_lib，some_lib中的代码就会被执行，所有的变量、函数和定义的引入，就会被存入到新创建的some_lib模块命名空间。当下一次输入some_lib，就会得到一个已存在的模块命名空间的引用。潜在的问题是当你%run一个脚本，它依赖于另一个模块，而这个模块做过修改，就会产生问题。假设我在test_script.py中有如下代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> some_lib</span><br><span class="line"></span><br><span class="line">x = <span class="number">5</span></span><br><span class="line">y = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">result = some_lib.get_answer(x, y)</span><br></pre></td></tr></table></figure></p>
+<p>如果你运行过了%run test_script.py，然后修改了some_lib.py，下一次再执行%run test_script.py，还会得到旧版本的some_lib.py，这是因为Python模块系统的“一次加载”机制。这一点区分了Python和其它数据分析环境，比如MATLAB，它会自动传播代码修改。解决这个问题，有多种方法。第一种是在标准库importlib模块中使用reload函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> some_lib</span><br><span class="line"><span class="keyword">import</span> importlib</span><br><span class="line"></span><br><span class="line">importlib.reload(some_lib)</span><br></pre></td></tr></table></figure></p>
+<p>这可以保证每次运行test_script.py时可以加载最新的some_lib.py。很明显，如果依赖更深，在各处都使用reload是非常麻烦的。对于这个问题，IPython有一个特殊的dreload函数（它不是魔术函数）重载深层的模块。如果我运行过some_lib.py，然后输入dreload(some_lib)，就会尝试重载some_lib和它的依赖。不过，这个方法不适用于所有场景，但比重启IPython强多了。</p>
+<h2 id="代码设计技巧"><a href="#代码设计技巧" class="headerlink" title="代码设计技巧"></a>代码设计技巧</h2><p>对于这单，没有简单的对策，但是有一些原则，是我在工作中发现很好用的。</p>
+<h2 id="保持相关对象和数据活跃"><a href="#保持相关对象和数据活跃" class="headerlink" title="保持相关对象和数据活跃"></a>保持相关对象和数据活跃</h2><p>为命令行写一个下面示例中的程序是很少见的：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> my_functions <span class="keyword">import</span> g</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> g(x + y)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    x = <span class="number">6</span></span><br><span class="line">    y = <span class="number">7.5</span></span><br><span class="line">    result = x + y</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+<p>在IPython中运行这个程序会发生问题，你发现是什么了吗？运行之后，任何定义在main函数中的结果和对象都不能在IPython中被访问到。更好的方法是将main中的代码直接在模块的命名空间中执行（或者在<code>__name__ == &#39;__main__&#39;:</code>中，如果你想让这个模块可以被引用）。这样，当你%rundiamante，就可以查看所有定义在main中的变量。这等价于在Jupyter notebook的代码格中定义一个顶级变量。</p>
+<h2 id="扁平优于嵌套"><a href="#扁平优于嵌套" class="headerlink" title="扁平优于嵌套"></a>扁平优于嵌套</h2><p>深层嵌套的代码总让我联想到洋葱皮。当测试或调试一个函数时，你需要剥多少层洋葱皮才能到达目标代码呢？“扁平优于嵌套”是Python之禅的一部分，它也适用于交互式代码开发。尽量将函数和类去耦合和模块化，有利于测试（如果你是在写单元测试）、调试和交互式使用。</p>
+<h2 id="克服对大文件的恐惧"><a href="#克服对大文件的恐惧" class="headerlink" title="克服对大文件的恐惧"></a>克服对大文件的恐惧</h2><p>如果你之前是写JAVA（或者其它类似的语言），你可能被告知要让文件简短。在多数语言中，这都是合理的建议：太长会让人感觉是坏代码，意味着重构和重组是必要的。但是，在用IPython开发时，运行10个相关联的小文件（小于100行），比起两个或三个长文件，会让你更头疼。更少的文件意味着重载更少的模块和更少的编辑时在文件中跳转。我发现维护大模块，每个模块都是紧密组织的，会更实用和Pythonic。经过方案迭代，有时会将大文件分解成小文件。</p>
+<p>我不建议极端化这条建议，那样会形成一个单独的超大文件。找到一个合理和直观的大型代码模块库和封装结构往往需要一点工作，但这在团队工作中非常重要。每个模块都应该结构紧密，并且应该能直观地找到负责每个功能领域功能和类。</p>
+<h1 id="B-5-IPython高级功能"><a href="#B-5-IPython高级功能" class="headerlink" title="B.5 IPython高级功能"></a>B.5 IPython高级功能</h1><p>要全面地使用IPython系统需要用另一种稍微不同的方式写代码，或深入IPython的配置。</p>
+<h2 id="让类是对IPython友好的"><a href="#让类是对IPython友好的" class="headerlink" title="让类是对IPython友好的"></a>让类是对IPython友好的</h2><p>IPython会尽可能地在控制台美化展示每个字符串。对于许多对象，比如字典、列表和元组，内置的pprint模块可以用来美化格式。但是，在用户定义的类中，你必自己生成字符串。假设有一个下面的简单的类：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, msg)</span>:</span></span><br><span class="line">        self.msg = msg</span><br></pre></td></tr></table></figure></p>
+<p>如果这么写，就会发现默认的输出不够美观：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">576</span>]: x = Message(<span class="string">'I have a secret'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">577</span>]: x</span><br><span class="line">Out[<span class="number">577</span>]: &lt;__main__.Message instance at <span class="number">0x60ebbd8</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>IPython会接收<strong>repr</strong>魔术方法返回的字符串（通过output = repr(obj)），并在控制台打印出来。因此，我们可以添加一个简单的<strong>repr</strong>方法到前面的类中，以得到一个更有用的输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, msg)</span>:</span></span><br><span class="line">        self.msg = msg</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Message: %s'</span> % self.msg</span><br><span class="line">In [<span class="number">579</span>]: x = Message(<span class="string">'I have a secret'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">580</span>]: x</span><br><span class="line">Out[<span class="number">580</span>]: Message: I have a secret</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件和配置"><a href="#文件和配置" class="headerlink" title="文件和配置"></a>文件和配置</h2><p>通过扩展配置系统，大多数IPython和Jupyter notebook的外观（颜色、提示符、行间距等等）和动作都是可以配置的。通过配置，你可以做到：</p>
+<ul>
+<li>改变颜色主题</li>
+<li>改变输入和输出提示符，或删除输出之后、输入之前的空行</li>
+<li>执行任意Python语句（例如，引入总是要使用的代码或者每次加载IPython都要运行的内容）</li>
+<li>启用IPython总是要运行的插件，比如line_profiler中的%lprun魔术函数</li>
+<li>启用Jupyter插件</li>
+<li>定义自己的魔术函数或系统别名</li>
+</ul>
+<p>IPython的配置存储在特殊的ipython_config.py文件中，它通常是在用户home目录的.ipython/文件夹中。配置是通过一个特殊文件。当你启动IPython，就会默认加载这个存储在profile_default文件夹中的默认文件。因此，在我的Linux系统，完整的IPython配置文件路径是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/wesm/.ipython/profile_default/ipython_config.py</span><br></pre></td></tr></table></figure></p>
+<p>要启动这个文件，运行下面的命令：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython profile create</span><br></pre></td></tr></table></figure></p>
+<p>这个文件中的内容留给读者自己探索。这个文件有注释，解释了每个配置选项的作用。另一点，可以有多个配置文件。假设你想要另一个IPython配置文件，专门是为另一个应用或项目的。创建一个新的配置文件很简单，如下所示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython profile create secret_project</span><br></pre></td></tr></table></figure></p>
+<p>做完之后，在新创建的profile_secret_project目录便捷配置文件，然后如下启动IPython：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ipython --profile=secret_project</span><br><span class="line">Python <span class="number">3.5</span><span class="number">.1</span> | packaged by conda-forge | (default, May <span class="number">20</span> <span class="number">2016</span>, <span class="number">05</span>:<span class="number">22</span>:<span class="number">56</span>)</span><br><span class="line">Type <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"></span><br><span class="line">IPython <span class="number">5.1</span><span class="number">.0</span> -- An enhanced Interactive Python.</span><br><span class="line">?         -&gt; Introduction and overview of IPython's features.</span><br><span class="line">%quickref -&gt; Quick reference.</span><br><span class="line">help      -&gt; Python's own help system.</span><br><span class="line">object?   -&gt; Details about 'object', use 'object??' for extra details.</span><br><span class="line"></span><br><span class="line">IPython profile: secret_project</span><br></pre></td></tr></table></figure></p>
+<p>和之前一样，IPython的文档是一个极好的学习配置文件的资源。</p>
+<p>配置Jupyter有些不同，因为你可以使用除了Python的其它语言。要创建一个类似的Jupyter配置文件，运行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure></p>
+<p>这样会在home目录的.jupyter/jupyter_notebook_config.py创建配置文件。编辑完之后，可以将它重命名：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv ~/.jupyter/jupyter_notebook_config.py ~/.jupyter/my_custom_config.py</span><br></pre></td></tr></table></figure></p>
+<p>打开Jupyter之后，你可以添加–config参数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --config=~/.jupyter/my_custom_config.py</span><br></pre></td></tr></table></figure></p>
+<h1 id="B-6-总结"><a href="#B-6-总结" class="headerlink" title="B.6 总结"></a>B.6 总结</h1><p>学习过本书中的代码案例，你的Python技能得到了一定的提升，我建议你持续学习IPython和Jupyter。因为这两个项目的设计初衷就是提高生产率的，你可能还会发现一些工具，可以让你更便捷地使用Python和计算库。</p>
+<p>你可以在nbviewer（<a href="https://nbviewer.jupyter.org/）上找到更多有趣的Jupyter" target="_blank" rel="noopener">https://nbviewer.jupyter.org/）上找到更多有趣的Jupyter</a> notebooks。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2018/12/02/附录B 更多关于IPython的内容（完）/" title="附录B 更多关于IPython的内容（完）">附录B 更多关于IPython的内容（完）</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2018/12/02/附录B 更多关于IPython的内容（完）/" title="附录B 更多关于IPython的内容（完）">https://inforscan.com/2018/12/02/附录B 更多关于IPython的内容（完）/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2018年12月2日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python进行数据分析/" rel="tag"><i class="fa fa-tag"></i> Python进行数据分析</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/02/第13章 Python建模库介绍/" rel="next" title="第13章 Python建模库介绍">
+                <i class="fa fa-chevron-left"></i> 第13章 Python建模库介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/10/信息熵在自然语言处理中的运用/" rel="prev" title="信息熵在自然语言处理中的运用">
+                信息熵在自然语言处理中的运用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">394</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">632</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com/" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#B-1-使用命令历史"><span class="nav-number">1.</span> <span class="nav-text">B.1 使用命令历史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索和重复使用命令历史"><span class="nav-number">1.1.</span> <span class="nav-text">搜索和重复使用命令历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入和输出变量"><span class="nav-number">1.2.</span> <span class="nav-text">输入和输出变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-2-与操作系统交互"><span class="nav-number">2.</span> <span class="nav-text">B.2 与操作系统交互</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell命令和别名"><span class="nav-number">2.1.</span> <span class="nav-text">Shell命令和别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录书签系统"><span class="nav-number">2.2.</span> <span class="nav-text">目录书签系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-3-软件开发工具"><span class="nav-number">3.</span> <span class="nav-text">B.3 软件开发工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#交互调试器"><span class="nav-number">3.1.</span> <span class="nav-text">交互调试器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用调试器的其它方式"><span class="nav-number">3.2.</span> <span class="nav-text">使用调试器的其它方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码计时：-time-和-timeit"><span class="nav-number">3.3.</span> <span class="nav-text">代码计时：%time 和 %timeit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础分析：-prun和-run-p"><span class="nav-number">3.4.</span> <span class="nav-text">基础分析：%prun和%run -p</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逐行分析函数"><span class="nav-number">3.5.</span> <span class="nav-text">逐行分析函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-4-使用IPython高效开发的技巧"><span class="nav-number">4.</span> <span class="nav-text">B.4 使用IPython高效开发的技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重载模块依赖"><span class="nav-number">4.1.</span> <span class="nav-text">重载模块依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码设计技巧"><span class="nav-number">4.2.</span> <span class="nav-text">代码设计技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保持相关对象和数据活跃"><span class="nav-number">4.3.</span> <span class="nav-text">保持相关对象和数据活跃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扁平优于嵌套"><span class="nav-number">4.4.</span> <span class="nav-text">扁平优于嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#克服对大文件的恐惧"><span class="nav-number">4.5.</span> <span class="nav-text">克服对大文件的恐惧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-5-IPython高级功能"><span class="nav-number">5.</span> <span class="nav-text">B.5 IPython高级功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#让类是对IPython友好的"><span class="nav-number">5.1.</span> <span class="nav-text">让类是对IPython友好的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和配置"><span class="nav-number">5.2.</span> <span class="nav-text">文件和配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-6-总结"><span class="nav-number">6.</span> <span class="nav-text">B.6 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

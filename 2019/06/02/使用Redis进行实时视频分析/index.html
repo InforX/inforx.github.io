@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="实时视频分析," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="使用Redis Streams，RedisGears，RedisAI和RedisTimeSeries进行实时视频分析（即计算人员）的示例 https://oss.redislabs.com/redisgears github:https://github.com/RedisGears/EdgeRealtimeVideoAnalytics RedisEdge实时视频分析使用Redis Streams">
+<meta name="keywords" content="实时视频分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Redis进行实时视频分析">
+<meta property="og:url" content="https://inforscan.com/2019/06/02/使用Redis进行实时视频分析/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="使用Redis Streams，RedisGears，RedisAI和RedisTimeSeries进行实时视频分析（即计算人员）的示例 https://oss.redislabs.com/redisgears github:https://github.com/RedisGears/EdgeRealtimeVideoAnalytics RedisEdge实时视频分析使用Redis Streams">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/raw/master/demo.gif">
+<meta property="og:image" content="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/raw/master/diagram.svg?sanitize=true">
+<meta property="og:updated_time" content="2019-08-01T07:23:00.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Redis进行实时视频分析">
+<meta name="twitter:description" content="使用Redis Streams，RedisGears，RedisAI和RedisTimeSeries进行实时视频分析（即计算人员）的示例 https://oss.redislabs.com/redisgears github:https://github.com/RedisGears/EdgeRealtimeVideoAnalytics RedisEdge实时视频分析使用Redis Streams">
+<meta name="twitter:image" content="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/raw/master/demo.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2019/06/02/使用Redis进行实时视频分析/"/>
+
+
+
+
+
+  <title>使用Redis进行实时视频分析 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2019/06/02/使用Redis进行实时视频分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">使用Redis进行实时视频分析</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T11:35:47+08:00">
+                2019-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开源项目/" itemprop="url" rel="index">
+                    <span itemprop="name">开源项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用Redis Streams，RedisGears，RedisAI和RedisTimeSeries进行实时视频分析（即计算人员）的示例 <a href="https://oss.redislabs.com/redisgears" target="_blank" rel="noopener">https://oss.redislabs.com/redisgears</a></p>
+<p>github:<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics" target="_blank" rel="noopener">https://github.com/RedisGears/EdgeRealtimeVideoAnalytics</a></p>
+<h1 id="RedisEdge实时视频分析"><a href="#RedisEdge实时视频分析" class="headerlink" title="RedisEdge实时视频分析"></a>RedisEdge实时视频分析</h1><p>使用Redis Streams，RedisGears，RedisAI和RedisTimeSeries进行实时视频分析（即计算人员）的示例。</p>
+<p>给定<a href="https://youtu.be/VqkMaIk6fKc?t=16" target="_blank" rel="noopener">此输入视频</a>，最终输出如下所示：</p>
+<p><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/demo.gif" target="_blank" rel="noopener"><img src="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/raw/master/demo.gif" alt="演示"></a></p>
+<h2 id="概观"><a href="#概观" class="headerlink" title="概观"></a>概观</h2><p>该项目演示了RedisEdge堆栈的可能部署，该堆栈提供视频流的实时分析。</p>
+<p>下图描绘了系统各部分之间的流程。</p>
+<p><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/diagram.svg" target="_blank" rel="noopener"><img src="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/raw/master/diagram.svg?sanitize=true" alt="系统图"></a></p>
+<p>该过程是一系列操作，如下所示：</p>
+<ol>
+<li>视频流制作者将捕获的帧添加到Redis流。</li>
+<li>新帧触发RedisGear的执行：<ol>
+<li>如果需要，下采样输入流的帧速率。</li>
+<li>准备输入框架以满足模型的要求。</li>
+<li>调用RedisAI在帧上执行对象识别模型。</li>
+<li>在Redis Stream和TimeSeries中存储模型的输出（即计算人数及其在框架内的位置）。</li>
+</ol>
+</li>
+<li>视频Web服务器根据Redis’Streams的实时数据呈现最终图像。</li>
+<li>时间序列从Redis导出到Prometheus，可以使用Grafana的仪表板进行可视化。</li>
+</ol>
+<p>有关罗嗦概述，请参阅<a href="https://redislabs.com/blog/my-other-stack-is-redisedge/" target="_blank" rel="noopener">“我的其他堆栈是RedisEdge”</a>。观看<a href="https://www.youtube.com/watch?v=t1U7ulz1_Dg&amp;feature=youtu.be&amp;t=4767" target="_blank" rel="noopener">“RedisConf19 Keynote Day 2”</a>进行视频演示。</p>
+<h3 id="RedisEdge堆栈"><a href="#RedisEdge堆栈" class="headerlink" title="RedisEdge堆栈"></a>RedisEdge堆栈</h3><p>RedisEdge堆栈包含最新的Redis稳定版本和用于Edge计算的精选RedisLabs模块。有关更多信息，请参阅<a href="https://github.com/RedisLabs/redis-edge-docker" target="_blank" rel="noopener">RedisEdge</a>。</p>
+<h3 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a><a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">YOLO</a></h3><p>你只看一次，或YOLO短裤（<a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/single-shot-detectors/yolo.html" target="_blank" rel="noopener">好概述</a>），是一个物体检测神经网络。该项目使用“微型”YOLOv3模型。</p>
+<h2 id="怎么弄它"><a href="#怎么弄它" class="headerlink" title="怎么弄它"></a>怎么弄它</h2><p>先决条件：</p>
+<ul>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">混帐</a></li>
+<li><a href="https://git-lfs.github.com/" target="_blank" rel="noopener">GIT-LFS</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/RedisGears/EdgeRealtimeVideoAnalytics.git</span><br><span class="line">$ cd EdgeRealtimeVideoAnalytics</span><br><span class="line">$ git lfs install ; git lfs fetch ; git lfs checkout</span><br></pre></td></tr></table></figure>
+<h2 id="如何在本地运行它"><a href="#如何在本地运行它" class="headerlink" title="如何在本地运行它"></a>如何在本地运行它</h2><h3 id="安装RedisEdge堆栈"><a href="#安装RedisEdge堆栈" class="headerlink" title="安装RedisEdge堆栈"></a>安装RedisEdge堆栈</h3><p>请参阅以下项目的构建/安装说明，以使用相关的Redis模块设置Redis服务器。此应用程序的连接默认为<code>redis://localhost:6379</code>。</p>
+<ul>
+<li><a href="https://redis.io/" target="_blank" rel="noopener">Redis的</a></li>
+<li><a href="https://oss.redislabs.com/redisgears/" target="_blank" rel="noopener">RedisGears</a></li>
+<li><a href="https://oss.redislabs.com/redistimeseries/" target="_blank" rel="noopener">RedisTimeSeries</a></li>
+<li><a href="https://oss.redislabs.com/redisai/" target="_blank" rel="noopener">RedisAI</a></li>
+</ul>
+<p>请注意，您还需要<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/redisedge/requirements.txt" target="_blank" rel="noopener"><code>requirements.txt</code></a>为嵌入式RedisGears Python解释器安装Pythonic 。这是如何做：</p>
+<ol>
+<li>验证您的主机是否具有适用于Python2.7的OpenCV - 如果没有，请安装它（<code>apt-get install python-opencv</code>）</li>
+<li>从主机的命令行运行Python 2解释器 <code>python2</code></li>
+<li>键入<code>import cv2</code>- 如果成功，则安装OpenCV</li>
+<li>类型<code>cv2.__file__</code>- 您应该得到类似’/usr/lib/python2.7/dist-packages/cv2.x86_64-linux-gnu.so’的内容</li>
+<li>退出python解释器（CTRL-D）</li>
+<li>去 <code>/opt/redislabs/lib/modules/python27/.venv/lib/python2.7/site-packages</code></li>
+<li>像这样创建一个软链接： <code>ln -s /usr/lib/python2.7/dist-packages/cv2.x86_64-linux-gnu.so cv2.so</code></li>
+<li>去 <code>/opt/redislabs/lib/modules/python27</code></li>
+<li>安装其余的要求 <code>pipenv install numpy pillow</code></li>
+</ol>
+<h3 id="（可选）普罗米修斯和格拉法纳"><a href="#（可选）普罗米修斯和格拉法纳" class="headerlink" title="（可选）普罗米修斯和格拉法纳"></a>（可选）普罗米修斯和格拉法纳</h3><p>请参阅以下项目的构建/安装说明以设置Prometheus，Grafana和RedisTimeSeries适配器：</p>
+<ul>
+<li>Prometheus：<a href="https://prometheus.io/" target="_blank" rel="noopener">安装</a>，<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/prometheus/config.yml" target="_blank" rel="noopener">配置示例</a></li>
+<li>Grafana：<a href="https://grafana.com/" target="_blank" rel="noopener">安装</a>，<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/grafana/config.ini" target="_blank" rel="noopener">配置示例</a>，<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/grafana/provisioning/datasources/prometheus.yaml" target="_blank" rel="noopener">数据源示例</a>，<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/grafana/dashboards" target="_blank" rel="noopener">仪表板示例</a></li>
+<li><a href="https://github.com/RedisTimeSeries/prometheus-redistimeseries-adapter" target="_blank" rel="noopener">普罗米修斯redistimeseries适配器</a></li>
+</ul>
+<p>请参阅下文，了解如何运行部分dockerized设置，以避免在本地安装这些设置。</p>
+<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>该应用程序在Python 3中实现，包含以下部分：</p>
+<ul>
+<li><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/init.py" target="_blank" rel="noopener"><code>init.py</code></a>：这将使用RedisAI模型，RedisTimeSeries下采样规则和RedisGears设备初始化Redis。</li>
+<li><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/capture.py" target="_blank" rel="noopener"><code>capture.py</code></a>：从网络摄像头或图像/视频文件中捕获视频流帧，并将其存储在Redis Stream中。</li>
+<li><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/server.py" target="_blank" rel="noopener"><code>server.py</code></a>：Web服务器，提供由原始帧和模型检测组成的渲染图像。</li>
+<li><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/top.py" target="_blank" rel="noopener"><code>top.py</code></a>：打印运行时性能指标。可选（即手动运行）。</li>
+<li><a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/gear.py" target="_blank" rel="noopener"><code>gear.py</code></a>：Redis齿轮胶合管道。</li>
+</ul>
+<p>要运行该应用程序，您需要Python v3.6或更高版本。使用以下内容安装应用程序的库依赖项 - 建议您使用<code>virtualenv</code>或类似：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv -p python3.6 venv</span><br><span class="line">$ source venv / bin / activate</span><br><span class="line">$ pip install -r app / requirements.txt</span><br></pre></td></tr></table></figure>
+<p>应用程序的部件设置有默认值，旨在允许它“开箱即用”运行。例如，要运行捕获过程，您只需键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python capture.py</span><br></pre></td></tr></table></figure>
+<p>这将从设备ID 0运行捕获过程。</p>
+<p>然而。可以从命令行覆盖大多数默认值 - 使用<code>--help</code>开关调用应用程序的部分以了解这些内容。</p>
+<h2 id="如何使用Docker-Compose运行它"><a href="#如何使用Docker-Compose运行它" class="headerlink" title="如何使用Docker Compose运行它"></a>如何使用Docker Compose运行它</h2><p>先决条件：</p>
+<ul>
+<li>搬运工人</li>
+</ul>
+<h3 id="Ubuntu-18-04（可能是旧版本，其他基于Debian的发行版和所有Linux）"><a href="#Ubuntu-18-04（可能是旧版本，其他基于Debian的发行版和所有Linux）" class="headerlink" title="Ubuntu 18.04（可能是旧版本，其他基于Debian的发行版和所有Linux）"></a>Ubuntu 18.04（可能是旧版本，其他基于Debian的发行版和所有Linux）</h3><h4 id="全dockerized"><a href="#全dockerized" class="headerlink" title="全dockerized"></a>全dockerized</h4><p>以下内容将启动完全dockerized环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose up</span><br></pre></td></tr></table></figure>
+<p>或者，您可以通过以下方式启动精益环境（没有花哨的<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics#UI" target="_blank" rel="noopener">UI</a>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose up redisedge init capture server</span><br></pre></td></tr></table></figure>
+<h4 id="局部dockerized"><a href="#局部dockerized" class="headerlink" title="局部dockerized"></a>局部dockerized</h4><p>为了提高性能，提供了仅包含应用程序的初始化程序，服务器，grafana，prometheus和RedisTimeSeries适配器的<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/docker-compose.local.yaml" target="_blank" rel="noopener">本地Docker组合</a>。换句话说，您需要提供RedisEdge服务器和视频流。</p>
+<p>要使用它，首先要确保启动RedisEdge服务器，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./redisedge/run.sh</span><br></pre></td></tr></table></figure>
+<p>然后，您可以运行堆栈的其余部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose -f docker-compose.local.yaml up</span><br></pre></td></tr></table></figure>
+<p>最后，确保你真正开始在本地捕获一些东西，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python app / capture.py app / data / countvoncount.mp4</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>在完全和部分dockerized运行之间切换时，请确保重建（例如<code>docker-compose up --build</code>）。</p>
+<h3 id="苹果系统"><a href="#苹果系统" class="headerlink" title="苹果系统"></a>苹果系统</h3><h4 id="全dockerized-1"><a href="#全dockerized-1" class="headerlink" title="全dockerized"></a>全dockerized</h4><p>根据目前的智慧，不可能在macOS上使用Docker容器中的网络摄像头。要解决此问题，请始终<code>capture.py</code>在主机上本地运行。</p>
+<h4 id="部分码头化（又称本地化）"><a href="#部分码头化（又称本地化）" class="headerlink" title="部分码头化（又称本地化）"></a>部分码头化（又称本地化）</h4><p>根据目前的智慧，“主机”模式网络是macOS的神话。因此，部分对接模式不可用。TL; DR - 它（或几乎）完全对接或为您本地化。</p>
+<h2 id="绩效指标和说明"><a href="#绩效指标和说明" class="headerlink" title="绩效指标和说明"></a>绩效指标和说明</h2><ol>
+<li>Docker使一切变慢。</li>
+<li>捕获的视频帧越大，运行速度越慢。</li>
+<li>如果您没有GPU但CPU支持其他优化，请考虑使用它们编译TensorFlow，然后使用RedisAI编译，并在本地运行RedisEdge。</li>
+<li>如果您有GPU，请使用它（即为它编译RedisAI <code>python init.py --device GPU</code>）。</li>
+</ol>
+<p>无论是<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/top.py" target="_blank" rel="noopener">顶部工具</a>和<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics#UI" target="_blank" rel="noopener">Grafana UI</a>提供以下性能指标：</p>
+<ul>
+<li>in_fps：每秒输入（视频）帧数</li>
+<li>out_fps：每秒输出（由模型处理）帧数</li>
+<li>prf_read：以毫秒为单位的读取持续时间（来自输入视频流）的移动平均值</li>
+<li>prf_resize：用于调整大小的同上（输入框架到模型张量）</li>
+<li>prf_model：用于运行YOLO模型的ditto</li>
+<li>prf_script：用于运行PyTorch post脚本的ditto</li>
+<li>prf_boxes：同样用于从脚本的输出中提取人员框</li>
+<li>prf_store：用于存储结果和各种时间序列值的ditto]</li>
+<li>prf_total：已处理帧的以毫秒为单位的端到端延迟</li>
+</ul>
+<h3 id="非官方指标"><a href="#非官方指标" class="headerlink" title="非官方指标"></a>非官方指标</h3><p>通过捕获<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/data/countvoncount.mp4" target="_blank" rel="noopener">Count的视频</a>并使用<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/top.py" target="_blank" rel="noopener">应用程序的顶级工具</a>进行采样的度量标准：</p>
+<table>
+<thead>
+<tr>
+<th>硬件</th>
+<th>OS</th>
+<th>Dockerized</th>
+<th>设备</th>
+<th>in_fps</th>
+<th>out_fps</th>
+<th>prf_read</th>
+<th>prf_resize</th>
+<th>prf_model</th>
+<th>prf_script</th>
+<th>prf_boxes</th>
+<th>prf_store</th>
+<th>prf_total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Macbook Pro 15,2015</td>
+<td>macOS Mojave</td>
+<td>是</td>
+<td>CPU（没有1）</td>
+<td>30.0</td>
+<td>4.5</td>
+<td>16.1</td>
+<td>4.4</td>
+<td>167.5</td>
+<td>8.6</td>
+<td>1.9</td>
+<td>0.5</td>
+<td>199.0</td>
+</tr>
+<tr>
+<td>Macbook Pro 15,2015</td>
+<td>Ubuntu 18.04</td>
+<td>是</td>
+<td>CPU（没有1）</td>
+<td>30.0</td>
+<td>6</td>
+<td>19.2</td>
+<td>3.2</td>
+<td>121.2</td>
+<td>2.6</td>
+<td>2.3</td>
+<td>0.2</td>
+<td>149.0</td>
+</tr>
+<tr>
+<td>Macbook Pro 15,2015</td>
+<td>Ubuntu 18.04</td>
+<td>没有</td>
+<td>CPU（是2）</td>
+<td>30.0</td>
+<td>10.0</td>
+<td>15.1</td>
+<td>3.3</td>
+<td>61.7</td>
+<td>2.1</td>
+<td>2.1</td>
+<td>0.2</td>
+<td>84.3</td>
+</tr>
+<tr>
+<td>AWS EC2 p3.8xlarge</td>
+<td>Ubuntu 16.04 3</td>
+<td>没有</td>
+<td>CPU（没有1）</td>
+<td>30.0</td>
+<td>10.0</td>
+<td>17.9</td>
+<td>2.9</td>
+<td>49.7</td>
+<td>4.5</td>
+<td>2.5</td>
+<td>0.2</td>
+<td>77.7</td>
+</tr>
+<tr>
+<td>AWS EC2 p3.8xlarge</td>
+<td>Ubuntu 16.04 3</td>
+<td>没有</td>
+<td>CPU（是2）</td>
+<td>30.0</td>
+<td>11.0</td>
+<td>17.6</td>
+<td>3.9</td>
+<td>31.6</td>
+<td>11.9</td>
+<td>2.4</td>
+<td>0.2</td>
+<td>67.6</td>
+</tr>
+<tr>
+<td>AWS EC2 p3.8xlarge</td>
+<td>Ubuntu 16.04 3</td>
+<td>没有</td>
+<td>GPU</td>
+<td>30.0</td>
+<td>30.0</td>
+<td>16.9</td>
+<td>3.0</td>
+<td>2.9</td>
+<td>1.6</td>
+<td>1.8</td>
+<td>0.2</td>
+<td>26.1</td>
+</tr>
+</tbody>
+</table>
+<p>堆栈版本：</p>
+<ul>
+<li>Redis v5.0.5</li>
+<li>RedisAI v0.2.1</li>
+<li>RedisGears v0.3.1</li>
+<li>RedisTimeSeries v0.2.0</li>
+</ul>
+<p>笔记：</p>
+<ol>
+<li>TensorFlow编译时没有任何本机架构优化</li>
+<li>TensorFlow使用SSE4.1 SSE4.2 AVX AVX2 FMA优化编译</li>
+<li>深度学习基地AMI（Ubuntu）版本18.0 - ami-075f094614eb7224e</li>
+</ol>
+<h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><p>应用程序的渲染视频流（<a href="https://github.com/RedisGears/EdgeRealtimeVideoAnalytics/blob/master/app/server.py" target="_blank" rel="noopener">server.py</a>）应位于<a href="http://localhost:5000/video" target="_blank" rel="noopener">http：// localhost：5000 / video</a>。</p>
+<p>Docker Compose设置还附带预先配置的Grafana服务器 - 它应该在<a href="http://localhost:3000/" target="_blank" rel="noopener">http：// localhost：3000 /</a>（admin / admin）。它配置了Prometheus数据源和视频仪表板，因此一旦您登录：</p>
+<ol>
+<li>从左侧停靠栏选择“仪表板”（第二个图标）</li>
+<li>点击“管理”</li>
+<li>点击“视频流分析”</li>
+<li>瞧！</li>
+</ol>
+<p>注意：如果您在非本地主机的东西上安装此项目，则需要将其主机名或IP地址放在“camera：0”Grafana面板的URL中以显示视频。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2019/06/02/使用Redis进行实时视频分析/" title="使用Redis进行实时视频分析">使用Redis进行实时视频分析</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2019/06/02/使用Redis进行实时视频分析/" title="使用Redis进行实时视频分析">https://inforscan.com/2019/06/02/使用Redis进行实时视频分析/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2019年6月2日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/实时视频分析/" rel="tag"><i class="fa fa-tag"></i> 实时视频分析</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/02/NASA向公众免费提供有关冰川融化的ICESat-2数据/" rel="next" title="NASA向公众免费提供有关冰川融化的ICESat-2数据">
+                <i class="fa fa-chevron-left"></i> NASA向公众免费提供有关冰川融化的ICESat-2数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/02/重要的开放教育资源– Index of Open Educational Resources/" rel="prev" title="重要的开放教育资源– Index of Open Educational Resources">
+                重要的开放教育资源– Index of Open Educational Resources <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">394</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">632</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com/" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RedisEdge实时视频分析"><span class="nav-number">1.</span> <span class="nav-text">RedisEdge实时视频分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概观"><span class="nav-number">1.1.</span> <span class="nav-text">概观</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RedisEdge堆栈"><span class="nav-number">1.1.1.</span> <span class="nav-text">RedisEdge堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YOLO"><span class="nav-number">1.1.2.</span> <span class="nav-text">YOLO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么弄它"><span class="nav-number">1.2.</span> <span class="nav-text">怎么弄它</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在本地运行它"><span class="nav-number">1.3.</span> <span class="nav-text">如何在本地运行它</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装RedisEdge堆栈"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装RedisEdge堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（可选）普罗米修斯和格拉法纳"><span class="nav-number">1.3.2.</span> <span class="nav-text">（可选）普罗米修斯和格拉法纳</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用程序"><span class="nav-number">1.4.</span> <span class="nav-text">应用程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Docker-Compose运行它"><span class="nav-number">1.5.</span> <span class="nav-text">如何使用Docker Compose运行它</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-18-04（可能是旧版本，其他基于Debian的发行版和所有Linux）"><span class="nav-number">1.5.1.</span> <span class="nav-text">Ubuntu 18.04（可能是旧版本，其他基于Debian的发行版和所有Linux）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全dockerized"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">全dockerized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部dockerized"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">局部dockerized</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#苹果系统"><span class="nav-number">1.5.2.</span> <span class="nav-text">苹果系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全dockerized-1"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">全dockerized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部分码头化（又称本地化）"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">部分码头化（又称本地化）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绩效指标和说明"><span class="nav-number">1.6.</span> <span class="nav-text">绩效指标和说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非官方指标"><span class="nav-number">1.6.1.</span> <span class="nav-text">非官方指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI"><span class="nav-number">1.7.</span> <span class="nav-text">UI</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
