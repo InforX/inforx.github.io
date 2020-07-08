@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="自然语言处理,关键词抽取," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[NLP] 文本关键词的自动抽取介绍几种关键词抽取方法，并着重讲解 RAKE 算法以及在中文中的扩展关键字是一个或多个词的序列，在理想的情况下，关键字以简明形式表示文档的基本内容。它被广泛于各种信息检索系统中，如搜索引擎等。关键词还有一些其他有意思的应用，比如：  \1. 在文档管理中吗，列出了与主文档关键字相关的文档，并支持将关键词锚定作为文档之间的超链接，使用户能够快速访问相关材料。 \2.">
+<meta name="keywords" content="自然语言处理,关键词抽取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文本关键词的自动抽取">
+<meta property="og:url" content="https://inforscan.com/2018/12/10/[NLP] 文本关键词的自动抽取/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="[NLP] 文本关键词的自动抽取介绍几种关键词抽取方法，并着重讲解 RAKE 算法以及在中文中的扩展关键字是一个或多个词的序列，在理想的情况下，关键字以简明形式表示文档的基本内容。它被广泛于各种信息检索系统中，如搜索引擎等。关键词还有一些其他有意思的应用，比如：  \1. 在文档管理中吗，列出了与主文档关键字相关的文档，并支持将关键词锚定作为文档之间的超链接，使用户能够快速访问相关材料。 \2.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/td-idf-graphic.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/textrank.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/rake1.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/rake2.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/rake3.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/rake4.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/rake5.png">
+<meta property="og:image" content="https://alphafan.github.io/img/blogs/kw_extract/rake6.png">
+<meta property="og:updated_time" content="2018-12-10T14:01:26.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文本关键词的自动抽取">
+<meta name="twitter:description" content="[NLP] 文本关键词的自动抽取介绍几种关键词抽取方法，并着重讲解 RAKE 算法以及在中文中的扩展关键字是一个或多个词的序列，在理想的情况下，关键字以简明形式表示文档的基本内容。它被广泛于各种信息检索系统中，如搜索引擎等。关键词还有一些其他有意思的应用，比如：  \1. 在文档管理中吗，列出了与主文档关键字相关的文档，并支持将关键词锚定作为文档之间的超链接，使用户能够快速访问相关材料。 \2.">
+<meta name="twitter:image" content="https://alphafan.github.io/img/blogs/kw_extract/td-idf-graphic.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2018/12/10/[NLP] 文本关键词的自动抽取/"/>
+
+
+
+
+
+  <title>文本关键词的自动抽取 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2018/12/10/[NLP] 文本关键词的自动抽取/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">文本关键词的自动抽取</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T19:25:47+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NLP-文本关键词的自动抽取"><a href="#NLP-文本关键词的自动抽取" class="headerlink" title="[NLP] 文本关键词的自动抽取"></a>[NLP] 文本关键词的自动抽取</h1><h2 id="介绍几种关键词抽取方法，并着重讲解-RAKE-算法以及在中文中的扩展"><a href="#介绍几种关键词抽取方法，并着重讲解-RAKE-算法以及在中文中的扩展" class="headerlink" title="介绍几种关键词抽取方法，并着重讲解 RAKE 算法以及在中文中的扩展"></a>介绍几种关键词抽取方法，并着重讲解 RAKE 算法以及在中文中的扩展</h2><p>关键字是一个或多个词的序列，在理想的情况下，关键字以简明形式表示文档的基本内容。它被广泛于各种信息检索系统中，如搜索引擎等。关键词还有一些其他有意思的应用，比如：</p>
+<ul>
+<li>\1. 在文档管理中吗，列出了与主文档关键字相关的文档，并支持将关键词锚定作为文档之间的超链接，使用户能够快速访问相关材料。</li>
+<li>\2. 在医疗领域，通过关键词提取，自动从科学文献中，标注蛋白质的功能。</li>
+<li>\3. 社交网络中，自动的抽取关键词，发现热点话题。</li>
+</ul>
+<p>等等。。</p>
+<h2 id="Methods-for-Auto-Keyword-Extraction"><a href="#Methods-for-Auto-Keyword-Extraction" class="headerlink" title="Methods for Auto Keyword Extraction"></a>Methods for Auto Keyword Extraction</h2><p>早期的可自动提取关键词的算法，倾向于利用统计方法来做。例如用单词在单文本中出现的次数，和在整个语料库中的出现的分布进行对比，来进行抽取关键词。著名的 TF-IDF 算法就是基于这种思路来做的。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/td-idf-graphic.png" alt="img"></p>
+<p>这种基于词频的统计方法，往往是对 “ 单个 ” 单词进行的统计。想要统计多个词组成的词组，如 New York，San Francisco 等，则需要提供专门的词库。如果一个词组没有出现在词库中的词，是无法提取出来作为关键词的。</p>
+<p>为了避免这些缺点，出现了一些面向文本的关键词的提取方法。这种面向文档的方法将从文档中提取相同的关键字，而不考虑语料词库的当前状态。一些 NLP 的 features 也被加入了进来来帮助关键词的抽取工作，如 noun-phrase (NP) chunks, n-grams 和 POS tags 等。</p>
+<p>例如大名鼎鼎的 TextRank 算法，就运用到了 POS tags 来帮忙选择关键词的 candidates。这些被选取的 candidates 会根据一个固定大小的滑动窗口大小来生成单词共现图（Co-occurrences Graph）。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/textrank.png" alt="img"></p>
+<p>TextRank 算法会根据图中词与其他词的关联程度来对词的重要性此进行排序，那些和其他词关联得最紧密的词，就是关键词。如上图中红色部分的词，就是分析得到的关键词，通过关键词我们大概可以猜测到它是讲述文档关键词抽取的。TextRank 在如果只选取形容词和名词作为 candidates 的时候，算法会得到最好的效果。</p>
+<h2 id="Rapid-Automatic-Keyword-Extraction"><a href="#Rapid-Automatic-Keyword-Extraction" class="headerlink" title="Rapid Automatic Keyword Extraction"></a>Rapid Automatic Keyword Extraction</h2><p>正如名字所暗示的，Rapid Automatic Keyword Extraction （RAKE） 算法的一大特点就是快。不同于面向文本的 TextRank 需要迭代收敛，它的计算量很小。</p>
+<p>RAKE 算法的基本思路是基于以下的发现：关键字通常包含多个单词，但很少包含标准标点符号或停用词，例如 on 和 of 等。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/rake1.png" alt="img"></p>
+<p>例如上图中的短文，在我们人手工选择出来的关键词中，只有 set of natural numbers 是包含有 stopword 的。</p>
+<p>那么 RAKE 算法的过程也是非常的简单和清楚的。总体来说，分为了四步。</p>
+<ul>
+<li><strong>Step 1. 候选关键词的抽取</strong></li>
+</ul>
+<p>首先，文档文本被 stopwords 和标点符号分割成单词序列。这些单词序列被一起被认为是候选关键字。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/rake2.png" alt="img"></p>
+<p>例如，这就是从上图的文章片段中，我们抽取的候选关键字。</p>
+<ul>
+<li><strong>Step 2. 为候选关键词打分</strong></li>
+</ul>
+<p>对于每个文本中的词，统计它出现的频数 freq( w ) ，和与其他词的的共现次数（包括自己）deg( w )，我们可以通过一个矩阵的形式来看，需要求的是什么。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/rake3.png" alt="img"></p>
+<p>其中对角线上的值，表示的是单词出现的次数，每一条 column 或者 row 的值的和，就是它的 degree。计算结果如下：</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/rake4.png" alt="img"></p>
+<p>简单来说，</p>
+<ul>
+<li>deg( w ) 越高，说明这个词 w 经常与其他词共现在长的候选词中。</li>
+<li>freq ( w ) 无论有多少个词出现在 co-occur graph 中，它只选择出现频率最高的。</li>
+<li>deg( w ) / freq ( w ) 会倾向于选择主要出现在更长的候选关键字中的词。</li>
+</ul>
+<p>在 RAKE 中，每个 keyword candidate 的分数，是每一个 candidate 中的 word 的 deg( w ) / freq ( w ) 的和。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/rake5.png" alt="img"></p>
+<p>上图即是例子中，每个 candidate 和它所对应的分数。</p>
+<ul>
+<li><strong>Step 3. 找到某些可能漏掉的候选关键词</strong></li>
+</ul>
+<p>由于 RAKE 通过停用词分割候选关键字，因此提取的关键字不包含内部停用词。虽然 RAKE 由于能够挑选出高度特定的术语而引起了强烈的兴趣，但也有人对识别包含内部停用词（如 axis of evil ）的关键字表示兴趣。 要找到这种情况下的关键词，需要查找在相同文档中以 “ 相同顺序 ” 至少 “ 两次 ” 相邻的关键字对。然后创建一个新的候选关键字作为这些关键字及其内部停用词的组合。新关键字的分数是其成员关键字分数的总和。</p>
+<p>应该注意的是，这些链接的关键字相对较少被提取，这增加了它们的重要性。 由于相邻关键字必须在文档中以相同的顺序出现两次，因此在短文摘以上的文本中它们的提取更为常见。</p>
+<ul>
+<li><strong>Step 4. 从候选词中抽取关键词。</strong></li>
+</ul>
+<p>在计算完候选词的分数之后，对他们进行排序，选择其中前 “ 三分之一 ” 的词作为最终的关键词的结果。</p>
+<p><img src="https://alphafan.github.io/img/blogs/kw_extract/rake6.png" alt="img"></p>
+<p>对比一下 RAKE 算法选择出来的关键词，和人手工选择出来的关键词，可以看到它的 FP 是 67%， Recall 是 86%， F-measure 是75%。</p>
+<h2 id="Practical-RAKE-For-Chinese"><a href="#Practical-RAKE-For-Chinese" class="headerlink" title="Practical RAKE For Chinese"></a>Practical RAKE For Chinese</h2><p>在工作中，我有尝试着用 RAKE 算法进行中文的关键词的自动抽取。发现如果生搬硬套英文的这一种方法的话，效果不会很好。</p>
+<p>原因是，RAKE 的选取关键词的方法是用停顿词和标点去切开句子，在英文中 stopwords 出现的概率非常大，如 the， a， of， on 等，它很少会出现一个 keyword candidate 很长的情况。而由于中文句法的原因，如果直接用这种方法去切的话，经常会有一些候选词会包括很多的词，从而导致最后的得分很高（因为 RAKE 的计算是对所有词的得分进行加法）。</p>
+<p>为了解决这个问题，首先我尝试的是对计算的分数进行一个 normalize，即是除以候选词中单词出现的次数。但得到的效果反而更糟，其实想想也可以明白，RAKE 这种面向文本的关键词抓取方法，它的初衷就是认为词组作为 keyword 的可能性更大，进行归一化后，就抹去了算法的这一特色，效果变差也是自然。</p>
+<p>那么这种太长的 candidate 该怎么处理呢？ 我自己的做法，当然，这个不一定是最好的方法了。是对长 candidate 再进行一次切割，再切割的方法就不是根据 stopword 和标点了，而是看词的 POS tags。我人为的认为某些特定的词组才会成为 keyword candidate，如名词性短语（一个或多个形容词 + 名词），动宾结构（名词 + 动词）等。这样再选取一次的话，候选词的长度就短了许多，然后再走一遍 RAKE 算法的时候，效果也提升不少。</p>
+<p>RAKE 算法非常的依赖 stopwords 的选定，一个能很好的将无意义的词剔除的 stopwords list 对算法最后结果的性能有很大的提升。我自己的实验是，在不加入明显有意义的词的情况下，stopwords 越多越好。</p>
+<p>和 TextRank 类似，RAKE 对于单文本处理的效果会更好，当然，这也很正常，因为多文本会涉及到多主题，主题越多，关键词就越不明显，因为混在在一起做排序的话，最后往往就看不出来有什么关键词的意义了。</p>
+<h2 id="At-The-End"><a href="#At-The-End" class="headerlink" title="At The End"></a>At The End</h2><p>我个人是比较喜欢 RAKE 这个算法的，因为它定义个了一种很容易扩展的框架，大致说来就是三步走：</p>
+<ul>
+<li>\1. 找 candidates</li>
+<li>\2. 计算每个 candidate 的分数</li>
+<li>\3. 排序，选取最高得分的作为关键词</li>
+</ul>
+<p>那么，实际上有很多东西是我们可操控的，比如 candidate 的选取，甚至可以采用 NER 选出一定的词，也放入关键词的候选中，也可以用户先 pre define 一些关键词，最后也加入到 keyword 的选取中来。计算分数的方法也很灵活，总之，算法的可提升空间和可调优空间都很大。</p>
+<p>转载自：<a href="https://alphafan.github.io/posts/kw_extract.html" target="_blank" rel="noopener">https://alphafan.github.io/posts/kw_extract.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2018/12/10/[NLP] 文本关键词的自动抽取/" title="文本关键词的自动抽取">文本关键词的自动抽取</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2018/12/10/[NLP] 文本关键词的自动抽取/" title="文本关键词的自动抽取">https://inforscan.com/2018/12/10/[NLP] 文本关键词的自动抽取/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2018年12月10日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自然语言处理/" rel="tag"><i class="fa fa-tag"></i> 自然语言处理</a>
+          
+            <a href="/tags/关键词抽取/" rel="tag"><i class="fa fa-tag"></i> 关键词抽取</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/10/信息熵在自然语言处理中的运用/" rel="next" title="信息熵在自然语言处理中的运用">
+                <i class="fa fa-chevron-left"></i> 信息熵在自然语言处理中的运用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/25/你应该知道的这些数据共享资源工具/" rel="prev" title="你应该知道的这些数据共享资源工具">
+                你应该知道的这些数据共享资源工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">424</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">659</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://byteclicks.com" title="前沿科技" target="_blank" rel="external nofollow">前沿科技</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://sharetext.co/" title="Sharetext" target="_blank" rel="external nofollow">Sharetext</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://toffeeshare.com/" title="toffeeshare" target="_blank" rel="external nofollow">toffeeshare</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NLP-文本关键词的自动抽取"><span class="nav-number">1.</span> <span class="nav-text">[NLP] 文本关键词的自动抽取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍几种关键词抽取方法，并着重讲解-RAKE-算法以及在中文中的扩展"><span class="nav-number">1.1.</span> <span class="nav-text">介绍几种关键词抽取方法，并着重讲解 RAKE 算法以及在中文中的扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods-for-Auto-Keyword-Extraction"><span class="nav-number">1.2.</span> <span class="nav-text">Methods for Auto Keyword Extraction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rapid-Automatic-Keyword-Extraction"><span class="nav-number">1.3.</span> <span class="nav-text">Rapid Automatic Keyword Extraction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-RAKE-For-Chinese"><span class="nav-number">1.4.</span> <span class="nav-text">Practical RAKE For Chinese</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#At-The-End"><span class="nav-number">1.5.</span> <span class="nav-text">At The End</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

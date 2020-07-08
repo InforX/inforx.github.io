@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据集,NER,实体识别," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="实体识别的数据集此存储库包含来自多个域的数据集，这些域使用各种实体类型进行注释，可用于实体识别和命名实体识别（NER）任务。 数据集下表显示了英语实体识别的数据集列表。数据目录包含有关在何处获取由于许可限制而无法共享的数据集的信息，以及将它们（如有必要）转换为CoNLL 2003格式的代码。下面还列出了其他语言的NER语料库链接。    数据集 域 执照 参考 可用性等     CONLL 200">
+<meta name="keywords" content="数据集,NER,实体识别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命名实体识别NER和实体识别任务的语料库集合">
+<meta property="og:url" content="https://inforscan.com/2019/08/11/命名实体识别NER和实体识别任务的语料库集合/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="实体识别的数据集此存储库包含来自多个域的数据集，这些域使用各种实体类型进行注释，可用于实体识别和命名实体识别（NER）任务。 数据集下表显示了英语实体识别的数据集列表。数据目录包含有关在何处获取由于许可限制而无法共享的数据集的信息，以及将它们（如有必要）转换为CoNLL 2003格式的代码。下面还列出了其他语言的NER语料库链接。    数据集 域 执照 参考 可用性等     CONLL 200">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-12T14:04:44.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="命名实体识别NER和实体识别任务的语料库集合">
+<meta name="twitter:description" content="实体识别的数据集此存储库包含来自多个域的数据集，这些域使用各种实体类型进行注释，可用于实体识别和命名实体识别（NER）任务。 数据集下表显示了英语实体识别的数据集列表。数据目录包含有关在何处获取由于许可限制而无法共享的数据集的信息，以及将它们（如有必要）转换为CoNLL 2003格式的代码。下面还列出了其他语言的NER语料库链接。    数据集 域 执照 参考 可用性等     CONLL 200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2019/08/11/命名实体识别NER和实体识别任务的语料库集合/"/>
+
+
+
+
+
+  <title>命名实体识别NER和实体识别任务的语料库集合 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2019/08/11/命名实体识别NER和实体识别任务的语料库集合/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">命名实体识别NER和实体识别任务的语料库集合</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T12:35:47+08:00">
+                2019-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据资源/" itemprop="url" rel="index">
+                    <span itemprop="name">数据资源</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="实体识别的数据集"><a href="#实体识别的数据集" class="headerlink" title="实体识别的数据集"></a>实体识别的数据集</h1><p>此存储库包含来自多个域的<a href="https://github.com/juand-r/entity-recognition-datasets" target="_blank" rel="noopener">数据集</a>，这些域使用各种实体类型进行注释，可用于实体识别和命名实体识别（NER）任务。</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>下表显示了英语实体识别的数据集列表。数据目录包含有关在何处获取由于许可限制而无法共享的数据集的信息，以及将它们（如有必要）转换为CoNLL 2003格式的代码。下面还列出了其他语言的NER语料库链接。</p>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>域</th>
+<th>执照</th>
+<th>参考</th>
+<th>可用性等</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONLL 2003</td>
+<td>新闻</td>
+<td>DUA</td>
+<td>桑和梅勒德，2003年</td>
+<td><a href="https://github.com/patverga/torch-ner-nlp-from-scratch/tree/master/data/conll2003/" target="_blank" rel="noopener">易</a> <a href="https://github.com/synalp/NER/tree/master/corpus/CoNLL-2003" target="_blank" rel="noopener">以</a> <a href="https://github.com/glample/tagger/tree/master/dataset" target="_blank" rel="noopener">找到</a></td>
+</tr>
+<tr>
+<td>NIST-能源与环境研究所</td>
+<td>新闻</td>
+<td>没有</td>
+<td>NIST 1999 IE-ER</td>
+<td><a href="https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/ieer.zip" target="_blank" rel="noopener">NLTK数据</a></td>
+</tr>
+<tr>
+<td>MUC-6</td>
+<td>新闻</td>
+<td>LDC</td>
+<td>Grishman和Sundheim，1996年</td>
+<td><a href="https://catalog.ldc.upenn.edu/LDC2003T13" target="_blank" rel="noopener">LDC 2003T13</a></td>
+</tr>
+<tr>
+<td>OntoNotes 5</td>
+<td>各个</td>
+<td>LDC</td>
+<td>Weischedel等，2013</td>
+<td><a href="https://catalog.ldc.upenn.edu/LDC2013T19" target="_blank" rel="noopener">LDC 2013T19</a></td>
+</tr>
+<tr>
+<td>BBN</td>
+<td>各个</td>
+<td>LDC</td>
+<td>Weischedel和Brunstein，2005年</td>
+<td><a href="https://catalog.ldc.upenn.edu/LDC2005T33" target="_blank" rel="noopener">LDC 2005T33</a></td>
+</tr>
+<tr>
+<td>GMB-1.0.0</td>
+<td>各个</td>
+<td>没有</td>
+<td>Bos等人，2017年</td>
+<td><a href="http://gmb.let.rug.nl/releases/gmb-1.0.0.zip" target="_blank" rel="noopener">http://gmb.let.rug.nl/data.php</a></td>
+</tr>
+<tr>
+<td>GUM-3.1.0</td>
+<td>维基</td>
+<td>几个（<a href="https://github.com/juand-r/entity-recognition-datasets#id1" target="_blank" rel="noopener">*</a> 2）</td>
+<td>泽尔德斯，2016年</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>wikigold</td>
+<td>维基百科</td>
+<td>CC-BY 4.0</td>
+<td>Balasuriya等，2009</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>里特尔</td>
+<td>推特</td>
+<td>没有</td>
+<td>Ritter等，2011</td>
+<td><a href="https://github.com/aritter/twitter_nlp/blob/master/data/annotated/ner.txt" target="_blank" rel="noopener">没有拆分</a>，<a href="http://kimi.ml.cmu.edu/transfer/data.tar.gz" target="_blank" rel="noopener">火车/测试/开发拆分</a></td>
+</tr>
+<tr>
+<td>BTC</td>
+<td>推特</td>
+<td>CC-BY 4.0</td>
+<td>Derczynski等，2016</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>WNUT17</td>
+<td>社交媒体</td>
+<td>CC-BY 4.0</td>
+<td>Derczynski等，2017</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>i2b2-2006</td>
+<td>医</td>
+<td>DUA</td>
+<td>Uzuner等，2007</td>
+<td><a href="https://www.i2b2.org/NLP/DataSets/Main.php" target="_blank" rel="noopener">http://www.i2b2.org</a></td>
+</tr>
+<tr>
+<td>i2b2-2014</td>
+<td>医</td>
+<td>DUA</td>
+<td>Stubbs等，2015</td>
+<td><a href="https://www.i2b2.org/NLP/DataSets/Main.php" target="_blank" rel="noopener">http://www.i2b2.org</a></td>
+</tr>
+<tr>
+<td>的Càdec</td>
+<td>医</td>
+<td>CSIRO</td>
+<td>Karimi等，2015</td>
+<td><a href="http://data.csiro.au/" target="_blank" rel="noopener">http://data.csiro.au/</a></td>
+</tr>
+<tr>
+<td>ANEM</td>
+<td>解剖</td>
+<td>CC-BY-SA 3.0</td>
+<td>Ohta et al。，2012</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>MITRestaurant</td>
+<td>查询</td>
+<td>没有</td>
+<td>Liu等，2013a</td>
+<td><a href="https://groups.csail.mit.edu/sls/downloads/restaurant/" target="_blank" rel="noopener">http://groups.csail.mit.edu/sls/</a></td>
+</tr>
+<tr>
+<td>MITMovie</td>
+<td>查询</td>
+<td>没有</td>
+<td>Liu等，2013b</td>
+<td><a href="https://groups.csail.mit.edu/sls/downloads/movie/" target="_blank" rel="noopener">http://groups.csail.mit.edu/sls/</a></td>
+</tr>
+<tr>
+<td>MalwareTextDB</td>
+<td>恶意软件</td>
+<td>没有</td>
+<td>Lim等人，2017年</td>
+<td><a href="http://www.statnlp.org/research/re/MalwareTextDB-1.0.zip" target="_blank" rel="noopener">http://www.statnlp.org/</a></td>
+</tr>
+<tr>
+<td>re3d</td>
+<td>防御</td>
+<td>几个（<a href="https://github.com/juand-r/entity-recognition-datasets#id5" target="_blank" rel="noopener">*</a> 1）</td>
+<td>DSTL，2017年</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>SEC-申请</td>
+<td>金融</td>
+<td>CC-BY 3.0</td>
+<td>Alvarado等，2015</td>
+<td>✔包括在这里</td>
+</tr>
+<tr>
+<td>部件</td>
+<td>机器人</td>
+<td>X</td>
+<td>Costa等，2017</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>许可证说明：</p>
+<p>（1）re3d（“关系和实体提取评估数据集”）包含几个具有不同许可证的数据集。这些是：</p>
+<blockquote>
+<ul>
+<li>CC-BY-SA 3.0（维基百科数据集）</li>
+<li>CC BY-NC 3.0（BBC_Online数据集）</li>
+<li>CC BY 3.0 AU（Australian_Department_of_Foreign_Affairs数据集）</li>
+<li>公共领域（US_State_Department数据集，CENTCOM数据集）</li>
+<li>英国开放政府许可证v3.0（UK_Government数据集）</li>
+<li>Delegation_of_the_European_Union_to_Syria：请参阅 <a href="https://eeas.europa.eu/delegations/syria/8157/legal-notice_en" target="_blank" rel="noopener">https://eeas.europa.eu/delegations/syria/8157/legal-notice_en</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>GUM 3.1.0包含三个数据集，包括CC-BY 3.0，CC-BY-SA 3.0和CC-BY-NC-SA 3.0许可证。注释根据CC-BY 4.0获得许可。</li>
+</ol>
+<p>可以在相应的子目录中找到每个数据集的更详细的许可证信息。</p>
+<p>后来……</p>
+<ul>
+<li>火星目标百科全书 - LPSC摘要标记数据集：<a href="https://zenodo.org/record/1048419#.W5a2CBwnZhE" target="_blank" rel="noopener">https</a>：//zenodo.org/record/1048419#.W5a2CBwnZhE</li>
+<li>百思买查询：<a href="https://www.kaggle.com/dataturks/best-buy-ecommerce-ner-dataset/home" target="_blank" rel="noopener">https</a>：<a href="https://www.kaggle.com/dataturks/best-buy-ecommerce-ner-dataset/home" target="_blank" rel="noopener">//www.kaggle.com/dataturks/best-buy-ecommerce-ner-dataset/home</a></li>
+<li>恢复NER的实体：<a href="https://www.kaggle.com/dataturks/resume-entities-for-ner/home" target="_blank" rel="noopener">https</a>：<a href="https://www.kaggle.com/dataturks/resume-entities-for-ner/home" target="_blank" rel="noopener">//www.kaggle.com/dataturks/resume-entities-for-ner/home</a></li>
+</ul>
+<h2 id="NER用其他语言"><a href="#NER用其他语言" class="headerlink" title="NER用其他语言"></a>NER用其他语言</h2><h3 id="Lexical-Named-Entity资源"><a href="#Lexical-Named-Entity资源" class="headerlink" title="Lexical Named Entity资源"></a>Lexical Named Entity资源</h3><ul>
+<li>HeiNER：<a href="http://heiner.cl.uni-heidelberg.de/index.shtml" target="_blank" rel="noopener">http</a>：//heiner.cl.uni-heidelberg.de/index.shtml</li>
+<li>NECKAr：<a href="https://event.ifi.uni-heidelberg.de/?page_id=532#Wikidata_NE_dataset" target="_blank" rel="noopener">https</a>：//event.ifi.uni-heidelberg.de/ <a href="https://event.ifi.uni-heidelberg.de/?page_id=532#Wikidata_NE_dataset" target="_blank" rel="noopener">？</a> page_id <a href="https://event.ifi.uni-heidelberg.de/?page_id=532#Wikidata_NE_dataset" target="_blank" rel="noopener">=</a> 530 #Wikidata_NE_dataset</li>
+</ul>
+<h3 id="码转换"><a href="#码转换" class="headerlink" title="码转换"></a>码转换</h3><ul>
+<li>英语 - 西班牙语推文（CALCS 2018）：<a href="https://code-switching.github.io/2018/" target="_blank" rel="noopener">https</a>：//code-switching.github.io/2018/ ; <a href="https://code-switching.github.io/2018/files/spa-eng/Release.zip" target="_blank" rel="noopener">https://code-switching.github.io/2018/files/spa-eng/Release.zip</a> ; <a href="http://www.aclweb.org/anthology/W18-3219" target="_blank" rel="noopener">http://www.aclweb.org/anthology/W18-3219</a></li>
+<li>阿拉伯文 - 埃及文推文（CALCS 2018）：<a href="https://code-switching.github.io/2018/" target="_blank" rel="noopener">https</a>：//code-switching.github.io/2018/ ; <a href="https://code-switching.github.io/2018/files/msa-egy/ArabicTweetsTokenAssigner.zip" target="_blank" rel="noopener">https://code-switching.github.io/2018/files/msa-egy/ArabicTweetsTokenAssigner.zip</a> ; <a href="http://www.aclweb.org/anthology/W18-3219" target="_blank" rel="noopener">http://www.aclweb.org/anthology/W18-3219</a></li>
+<li>印地语 - 英语社交媒体文本：<a href="https://github.com/SilentFlame/Named-Entity-Recognition" target="_blank" rel="noopener">https</a>：<a href="https://github.com/SilentFlame/Named-Entity-Recognition" target="_blank" rel="noopener">//github.com/SilentFlame/Named-Entity-Recognition</a> ; <a href="http://aclweb.org/anthology/W18-2405" target="_blank" rel="noopener">http://aclweb.org/anthology/W18-2405</a></li>
+<li>EMNLP 2014共享任务 - 代码交换推文（尼泊尔语 - 英语，西班牙语 - 英语，普通话 - 英语，阿拉伯语 - 阿拉伯语方言）：<a href="http://emnlp2014.org/workshops/CodeSwitch/call.html" target="_blank" rel="noopener">http</a>：<a href="http://emnlp2014.org/workshops/CodeSwitch/call.html" target="_blank" rel="noopener">//emnlp2014.org/workshops/CodeSwitch/call.html</a></li>
+</ul>
+<h3 id="德语"><a href="#德语" class="headerlink" title="德语"></a>德语</h3><ul>
+<li>CoNLL 2003（英语，德语）：<a href="https://www.clips.uantwerpen.be/conll2003/ner/" target="_blank" rel="noopener">https</a>：//<a href="http://www.clips.uantwerpen.be/conll2003/ner/" target="_blank" rel="noopener">www.clips.uantwerpen.be/conll2003/ner/</a></li>
+<li>GermEval 2014：<a href="https://sites.google.com/site/germeval2014ner/data" target="_blank" rel="noopener">https</a>：<a href="https://sites.google.com/site/germeval2014ner/data" target="_blank" rel="noopener">//sites.google.com/site/germeval2014ner/data</a></li>
+<li>Tübingen书面德语树库（TüBa-D / Z）：<a href="http://www.sfs.uni-tuebingen.de/en/ascl/resources/corpora/tueba-dz.html" target="_blank" rel="noopener">http</a>：//<a href="http://www.sfs.uni-tuebingen.de/en/ascl/resources/corpora/tueba-dz.html" target="_blank" rel="noopener">www.sfs.uni-tuebingen.de/en/ascl/resources/corpora/tueba-dz.html</a></li>
+<li>Europeana报纸（荷兰语，法语，德语）：<a href="https://github.com/EuropeanaNewspapers/ner-corpora" target="_blank" rel="noopener">https</a>：<a href="https://github.com/EuropeanaNewspapers/ner-corpora" target="_blank" rel="noopener">//github.com/EuropeanaNewspapers/ner-corpora</a> ; <a href="http://lab.kb.nl/dataset/europeana-newspapers-ner#access" target="_blank" rel="noopener">http://lab.kb.nl/dataset/europeana-newspapers-ner#access</a></li>
+<li>德国EUROPARL成绩单（子集）：<a href="https://nlpado.de/~sebastian/software/ner_german.shtml" target="_blank" rel="noopener">https</a>：//nlpado.de/~sebastian/software/ner_german.shtml</li>
+<li>德国，政治（NEMGP）的命名实体模型：<a href="https://www.thomas-zastrow.de/nlp/" target="_blank" rel="noopener">https</a>：//<a href="http://www.thomas-zastrow.de/nlp/" target="_blank" rel="noopener">www.thomas-zastrow.de/nlp/</a></li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>DFKI SmartData Corpus（地理实体）：<a href="https://dfki-lt-re-group.bitbucket.io/smartdata-corpus/" target="_blank" rel="noopener">https</a>：<a href="https://dfki-lt-re-group.bitbucket.io/smartdata-corpus/" target="_blank" rel="noopener">//dfki-lt-re-group.bitbucket.io/smartdata-corpus/</a>（德国语料库，用于细粒度命名实体识别和交通和行业事件的关系提取.Martin Schiersch，Veselina Mironova，Maximilian Schmitt，Philippe Thomas，Aleksandra Gabryszak，Leonhard Hennig。“LREC会议记录”，2018年）</li>
+<li>DBpedia抽象语料库（英语，德语，荷兰语，法语，意大利语，日语）：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">http</a>：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">//downloads.dbpedia.org/2015-04/ext/nlp/abstracts/</a></li>
+<li>DAWT数据集 - 密集注释的维基百科跨多种语言的文本（英语，西班牙语，法语，意大利语，德语，阿拉伯语）：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">https</a>：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">//github.com/klout/opendata/tree/master/wiki_annotation</a></li>
+</ul>
+<h3 id="荷兰人"><a href="#荷兰人" class="headerlink" title="荷兰人"></a>荷兰人</h3><ul>
+<li>CoNLL 2002（西班牙语，荷兰语）：<a href="https://www.clips.uantwerpen.be/conll2002/ner/" target="_blank" rel="noopener">https</a>：//<a href="http://www.clips.uantwerpen.be/conll2002/ner/" target="_blank" rel="noopener">www.clips.uantwerpen.be/conll2002/ner/</a></li>
+<li>Europeana报纸（荷兰语，法语，德语）：<a href="https://github.com/EuropeanaNewspapers/ner-corpora" target="_blank" rel="noopener">https</a>：<a href="https://github.com/EuropeanaNewspapers/ner-corpora" target="_blank" rel="noopener">//github.com/EuropeanaNewspapers/ner-corpora</a> ; <a href="http://lab.kb.nl/dataset/europeana-newspapers-ner#access" target="_blank" rel="noopener">http://lab.kb.nl/dataset/europeana-newspapers-ner#access</a></li>
+<li>MEANTIME Corpus（平行语料库：英语，西班牙语，意大利语，荷兰语）：<a href="http://www.newsreader-project.eu/results/data/wikinews/" target="_blank" rel="noopener">http</a>：<a href="http://www.newsreader-project.eu/results/data/wikinews/" target="_blank" rel="noopener">//www.newsreader-project.eu/results/data/wikinews/</a></li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>DBpedia抽象语料库（英语，德语，荷兰语，法语，意大利语，日语）：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">http</a>：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">//downloads.dbpedia.org/2015-04/ext/nlp/abstracts/</a></li>
+<li>荷兰议会文件2015-2016，来自1848.nl（Jonkers，荷兰议会文件使用青蛙的名称实体认可，论文，阿姆斯特丹大学，2016）：<a href="https://github.com/Poezedoez/NER/blob/master/Code/data/lobby/golden_standard" target="_blank" rel="noopener">https</a>：<a href="https://github.com/Poezedoez/NER/blob/master/Code/data/lobby/golden_standard" target="_blank" rel="noopener">//github.com/Poezedoez/NER/blob/master/Code /数据/大堂/ golden_standard</a></li>
+<li>SONAR 1 - Desmet和Hoste，细粒度荷兰语命名实体识别，2014年（班级等级）</li>
+<li>Corpus-SONAR书和Corpus Gutenberg荷兰语：<a href="http://blog.namescape.nl/?page_id=85" target="_blank" rel="noopener">http</a>：<a href="http://blog.namescape.nl/?page_id=85" target="_blank" rel="noopener">//blog.namescape.nl/</a>？page_id = <a href="http://blog.namescape.nl/?page_id=85" target="_blank" rel="noopener">85</a> ; <a href="http://portal.clarin.nl/node/1940" target="_blank" rel="noopener">http://portal.clarin.nl/node/1940</a></li>
+</ul>
+<h3 id="南非荷兰语"><a href="#南非荷兰语" class="headerlink" title="南非荷兰语"></a>南非荷兰语</h3><ul>
+<li>NCHLT南非荷兰语命名为实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/299" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/299</li>
+</ul>
+<h3 id="西班牙语"><a href="#西班牙语" class="headerlink" title="西班牙语"></a>西班牙语</h3><ul>
+<li>CoNLL 2002（西班牙语，荷兰语）：<a href="https://www.clips.uantwerpen.be/conll2002/ner/" target="_blank" rel="noopener">https</a>：//<a href="http://www.clips.uantwerpen.be/conll2002/ner/" target="_blank" rel="noopener">www.clips.uantwerpen.be/conll2002/ner/</a></li>
+<li>AnCora（西班牙语，加泰罗尼亚语）：<a href="http://clic.ub.edu/corpus/en" target="_blank" rel="noopener">http</a>：//clic.ub.edu/corpus/en</li>
+<li>DEFT Spanish Treebank（LDC2018T01）：<a href="https://catalog.ldc.upenn.edu/LDC2018T01" target="_blank" rel="noopener">https</a>：//catalog.ldc.upenn.edu/LDC2018T01</li>
+<li>PANACEA（LAB）：<a href="http://panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-lab-es" target="_blank" rel="noopener">http</a>：//panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-lab-es</li>
+<li>PANACEA（ENV）：<a href="http://panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-env-es" target="_blank" rel="noopener">http</a>：//panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-env-es</li>
+<li>MEANTIME Corpus（平行语料库：英语，西班牙语，意大利语，荷兰语）：<a href="http://www.newsreader-project.eu/results/data/wikinews/" target="_blank" rel="noopener">http</a>：<a href="http://www.newsreader-project.eu/results/data/wikinews/" target="_blank" rel="noopener">//www.newsreader-project.eu/results/data/wikinews/</a></li>
+<li>ACE 2007（西班牙语和阿拉伯语）：<a href="https://catalog.ldc.upenn.edu/LDC2014T18" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2014T18" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2014T18</a></li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li><a href="http://www.grupolys.org/~marcos/pub/lrec16.tar.bz2" target="_blank" rel="noopener">http://www.grupolys.org/~marcos/pub/lrec16.tar.bz2</a>（用于“将Lexico-semantic heuristics纳入Coreference Resolution Sieves for Documentd Entity Recognition in Document-level”）</li>
+<li>具有人物实体共同注释的多语言语料库（西班牙语，加利西亚语，葡萄牙语）：<a href="http://gramatica.usc.es/~marcos/lrec.tar.bz2" target="_blank" rel="noopener">http</a>：<a href="http://gramatica.usc.es/~marcos/lrec.tar.bz2" target="_blank" rel="noopener">//gramatica.usc.es/~marcos/lrec.tar.bz2</a></li>
+<li>DrugSemantics Gold Standard（Moreno et al。，DrugSemantics：A corpus for Named Entity Recognition in Spanish Summaries of Product Characteristics，2017）：<a href="https://data.mendeley.com/datasets/fwc7jrc5jr/1" target="_blank" rel="noopener">https</a>：//data.mendeley.com/datasets/fwc7jrc5jr/1</li>
+<li>DBpedia抽象语料库（英语，德语，荷兰语，法语，意大利语，日语）：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">http</a>：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">//downloads.dbpedia.org/2015-04/ext/nlp/abstracts/</a></li>
+<li>DAWT数据集 - 密集注释的维基百科跨多种语言的文本（英语，西班牙语，法语，意大利语，德语，阿拉伯语）：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">https</a>：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">//github.com/klout/opendata/tree/master/wiki_annotation</a></li>
+</ul>
+<h3 id="加泰罗尼亚"><a href="#加泰罗尼亚" class="headerlink" title="加泰罗尼亚"></a>加泰罗尼亚</h3><ul>
+<li>AnCora（西班牙语，加泰罗尼亚语）：<a href="http://clic.ub.edu/corpus/en" target="_blank" rel="noopener">http</a>：//clic.ub.edu/corpus/en</li>
+</ul>
+<h3 id="加利西亚"><a href="#加利西亚" class="headerlink" title="加利西亚"></a>加利西亚</h3><ul>
+<li>加利西亚语NER语料库：<a href="https://gramatica.usc.es/~marcos/resources/corpus_gal_nec.txt.gz" target="_blank" rel="noopener">https</a>：<a href="https://gramatica.usc.es/~marcos/resources/corpus_gal_nec.txt.gz" target="_blank" rel="noopener">//gramatica.usc.es/~marcos/resources/corpus_gal_nec.txt.gz</a></li>
+<li>具有人物实体共同注释的多语言语料库（西班牙语，加利西亚语，葡萄牙语）：<a href="http://gramatica.usc.es/~marcos/lrec.tar.bz2" target="_blank" rel="noopener">http</a>：<a href="http://gramatica.usc.es/~marcos/lrec.tar.bz2" target="_blank" rel="noopener">//gramatica.usc.es/~marcos/lrec.tar.bz2</a></li>
+</ul>
+<h3 id="巴斯克"><a href="#巴斯克" class="headerlink" title="巴斯克"></a>巴斯克</h3><ul>
+<li>巴斯克命名实体语料库（EIEC）：<a href="http://ixa.eus/node/4486?language=en" target="_blank" rel="noopener">http</a>：//ixa.eus/node/4486？languageGuen</li>
+<li>Basque Disambiguated Named Entities Corpus（EDIEC）：<a href="http://ixa.si.ehu.es/node/4485?language=en" target="_blank" rel="noopener">http</a>：//ixa.si.ehu.es/node/4485？languageGuen</li>
+<li>Egunkaria 2000语料库（383条新闻专线文本），在<a href="http://qtleap.eu/wp-content/uploads/2014/04/QTLEAP-2013-D5.1.pdf" target="_blank" rel="noopener">http://qtleap.eu/wp-content/uploads/2014/04/QTLEAP-2013-D5.1.pdf中</a>提到</li>
+</ul>
+<h3 id="葡萄牙语"><a href="#葡萄牙语" class="headerlink" title="葡萄牙语"></a>葡萄牙语</h3><ul>
+<li>HAREM：<a href="https://www.linguateca.pt/aval_conjunta/HAREM/harem_ing.html" target="_blank" rel="noopener">https</a>：//<a href="http://www.linguateca.pt/aval_conjunta/HAREM/harem_ing.html" target="_blank" rel="noopener">www.linguateca.pt/aval_conjunta/HAREM/harem_ing.html</a></li>
+<li>CINTIL语料库：<a href="http://cintil.ul.pt/cintilfeatures.html#corpus" target="_blank" rel="noopener">http</a>：//cintil.ul.pt/cintilfeatures.html#corpus</li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>具有人物实体共同注释的多语言语料库（西班牙语，加利西亚语，葡萄牙语）：<a href="http://gramatica.usc.es/~marcos/lrec.tar.bz2" target="_blank" rel="noopener">http</a>：<a href="http://gramatica.usc.es/~marcos/lrec.tar.bz2" target="_blank" rel="noopener">//gramatica.usc.es/~marcos/lrec.tar.bz2</a></li>
+<li>Bosque 8.0 EAGLES格式：<a href="https://gramatica.usc.es/~marcos/resources/corpora_FLpt.tgz" target="_blank" rel="noopener">https</a>：//gramatica.usc.es/~marcos/resources/corpora_FLpt.tgz</li>
+<li>LeNER-Br（巴西法律文件）：<a href="https://cic.unb.br/~teodecampos/LeNER-Br/" target="_blank" rel="noopener">https</a>：//cic.unb.br/~teodecampos/LeNER-Br/</li>
+<li>Paramopama：巴西 - 葡萄牙语命名实体识别语料库</li>
+</ul>
+<h3 id="法国"><a href="#法国" class="headerlink" title="法国"></a>法国</h3><ul>
+<li>ESTER：<a href="http://catalogue.elra.info/en-us/repository/browse/ELRA-S0241/" target="_blank" rel="noopener">http</a>：<a href="http://catalogue.elra.info/en-us/repository/browse/ELRA-S0241/" target="_blank" rel="noopener">//catalogue.elra.info/en-us/repository/browse/ELRA-S0241/</a></li>
+<li>ESTER 2：<a href="http://catalogue.elra.info/en-us/repository/browse/ELRA-S0338/" target="_blank" rel="noopener">http</a>：<a href="http://catalogue.elra.info/en-us/repository/browse/ELRA-S0338/" target="_blank" rel="noopener">//catalogue.elra.info/en-us/repository/browse/ELRA-S0338/</a></li>
+<li>ETAPE：<a href="http://catalogue.elra.info/en-us/repository/browse/ELRA-E0046/" target="_blank" rel="noopener">http</a>：//catalogue.elra.info/en-us/repository/browse/ELRA-E0046/</li>
+<li>Europeana报纸（荷兰语，法语，德语）：<a href="https://github.com/EuropeanaNewspapers/ner-corpora" target="_blank" rel="noopener">https</a>：<a href="https://github.com/EuropeanaNewspapers/ner-corpora" target="_blank" rel="noopener">//github.com/EuropeanaNewspapers/ner-corpora</a> ; <a href="http://lab.kb.nl/dataset/europeana-newspapers-ner#access" target="_blank" rel="noopener">http://lab.kb.nl/dataset/europeana-newspapers-ner#access</a></li>
+<li>QUAERO法国医学语料库：<a href="https://quaerofrenchmed.limsi.fr/" target="_blank" rel="noopener">https</a>：//quaerofrenchmed.limsi.fr/</li>
+<li>Quaero Broadcast News扩展命名实体语料库：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-S0349/" target="_blank" rel="noopener">http</a>：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-S0349/" target="_blank" rel="noopener">//catalog.elra.info/en-us/repository/browse/ELRA-S0349/</a></li>
+<li>Quaero Old Press扩展命名实体语料库：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0073/" target="_blank" rel="noopener">http</a>：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0073/" target="_blank" rel="noopener">//catalog.elra.info/en-us/repository/browse/ELRA-W0073/</a></li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>DBpedia抽象语料库（英语，德语，荷兰语，法语，意大利语，日语）：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">http</a>：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">//downloads.dbpedia.org/2015-04/ext/nlp/abstracts/</a></li>
+<li>DAWT数据集 - 密集注释的维基百科跨多种语言的文本（英语，西班牙语，法语，意大利语，德语，阿拉伯语）：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">https</a>：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">//github.com/klout/opendata/tree/master/wiki_annotation</a></li>
+<li>CAp 2017 - （Twitter数据），Lopez等人，CAp 2017挑战：Twitter命名实体识别，2017：<a href="http://cap2017.imag.fr/competition.html" target="_blank" rel="noopener">http</a>：<a href="http://cap2017.imag.fr/competition.html" target="_blank" rel="noopener">//cap2017.imag.fr/competition.html</a></li>
+</ul>
+<h3 id="意大利"><a href="#意大利" class="headerlink" title="意大利"></a>意大利</h3><ul>
+<li>Evalita：<a href="http://www.evalita.it/2009/tasks/entity" target="_blank" rel="noopener">http</a>：//<a href="http://www.evalita.it/2009/tasks/entity" target="_blank" rel="noopener">www.evalita.it/2009/tasks/entity</a></li>
+<li>MEANTIME Corpus（平行语料库：英语，西班牙语，意大利语，荷兰语）：<a href="http://www.newsreader-project.eu/results/data/wikinews/" target="_blank" rel="noopener">http</a>：<a href="http://www.newsreader-project.eu/results/data/wikinews/" target="_blank" rel="noopener">//www.newsreader-project.eu/results/data/wikinews/</a></li>
+<li>PANACEA（ENV）：<a href="http://panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-env-it" target="_blank" rel="noopener">http</a>：//panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-env-it</li>
+<li>PANACEA（LAB）：<a href="http://panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-lab-it" target="_blank" rel="noopener">http</a>：//panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-lab-it</li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>DBpedia抽象语料库（英语，德语，荷兰语，法语，意大利语，日语）：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">http</a>：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">//downloads.dbpedia.org/2015-04/ext/nlp/abstracts/</a></li>
+<li>DAWT数据集 - 密集注释的维基百科跨多种语言的文本（英语，西班牙语，法语，意大利语，德语，阿拉伯语）：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">https</a>：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">//github.com/klout/opendata/tree/master/wiki_annotation</a></li>
+</ul>
+<h3 id="罗马尼亚"><a href="#罗马尼亚" class="headerlink" title="罗马尼亚"></a>罗马尼亚</h3><ul>
+<li>罗马尼亚新闻语料库（ROCO）：<a href="http://metashare.elda.org/repository/browse/romanian-journalistic-corpus-roco/038baa80dc7311e5aa0b00237df3e3583781d7c0f2084057aa018a2d63d987e9/" target="_blank" rel="noopener">http</a>：<a href="http://metashare.elda.org/repository/browse/romanian-journalistic-corpus-roco/038baa80dc7311e5aa0b00237df3e3583781d7c0f2084057aa018a2d63d987e9/" target="_blank" rel="noopener">//metashare.elda.org/repository/browse/romanian-journalistic-corpus-roco/038baa80dc7311e5aa0b00237df3e3583781d7c0f2084057aa018a2d63d987e9/</a></li>
+<li>罗马尼亚平衡语料库（ROMBAC）：<a href="http://metashare.elda.org/repository/browse/romanian-balanced-corpus-rombac/0a7dd85edc7311e5aa0b00237df3e35873a0d662435d42dd94fba48c29dc0065/" target="_blank" rel="noopener">http</a>：//metashare.elda.org/repository/browse/romanian-balanced-corpus-rombac/0a7dd85edc7311e5aa0b00237df3e35873a0d662435d42dd94fba48c29dc0065/</li>
+</ul>
+<h3 id="希腊语"><a href="#希腊语" class="headerlink" title="希腊语"></a>希腊语</h3><ul>
+<li>PANACEA（ENV）：<a href="http://panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-env-el" target="_blank" rel="noopener">http</a>：//panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-env-el</li>
+<li>PANACEA（LAB）：<a href="http://panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-lab-el" target="_blank" rel="noopener">http</a>：//panacea-lr.eu/en/info-for-researchers/data-sets/dependency-parsed-corpora/dependency-lab-el</li>
+</ul>
+<h3 id="匈牙利"><a href="#匈牙利" class="headerlink" title="匈牙利"></a>匈牙利</h3><ul>
+<li>匈牙利命名实体语料库：<a href="http://rgai.inf.u-szeged.hu/index.php?lang=en&amp;page=corpus_ne" target="_blank" rel="noopener">http：</a> //rgai.inf.u-szeged.hu/index.php？lang = en＆page = corp_ne</li>
+<li>hunnerwiki：<a href="http://hlt.sztaki.hu/resources/hunnerwiki.html" target="_blank" rel="noopener">http</a>：//hlt.sztaki.hu/resources/hunnerwiki.html</li>
+</ul>
+<h3 id="捷克"><a href="#捷克" class="headerlink" title="捷克"></a>捷克</h3><ul>
+<li>捷克命名实体语料库：<a href="http://ufal.mff.cuni.cz/cnec" target="_blank" rel="noopener">http</a>：<a href="http://ufal.mff.cuni.cz/cnec" target="_blank" rel="noopener">//ufal.mff.cuni.cz/cnec</a></li>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+<li>CzEng 1.0（平行语料库：捷克语 - 英语）：<a href="http://ufal.mff.cuni.cz/czeng/czeng10" target="_blank" rel="noopener">http</a>：//ufal.mff.cuni.cz/czeng/czeng10</li>
+</ul>
+<h3 id="抛光"><a href="#抛光" class="headerlink" title="抛光"></a>抛光</h3><ul>
+<li>波兰语Sejm语料库：<a href="http://clip.ipipan.waw.pl/PSC" target="_blank" rel="noopener">http</a>：<a href="http://clip.ipipan.waw.pl/PSC" target="_blank" rel="noopener">//clip.ipipan.waw.pl/PSC</a></li>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+<li>波兰语Coreference语料库：http：<a href="http://zil.ipipan.waw.pl/PolishCoreferenceCorpus" target="_blank" rel="noopener">//zil.ipipan.waw.pl/PolishCoreferenceCorpus</a></li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>经济新闻语料库（CEN Corpus）：<a href="http://www.nlp.pwr.wroc.pl/narzedzia-i-zasoby/zasoby/cen" target="_blank" rel="noopener">http</a>：<a href="http://www.nlp.pwr.wroc.pl/narzedzia-i-zasoby/zasoby/cen" target="_blank" rel="noopener">//www.nlp.pwr.wroc.pl/narzedzia-i-zasoby/zasoby/cen</a></li>
+<li>KPWr（KorpusJęzykaPolskiegoPolitechnikiWrocławskiej/弗罗茨瓦夫理工大学波兰语语料库）：<a href="http://plwordnet.pwr.wroc.pl/index.php?option=com_content&amp;view=article&amp;id=35&amp;Itemid=181&amp;lang=pl" target="_blank" rel="noopener">http</a>：//plwordnet.pwr.wroc.pl/index.php？option = com_content＆view = article＆id = 35＆Itemid = 181＆lang = pl ; <a href="http://plwordnet.pwr.wroc.pl/attachments/article/35/kpwr-1.1.7z" target="_blank" rel="noopener">http://plwordnet.pwr.wroc.pl/attachments/article/35/kpwr-1.1.7z(Broda</a> et al。，KPWr：Towards a free Corpus of Polish，2012）</li>
+</ul>
+<h3 id="克罗地亚"><a href="#克罗地亚" class="headerlink" title="克罗地亚"></a>克罗地亚</h3><ul>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+</ul>
+<h3 id="斯洛伐克"><a href="#斯洛伐克" class="headerlink" title="斯洛伐克"></a>斯洛伐克</h3><ul>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+<li>斯洛伐克分类新闻语料库：<a href="https://nlp.web.tuke.sk/pages/categorizednews" target="_blank" rel="noopener">https</a>：<a href="https://nlp.web.tuke.sk/pages/categorizednews" target="_blank" rel="noopener">//nlp.web.tuke.sk/pages/categorizednews</a></li>
+</ul>
+<h3 id="斯洛文尼亚"><a href="#斯洛文尼亚" class="headerlink" title="斯洛文尼亚"></a>斯洛文尼亚</h3><ul>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+<li>ssj500k：<a href="http://www.slovenscina.eu/tehnologije/ucni-korpus" target="_blank" rel="noopener">http</a>：//<a href="http://www.slovenscina.eu/tehnologije/ucni-korpus" target="_blank" rel="noopener">www.slovenscina.eu/tehnologije/ucni-korpus</a> ; <a href="http://eng.slovenscina.eu/tehnologije/ucni-korpus" target="_blank" rel="noopener">http://eng.slovenscina.eu/tehnologije/ucni-korpus</a> ; <a href="https://www.clarin.si/repository/xmlui/handle/11356/1029" target="_blank" rel="noopener">https://www.clarin.si/repository/xmlui/handle/11356/1029</a></li>
+<li>斯洛文尼亚新闻：http：<a href="http://zitnik.si/mediawiki/index.php?title=Datasets#Slovene_news" target="_blank" rel="noopener">//zitnik.si/mediawiki/index.php？title = Datasets #Slovene_news</a> ; <a href="http://zitnik.si/mediawiki/images/7/7d/Rtvslo_dec2011.tsv" target="_blank" rel="noopener">http://zitnik.si/mediawiki/images/7/7d/Rtvslo_dec2011.tsv</a> ; <a href="http://zitnik.si/mediawiki/images/5/5e/Rtvslo_dec2011_v2.tsv" target="_blank" rel="noopener">http://zitnik.si/mediawiki/images/5/5e/Rtvslo_dec2011_v2.tsv</a></li>
+</ul>
+<h3 id="乌克兰"><a href="#乌克兰" class="headerlink" title="乌克兰"></a>乌克兰</h3><ul>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+<li>乌克兰布朗NER语料库：<a href="https://github.com/lang-uk/ner-uk" target="_blank" rel="noopener">https</a>：<a href="https://github.com/lang-uk/ner-uk" target="_blank" rel="noopener">//github.com/lang-uk/ner-uk</a> ; <a href="http://lang.org.ua/en/corpora/" target="_blank" rel="noopener">http://lang.org.ua/en/corpora/</a></li>
+</ul>
+<h3 id="塞尔维亚"><a href="#塞尔维亚" class="headerlink" title="塞尔维亚"></a>塞尔维亚</h3><ul>
+<li>塞尔维亚人的命名实体评估语料库：<a href="http://www.korpus.matf.bg.ac.rs/SrpNEval/" target="_blank" rel="noopener">http</a>：<a href="http://www.korpus.matf.bg.ac.rs/SrpNEval/" target="_blank" rel="noopener">//www.korpus.matf.bg.ac.rs/SrpNEval/</a></li>
+</ul>
+<h3 id="保加利亚语"><a href="#保加利亚语" class="headerlink" title="保加利亚语"></a>保加利亚语</h3><ul>
+<li>BulTreeBank（BTB）</li>
+</ul>
+<h3 id="丹麦"><a href="#丹麦" class="headerlink" title="丹麦"></a>丹麦</h3><ul>
+<li>丹麦支持银行（DPB）：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0117/" target="_blank" rel="noopener">http</a>：//catalog.elra.info/en-us/repository/browse/ELRA-W0117/</li>
+<li>Arboretum treebank：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0084/" target="_blank" rel="noopener">http</a>：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0084/" target="_blank" rel="noopener">//catalog.elra.info/en-us/repository/browse/ELRA-W0084/</a></li>
+</ul>
+<h3 id="瑞典"><a href="#瑞典" class="headerlink" title="瑞典"></a>瑞典</h3><ul>
+<li>Stockholm Internet Corpus：<a href="https://www.ling.su.se/english/nlp/corpora-and-resources/sic" target="_blank" rel="noopener">https</a>：<a href="https://www.ling.su.se/english/nlp/corpora-and-resources/sic" target="_blank" rel="noopener">//www.ling.su.se/english/nlp/corpora-and-resources/sic</a></li>
+<li>SUC 3.0：<a href="https://spraakbanken.gu.se/eng/resource/suc3" target="_blank" rel="noopener">https</a>：<a href="https://spraakbanken.gu.se/eng/resource/suc3" target="_blank" rel="noopener">//spraakbanken.gu.se/eng/resource/suc3</a></li>
+<li>瑞典语手动注释NER：<a href="https://github.com/klintan/swedish-ner-corpus/" target="_blank" rel="noopener">https</a>：<a href="https://github.com/klintan/swedish-ner-corpus/" target="_blank" rel="noopener">//github.com/klintan/swedish-ner-corpus/</a></li>
+<li>医学维基百科数据（Almgren等，瑞典健康记录中的命名实体识别，基于角色的双向LSTMs，2016）：<a href="https://github.com/olofmogren/biomedical-ner-data-swedish" target="_blank" rel="noopener">https</a>：<a href="https://github.com/olofmogren/biomedical-ner-data-swedish" target="_blank" rel="noopener">//github.com/olofmogren/biomedical-ner-data-swedish</a></li>
+</ul>
+<h3 id="芬兰"><a href="#芬兰" class="headerlink" title="芬兰"></a>芬兰</h3><ul>
+<li>芬兰命名实体重新定义的数据集：<a href="https://github.com/mpsilfve/finer-data" target="_blank" rel="noopener">https</a>：<a href="https://github.com/mpsilfve/finer-data" target="_blank" rel="noopener">//github.com/mpsilfve/finer-data</a></li>
+</ul>
+<h3 id="爱沙尼亚语"><a href="#爱沙尼亚语" class="headerlink" title="爱沙尼亚语"></a>爱沙尼亚语</h3><ul>
+<li>爱沙尼亚语NER语料库：<a href="https://metashare.ut.ee/repository/browse/estonian-ner-corpus/88d030c0acde11e2a6e4005056b40024f1def472ed254e77a8952e1003d9f81e/" target="_blank" rel="noopener">https</a>：<a href="https://metashare.ut.ee/repository/browse/estonian-ner-corpus/88d030c0acde11e2a6e4005056b40024f1def472ed254e77a8952e1003d9f81e/" target="_blank" rel="noopener">//metashare.ut.ee/repository/browse/estonian-ner-corpus/88d030c0acde11e2a6e4005056b40024f1def472ed254e77a8952e1003d9f81e/</a></li>
+</ul>
+<h3 id="拉脱维亚语和立陶宛语"><a href="#拉脱维亚语和立陶宛语" class="headerlink" title="拉脱维亚语和立陶宛语"></a>拉脱维亚语和立陶宛语</h3><ul>
+<li><a href="https://github.com/accurat-toolkit/TildeNER/tree/master/TEST" target="_blank" rel="noopener">https://github.com/accurat-toolkit/TildeNER/tree/master/TEST(Pnis</a>，拉脱维亚和立陶宛与TildeNER签署的实体认可，LREC 2012）</li>
+<li>LV Tagger的培训数据：<a href="https://github.com/PeterisP/LVTagger/tree/master/NerTrainingData" target="_blank" rel="noopener">https</a>：<a href="https://github.com/PeterisP/LVTagger/tree/master/NerTrainingData" target="_blank" rel="noopener">//github.com/PeterisP/LVTagger/tree/master/NerTrainingData</a></li>
+</ul>
+<h3 id="土耳其"><a href="#土耳其" class="headerlink" title="土耳其"></a>土耳其</h3><ul>
+<li>K̈ucuk和Can，一个Tweet数据集注释为命名实体识别和立场检测，2019：<a href="https://github.com/dkucuk/Tweet-Dataset-NER-SD" target="_blank" rel="noopener">https</a>：<a href="https://github.com/dkucuk/Tweet-Dataset-NER-SD" target="_blank" rel="noopener">//github.com/dkucuk/Tweet-Dataset-NER-SD</a></li>
+<li>K̈ucuk等，土耳其推文上的命名实体识别：<a href="http://optima.jrc.it/Resources/2014_JRC_Twitter_TR_NER-dataset.zip" target="_blank" rel="noopener">http</a>：//optima.jrc.it/Resources/2014_JRC_Twitter_TR_NER-dataset.zip</li>
+<li>英语/土耳其维基百科的命名实体识别和文本分类数据集（<a href="http://arxiv.org/abs/1702.02363" target="_blank" rel="noopener">http://arxiv.org/abs/1702.02363</a>）：<a href="https://data.mendeley.com/datasets/cdcztymf4k/1" target="_blank" rel="noopener">https://data.mendeley.com/datasets/cdcztymf4k/1</a></li>
+</ul>
+<h3 id="维吾尔"><a href="#维吾尔" class="headerlink" title="维吾尔"></a>维吾尔</h3><ul>
+<li>维吾尔语命名为实体关系语料库：<a href="https://github.com/kaharjan/UyNeRel" target="_blank" rel="noopener">https</a>：<a href="https://github.com/kaharjan/UyNeRel" target="_blank" rel="noopener">//github.com/kaharjan/UyNeRel</a>（Abiderexiti等，构建维吾尔语命名实体关系语料库的注释方案.IALP 2016）</li>
+</ul>
+<h3 id="亚美尼亚"><a href="#亚美尼亚" class="headerlink" title="亚美尼亚"></a>亚美尼亚</h3><ul>
+<li>pioNER（黄金标准和银标准数据集）：<a href="https://github.com/ispras-texterra/pioner" target="_blank" rel="noopener">https</a>：<a href="https://github.com/ispras-texterra/pioner" target="_blank" rel="noopener">//github.com/ispras-texterra/pioner</a> (Ghukasyan et al。，pioNER：Datasets and Baselines for Armenian Named Entity Recognition，2018）</li>
+</ul>
+<h3 id="阿姆哈拉语"><a href="#阿姆哈拉语" class="headerlink" title="阿姆哈拉语"></a>阿姆哈拉语</h3><ul>
+<li>SAY语料库（参见“使用深度学习对阿姆哈拉语进行命名实体识别”）：<a href="https://github.com/geezorg/data/tree/master/amharic/tagged/nmsu-say" target="_blank" rel="noopener">https</a>：<a href="https://github.com/geezorg/data/tree/master/amharic/tagged/nmsu-say" target="_blank" rel="noopener">//github.com/geezorg/data/tree/master/amharic/tagged/nmsu-say</a> ; <a href="http://data.geez.org/" target="_blank" rel="noopener">http://data.geez.org/</a></li>
+</ul>
+<h3 id="阿拉伯"><a href="#阿拉伯" class="headerlink" title="阿拉伯"></a>阿拉伯</h3><ul>
+<li>AQMAR阿拉伯语维基百科命名为实体语料库：<a href="http://www.cs.cmu.edu/~ark/ArabicNER/" target="_blank" rel="noopener">http</a>：<a href="http://www.cs.cmu.edu/~ark/ArabicNER/" target="_blank" rel="noopener">//www.cs.cmu.edu/~ark/ArabicNER/</a></li>
+<li>NE3L命名实体阿拉伯语语料库（阿拉伯语，中文，俄语）：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0078/" target="_blank" rel="noopener">http</a>：//catalog.elra.info/en-us/repository/browse/ELRA-W0078/</li>
+<li>REFLEX实体翻译（平行语料库：英语，阿拉伯语，中文）：<a href="https://catalog.ldc.upenn.edu/LDC2009T11" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2009T11" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2009T11</a></li>
+<li>ANERCorp：<a href="http://users.dsic.upv.es/~ybenajiba/downloads.html" target="_blank" rel="noopener">http</a>：//users.dsic.upv.es/~ybenajiba/downloads.html （另见：<a href="http://alias-i.com/lingpipe/demos/tutorial/ne/read-me.html" target="_blank" rel="noopener">http</a>：//alias-i.com/lingpipe/demos/tutorial/ne/read-me.html ）</li>
+<li>ACE 2003（英文，中文，阿拉伯文）：<a href="https://catalog.ldc.upenn.edu/LDC2004T09" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2004T09" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2004T09</a></li>
+<li>ACE 2004（英文，中文，阿拉伯文）：<a href="https://catalog.ldc.upenn.edu/LDC2005T09" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2005T09" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2005T09</a></li>
+<li>ACE 2005（英文，中文，阿拉伯文）：<a href="https://catalog.ldc.upenn.edu/LDC2006T06" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2006T06" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2006T06</a></li>
+<li>ACE 2007（西班牙语和阿拉伯语）：<a href="https://catalog.ldc.upenn.edu/LDC2014T18" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2014T18" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2014T18</a></li>
+<li>OntoNotes 5（英文，阿拉伯文，中文）：<a href="https://catalog.ldc.upenn.edu/LDC2013T19" target="_blank" rel="noopener">https</a>：//catalog.ldc.upenn.edu/LDC2013T19</li>
+<li>DAWT数据集 - 密集注释的维基百科跨多种语言的文本（英语，西班牙语，法语，意大利语，德语，阿拉伯语）：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">https</a>：<a href="https://github.com/klout/opendata/tree/master/wiki_annotation" target="_blank" rel="noopener">//github.com/klout/opendata/tree/master/wiki_annotation</a></li>
+</ul>
+<h3 id="波斯语"><a href="#波斯语" class="headerlink" title="波斯语"></a>波斯语</h3><ul>
+<li>ArmanPersoNERCorpus：<a href="http://islrn.org/resources/399-379-640-828-6/" target="_blank" rel="noopener">http</a>：//islrn.org/resources/399-379-640-828-6/ ; <a href="https://github.com/HaniehP/PersianNER" target="_blank" rel="noopener">https://github.com/HaniehP/PersianNER</a></li>
+</ul>
+<h3 id="乌尔都语"><a href="#乌尔都语" class="headerlink" title="乌尔都语"></a>乌尔都语</h3><ul>
+<li>IJCNLP 2008 SSEAL：<a href="http://ltrc.iiit.ac.in/ner-ssea-08/index.cgi?topic=5" target="_blank" rel="noopener">http</a>：//ltrc.iiit.ac.in/ner-ssea-08/index.cgi？topic = 5</li>
+<li>UNER数据集（Khan等人，名为实体数据集的Urdu命名实体识别任务，2016）。请访问<a href="http://www.iiu.edu.pk/?page_id=5181" target="_blank" rel="noopener">http://www.iiu.edu.pk/?page_id=5181</a></li>
+</ul>
+<h3 id="印地语"><a href="#印地语" class="headerlink" title="印地语"></a>印地语</h3><ul>
+<li>印地语健康数据集：<a href="https://www.kaggle.com/aijain/hindi-health-dataset/home" target="_blank" rel="noopener">https</a>：<a href="https://www.kaggle.com/aijain/hindi-health-dataset/home" target="_blank" rel="noopener">//www.kaggle.com/aijain/hindi-health-dataset/home</a></li>
+<li>FIRE 2015，ESM-IL（英语，印地语，泰米尔语，马拉雅拉姆语）：<a href="http://au-kbc.org/nlp/ESM-FIRE2015/#traincorpus" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/ESM-FIRE2015/#traincorpus" target="_blank" rel="noopener">//au-kbc.org/nlp/ESM-FIRE2015/#traincorpus</a></li>
+<li>FIRE NER 2013（英语，印地语，泰米尔语，马拉雅拉姆语，孟加拉语）：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">//au-kbc.org/nlp/NER-FIRE2013/</a></li>
+<li>IJCNLP 2008 SSEAL：<a href="http://ltrc.iiit.ac.in/ner-ssea-08/index.cgi?topic=5" target="_blank" rel="noopener">http</a>：//ltrc.iiit.ac.in/ner-ssea-08/index.cgi？topic = 5</li>
+</ul>
+<h3 id="孟加拉"><a href="#孟加拉" class="headerlink" title="孟加拉"></a>孟加拉</h3><ul>
+<li>FIRE NER 2013（英语，印地语，泰米尔语，马拉雅拉姆语，孟加拉语）：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">//au-kbc.org/nlp/NER-FIRE2013/</a></li>
+<li>IJCNLP 2008 SSEAL：<a href="http://ltrc.iiit.ac.in/ner-ssea-08/index.cgi?topic=5" target="_blank" rel="noopener">http</a>：//ltrc.iiit.ac.in/ner-ssea-08/index.cgi？topic = 5</li>
+</ul>
+<h3 id="泰卢固语"><a href="#泰卢固语" class="headerlink" title="泰卢固语"></a>泰卢固语</h3><ul>
+<li>NER_Telugu：<a href="https://github.com/anikethjr/NER_Telugu" target="_blank" rel="noopener">https</a>：<a href="https://github.com/anikethjr/NER_Telugu" target="_blank" rel="noopener">//github.com/anikethjr/NER_Telugu</a></li>
+<li>IJCNLP 2008 SSEAL：<a href="http://ltrc.iiit.ac.in/ner-ssea-08/index.cgi?topic=5" target="_blank" rel="noopener">http</a>：//ltrc.iiit.ac.in/ner-ssea-08/index.cgi？topic = 5</li>
+<li>泰卢固语的命名实体注释语料库：<a href="http://www.tdil-dc.in/index.php?option=com_download&amp;task=showresourceDetails&amp;toolid=982&amp;lang=en" target="_blank" rel="noopener">http</a>：//<a href="http://www.tdil-dc.in/index.php？option" target="_blank" rel="noopener">www.tdil-dc.in/index.php？option</a> = com_download＆task = showresourceDetails＆toolid = 982＆lang = en</li>
+</ul>
+<h3 id="马拉"><a href="#马拉" class="headerlink" title="马拉"></a>马拉</h3><ul>
+<li>Marathi的命名实体注释语料库：<a href="http://www.tdil-dc.in/index.php?option=com_download&amp;task=showresourceDetails&amp;toolid=979&amp;lang=en" target="_blank" rel="noopener">http</a>：//<a href="http://www.tdil-dc.in/index.php？option" target="_blank" rel="noopener">www.tdil-dc.in/index.php？option</a> = com_download＆task = showresourceDetails＆toolid = 979＆lang = en</li>
+</ul>
+<h3 id="旁遮普"><a href="#旁遮普" class="headerlink" title="旁遮普"></a>旁遮普</h3><ul>
+<li>旁遮普的命名实体注释语料库：<a href="http://www.tdil-dc.in/index.php?option=com_download&amp;task=showresourceDetails&amp;toolid=980&amp;lang=en" target="_blank" rel="noopener">http</a>：//<a href="http://www.tdil-dc.in/index.php？option" target="_blank" rel="noopener">www.tdil-dc.in/index.php？option</a> = com_download＆task = showresourceDetails＆toolid = 980＆lang = en</li>
+</ul>
+<h3 id="泰米尔人"><a href="#泰米尔人" class="headerlink" title="泰米尔人"></a>泰米尔人</h3><ul>
+<li>FIRE 2015，ESM-IL（英语，印地语，泰米尔语，马拉雅拉姆语）：<a href="http://au-kbc.org/nlp/ESM-FIRE2015/#traincorpus" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/ESM-FIRE2015/#traincorpus" target="_blank" rel="noopener">//au-kbc.org/nlp/ESM-FIRE2015/#traincorpus</a></li>
+<li>FIRE NER 2013（英语，印地语，泰米尔语，马拉雅拉姆语，孟加拉语）：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">//au-kbc.org/nlp/NER-FIRE2013/</a></li>
+</ul>
+<h3 id="马拉雅拉姆语"><a href="#马拉雅拉姆语" class="headerlink" title="马拉雅拉姆语"></a>马拉雅拉姆语</h3><ul>
+<li>FIRE 2015，ESM-IL（英语，印地语，泰米尔语，马拉雅拉姆语）：<a href="http://au-kbc.org/nlp/ESM-FIRE2015/#traincorpus" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/ESM-FIRE2015/#traincorpus" target="_blank" rel="noopener">//au-kbc.org/nlp/ESM-FIRE2015/#traincorpus</a></li>
+<li>FIRE NER 2013（英语，印地语，泰米尔语，马拉雅拉姆语，孟加拉语）：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">http</a>：<a href="http://au-kbc.org/nlp/NER-FIRE2013/" target="_blank" rel="noopener">//au-kbc.org/nlp/NER-FIRE2013/</a></li>
+</ul>
+<h3 id="奥里亚语-奥里亚语"><a href="#奥里亚语-奥里亚语" class="headerlink" title="奥里亚语/奥里亚语"></a>奥里亚语/奥里亚语</h3><ul>
+<li>IJCNLP 2008 SSEAL：<a href="http://ltrc.iiit.ac.in/ner-ssea-08/index.cgi?topic=5" target="_blank" rel="noopener">http</a>：//ltrc.iiit.ac.in/ner-ssea-08/index.cgi？topic = 5</li>
+</ul>
+<h3 id="泰国"><a href="#泰国" class="headerlink" title="泰国"></a>泰国</h3><ul>
+<li>泰国实体识别数据：<a href="https://github.com/PyThaiNLP/thai-named-entity-recognition-data" target="_blank" rel="noopener">https</a>：<a href="https://github.com/PyThaiNLP/thai-named-entity-recognition-data" target="_blank" rel="noopener">//github.com/PyThaiNLP/thai-named-entity-recognition-data</a></li>
+<li>泰国命名实体语料库：<a href="http://pioneer.chula.ac.th/~awirote/resources/corpora--data.html" target="_blank" rel="noopener">http</a>：<a href="http://pioneer.chula.ac.th/~awirote/resources/corpora--data.html" target="_blank" rel="noopener">//pioneer.chula.ac.th/~awirote/resources/corpora–data.html</a> ; <a href="http://pioneer.chula.ac.th/~awirote/Data-Nutcha.zip" target="_blank" rel="noopener">http://pioneer.chula.ac.th/~awirote/Data-Nutcha.zip</a> ; <a href="http://pioneer.chula.ac.th/~awirote/Data-Sasiwimon.zip" target="_blank" rel="noopener">http://pioneer.chula.ac.th/~awirote/Data-Sasiwimon.zip</a> ; <a href="http://pioneer.chula.ac.th/~awirote/Data-Nattadaporn.zip" target="_blank" rel="noopener">http://pioneer.chula.ac.th/~awirote/Data-Nattadaporn.zip</a></li>
+</ul>
+<h3 id="印度尼西亚"><a href="#印度尼西亚" class="headerlink" title="印度尼西亚"></a>印度尼西亚</h3><ul>
+<li>IDENTIC：<a href="http://metashare.elda.org/repository/browse/identic/fed3fada7ef111e5aa3b001dd8b71c66c98eee36eabd42f18ffd9a95da9104cc/" target="_blank" rel="noopener">http</a>：//metashare.elda.org/repository/browse/identic/fed3fada7ef111e5aa3b001dd8b71c66c98eee36eabd42f18ffd9a95da9104cc/</li>
+<li><a href="https://github.com/yohanesgultom/nlp-experiments/tree/master/data/ner" target="_blank" rel="noopener">https://github.com/yohanesgultom/nlp-experiments/tree/master/data/ner</a></li>
+</ul>
+<h3 id="越南"><a href="#越南" class="headerlink" title="越南"></a>越南</h3><ul>
+<li>VLSP 2016：<a href="http://vlsp.org.vn/resources-vlsp2016" target="_blank" rel="noopener">http</a>：//vlsp.org.vn/resources-vlsp2016 ; <a href="https://github.com/undertheseanlp/ner" target="_blank" rel="noopener">https://github.com/undertheseanlp/ner</a></li>
+<li>VLSP 2018：<a href="http://vlsp.org.vn/resources-vlsp2018" target="_blank" rel="noopener">http</a>：//vlsp.org.vn/resources-vlsp2018 ; <a href="https://github.com/undertheseanlp/ner" target="_blank" rel="noopener">https://github.com/undertheseanlp/ner</a></li>
+</ul>
+<h3 id="日本"><a href="#日本" class="headerlink" title="日本"></a>日本</h3><ul>
+<li>IREX：<a href="https://nlp.cs.nyu.edu/irex/Package/" target="_blank" rel="noopener">https</a>：<a href="https://nlp.cs.nyu.edu/irex/Package/" target="_blank" rel="noopener">//nlp.cs.nyu.edu/irex/Package/</a></li>
+<li>MET-2（日文，中文）：<a href="https://www-nlpir.nist.gov/related_projects/muc/" target="_blank" rel="noopener">https</a>：<a href="https://www-nlpir.nist.gov/related_projects/muc/" target="_blank" rel="noopener">//www-nlpir.nist.gov/related_projects/muc/</a></li>
+<li>BCCWJ Basic NE语料库：<a href="https://sites.google.com/site/projectnextnlpne/en" target="_blank" rel="noopener">https</a>：<a href="https://sites.google.com/site/projectnextnlpne/en" target="_blank" rel="noopener">//sites.google.com/site/projectnextnlpne/en</a>（Iwakura等人，构建日语基本命名实体语料库，各种类型，2016年新闻）</li>
+<li>DBpedia抽象语料库（英语，德语，荷兰语，法语，意大利语，日语）：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">http</a>：<a href="http://downloads.dbpedia.org/2015-04/ext/nlp/abstracts/" target="_blank" rel="noopener">//downloads.dbpedia.org/2015-04/ext/nlp/abstracts/</a></li>
+<li>数据来自：Mai等人，一种关于细粒度命名实体识别的实证研究，COLING 2018（英语，日语）：<a href="https://fgner.alt.ai/duc/ene/testsets/comp/" target="_blank" rel="noopener">https</a>：//fgner.alt.ai/duc/ene/testsets/comp/</li>
+</ul>
+<h3 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h3><ul>
+<li>ACE 2003（英文，中文，阿拉伯文）：<a href="https://catalog.ldc.upenn.edu/LDC2004T09" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2004T09" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2004T09</a></li>
+<li>ACE 2004（英文，中文，阿拉伯文）：<a href="https://catalog.ldc.upenn.edu/LDC2005T09" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2005T09" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2005T09</a></li>
+<li>ACE 2005（英文，中文，阿拉伯文）：<a href="https://catalog.ldc.upenn.edu/LDC2006T06" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2006T06" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2006T06</a></li>
+<li>OntoNotes 5（英文，阿拉伯文，中文）：<a href="https://catalog.ldc.upenn.edu/LDC2013T19" target="_blank" rel="noopener">https</a>：//catalog.ldc.upenn.edu/LDC2013T19</li>
+<li>MET-2（日文，中文）：<a href="https://www-nlpir.nist.gov/related_projects/muc/" target="_blank" rel="noopener">https</a>：<a href="https://www-nlpir.nist.gov/related_projects/muc/" target="_blank" rel="noopener">//www-nlpir.nist.gov/related_projects/muc/</a></li>
+<li>REFLEX实体翻译（平行语料库：英语，阿拉伯语，中文）：<a href="https://catalog.ldc.upenn.edu/LDC2009T11" target="_blank" rel="noopener">https</a>：<a href="https://catalog.ldc.upenn.edu/LDC2009T11" target="_blank" rel="noopener">//catalog.ldc.upenn.edu/LDC2009T11</a></li>
+<li>NE3L命名实体中文语料库（阿拉伯语，中文，俄语）：<a href="http://catalogue.elra.info/en-us/repository/browse/ELRA-W0079/" target="_blank" rel="noopener">http</a>：//catalogue.elra.info/en-us/repository/browse/ELRA-W0079/</li>
+<li>原始短消息数据排序I中文（命名实体）：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0045_04/" target="_blank" rel="noopener">http</a>：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0045_04/" target="_blank" rel="noopener">//catalog.elra.info/en-us/repository/browse/ELRA-W0045_04/</a></li>
+<li>原始短消息数据排序II中文（命名实体）：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0045_08/" target="_blank" rel="noopener">http</a>：<a href="http://catalog.elra.info/en-us/repository/browse/ELRA-W0045_08/" target="_blank" rel="noopener">//catalog.elra.info/en-us/repository/browse/ELRA-W0045_08/</a></li>
+<li>ERE DEFT Corpora（平行语料库：英语，中文）：Mott等，Parallel Chinese-English Entities，Relations and Events Corpora，2016（LDC2015E78，LDC2014E114）</li>
+</ul>
+<h3 id="俄语"><a href="#俄语" class="headerlink" title="俄语"></a>俄语</h3><ul>
+<li>BSNLP 2017（克罗地亚语，捷克语，波兰语，俄语，斯洛伐克语，斯洛文尼亚语，乌克兰语）：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">http</a>：<a href="http://bsnlp-2017.cs.helsinki.fi/shared_task_results.html" target="_blank" rel="noopener">//bsnlp-2017.cs.helsinki.fi/shared_task_results.html</a></li>
+<li>NE3L命名实体俄语语料库（阿拉伯语，中文，俄语）：<a href="https://catalog.elra.info/en-us/repository/browse/ELRA-W0080/" target="_blank" rel="noopener">https</a>：//catalog.elra.info/en-us/repository/browse/ELRA-W0080/</li>
+<li>维基人：<a href="https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500" target="_blank" rel="noopener">https</a>：//figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500</li>
+<li>factRuEval-2016：<a href="https://github.com/dialogue-evaluation/factRuEval-2016" target="_blank" rel="noopener">https</a>：<a href="https://github.com/dialogue-evaluation/factRuEval-2016" target="_blank" rel="noopener">//github.com/dialogue-evaluation/factRuEval-2016</a></li>
+</ul>
+<h3 id="斯瓦希里"><a href="#斯瓦希里" class="headerlink" title="斯瓦希里"></a>斯瓦希里</h3><ul>
+<li>赫尔辛基斯瓦希里语语料库2.0（HCS 2.0）附加说明版本：<a href="http://metashare.csc.fi/repository/browse/helsinki-corpus-of-swahili-20-hcs-20-annotated-version/232c1910b9eb11e5915e005056be118e59fb2e920f1f4c0cafc94915fc6f5cac/" target="_blank" rel="noopener">http</a>：<a href="http://metashare.csc.fi/repository/browse/helsinki-corpus-of-swahili-20-hcs-20-annotated-version/232c1910b9eb11e5915e005056be118e59fb2e920f1f4c0cafc94915fc6f5cac/" target="_blank" rel="noopener">//metashare.csc.fi/repository/browse/helsinki-corpus-of-swahili-20-hcs-20-annotated-version/232c1910b9eb11e5915e005056be118e59fb2e920f1f4c0cafc94915fc6f5cac/</a>参见：Shah et SYNERGY：使用在线机器翻译的斯瓦希里语等资源稀缺语言的命名实体识别系统</li>
+</ul>
+<h3 id="恩德贝勒"><a href="#恩德贝勒" class="headerlink" title="恩德贝勒"></a>恩德贝勒</h3><ul>
+<li>NCHLT isiNdebele命名实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/306" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/306</li>
+</ul>
+<h3 id="科萨"><a href="#科萨" class="headerlink" title="科萨"></a>科萨</h3><ul>
+<li>NCHLT isiXhosa命名实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/312" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/312</li>
+</ul>
+<h3 id="祖鲁"><a href="#祖鲁" class="headerlink" title="祖鲁"></a>祖鲁</h3><ul>
+<li>NCHLT isiZulu命名实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/319" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/319</li>
+</ul>
+<h3 id="塞佩蒂语"><a href="#塞佩蒂语" class="headerlink" title="塞佩蒂语"></a>塞佩蒂语</h3><ul>
+<li>NCHLT Sepedi命名实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/328" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/328</li>
+</ul>
+<h3 id="塞索托语"><a href="#塞索托语" class="headerlink" title="塞索托语"></a>塞索托语</h3><ul>
+<li>NCHLT Sesotho命名为实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/334" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/334</li>
+</ul>
+<h3 id="茨瓦纳语"><a href="#茨瓦纳语" class="headerlink" title="茨瓦纳语"></a>茨瓦纳语</h3><ul>
+<li>NCHLT Setswana名为Entity Annotated Corpus：<a href="https://repo.sadilar.org/handle/20.500.12185/341" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/341</li>
+</ul>
+<h3 id="斯瓦蒂语"><a href="#斯瓦蒂语" class="headerlink" title="斯瓦蒂语"></a>斯瓦蒂语</h3><ul>
+<li>NCHLT Siswati被命名为实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/346" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/346</li>
+</ul>
+<h3 id="文达"><a href="#文达" class="headerlink" title="文达"></a>文达</h3><ul>
+<li>NCHLT Tshivenda命名为实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/355" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/355</li>
+</ul>
+<h3 id="Xitsonga"><a href="#Xitsonga" class="headerlink" title="Xitsonga"></a>Xitsonga</h3><ul>
+<li>NCHLT Xitsonga命名实体注释语料库：<a href="https://repo.sadilar.org/handle/20.500.12185/362" target="_blank" rel="noopener">https</a>：//repo.sadilar.org/handle/20.500.12185/362</li>
+</ul>
+<h3 id="拉丁"><a href="#拉丁" class="headerlink" title="拉丁"></a>拉丁</h3><ul>
+<li>希罗多德项目：<a href="https://github.com/alexerdmann/Herodotos_Project_Annotation" target="_blank" rel="noopener">https</a>：<a href="https://github.com/alexerdmann/Herodotos_Project_Annotation" target="_blank" rel="noopener">//github.com/alexerdmann/Herodotos_Project_Annotation</a></li>
+</ul>
+<p>可以在这里找到一个很长的列表：<a href="http://damien.nouvels.net/resourcesen/corpora.html" target="_blank" rel="noopener">http</a>：<a href="http://damien.nouvels.net/resourcesen/corpora.html" target="_blank" rel="noopener">//damien.nouvels.net/resourcesen/corpora.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2019/08/11/命名实体识别NER和实体识别任务的语料库集合/" title="命名实体识别NER和实体识别任务的语料库集合">命名实体识别NER和实体识别任务的语料库集合</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2019/08/11/命名实体识别NER和实体识别任务的语料库集合/" title="命名实体识别NER和实体识别任务的语料库集合">https://inforscan.com/2019/08/11/命名实体识别NER和实体识别任务的语料库集合/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2019年8月11日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据集/" rel="tag"><i class="fa fa-tag"></i> 数据集</a>
+          
+            <a href="/tags/NER/" rel="tag"><i class="fa fa-tag"></i> NER</a>
+          
+            <a href="/tags/实体识别/" rel="tag"><i class="fa fa-tag"></i> 实体识别</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/11/动手学深度学习一本面向中文读者的能运行、可讨论的深度学习教科书/" rel="next" title="动手学深度学习一本面向中文读者的能运行、可讨论的深度学习教科书">
+                <i class="fa fa-chevron-left"></i> 动手学深度学习一本面向中文读者的能运行、可讨论的深度学习教科书
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/11/Google发布精选数据集资源/" rel="prev" title="Google为计算机科学研究人员精选数据集列表">
+                Google为计算机科学研究人员精选数据集列表 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">424</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">659</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://byteclicks.com" title="前沿科技" target="_blank" rel="external nofollow">前沿科技</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://sharetext.co/" title="Sharetext" target="_blank" rel="external nofollow">Sharetext</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://toffeeshare.com/" title="toffeeshare" target="_blank" rel="external nofollow">toffeeshare</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实体识别的数据集"><span class="nav-number">1.</span> <span class="nav-text">实体识别的数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-number">1.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#许可证"><span class="nav-number">1.2.</span> <span class="nav-text">许可证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NER用其他语言"><span class="nav-number">1.3.</span> <span class="nav-text">NER用其他语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lexical-Named-Entity资源"><span class="nav-number">1.3.1.</span> <span class="nav-text">Lexical Named Entity资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#码转换"><span class="nav-number">1.3.2.</span> <span class="nav-text">码转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#德语"><span class="nav-number">1.3.3.</span> <span class="nav-text">德语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#荷兰人"><span class="nav-number">1.3.4.</span> <span class="nav-text">荷兰人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#南非荷兰语"><span class="nav-number">1.3.5.</span> <span class="nav-text">南非荷兰语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#西班牙语"><span class="nav-number">1.3.6.</span> <span class="nav-text">西班牙语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加泰罗尼亚"><span class="nav-number">1.3.7.</span> <span class="nav-text">加泰罗尼亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加利西亚"><span class="nav-number">1.3.8.</span> <span class="nav-text">加利西亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#巴斯克"><span class="nav-number">1.3.9.</span> <span class="nav-text">巴斯克</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#葡萄牙语"><span class="nav-number">1.3.10.</span> <span class="nav-text">葡萄牙语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#法国"><span class="nav-number">1.3.11.</span> <span class="nav-text">法国</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#意大利"><span class="nav-number">1.3.12.</span> <span class="nav-text">意大利</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#罗马尼亚"><span class="nav-number">1.3.13.</span> <span class="nav-text">罗马尼亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#希腊语"><span class="nav-number">1.3.14.</span> <span class="nav-text">希腊语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匈牙利"><span class="nav-number">1.3.15.</span> <span class="nav-text">匈牙利</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捷克"><span class="nav-number">1.3.16.</span> <span class="nav-text">捷克</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抛光"><span class="nav-number">1.3.17.</span> <span class="nav-text">抛光</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克罗地亚"><span class="nav-number">1.3.18.</span> <span class="nav-text">克罗地亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斯洛伐克"><span class="nav-number">1.3.19.</span> <span class="nav-text">斯洛伐克</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斯洛文尼亚"><span class="nav-number">1.3.20.</span> <span class="nav-text">斯洛文尼亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乌克兰"><span class="nav-number">1.3.21.</span> <span class="nav-text">乌克兰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#塞尔维亚"><span class="nav-number">1.3.22.</span> <span class="nav-text">塞尔维亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保加利亚语"><span class="nav-number">1.3.23.</span> <span class="nav-text">保加利亚语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#丹麦"><span class="nav-number">1.3.24.</span> <span class="nav-text">丹麦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#瑞典"><span class="nav-number">1.3.25.</span> <span class="nav-text">瑞典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#芬兰"><span class="nav-number">1.3.26.</span> <span class="nav-text">芬兰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爱沙尼亚语"><span class="nav-number">1.3.27.</span> <span class="nav-text">爱沙尼亚语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉脱维亚语和立陶宛语"><span class="nav-number">1.3.28.</span> <span class="nav-text">拉脱维亚语和立陶宛语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#土耳其"><span class="nav-number">1.3.29.</span> <span class="nav-text">土耳其</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维吾尔"><span class="nav-number">1.3.30.</span> <span class="nav-text">维吾尔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#亚美尼亚"><span class="nav-number">1.3.31.</span> <span class="nav-text">亚美尼亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阿姆哈拉语"><span class="nav-number">1.3.32.</span> <span class="nav-text">阿姆哈拉语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阿拉伯"><span class="nav-number">1.3.33.</span> <span class="nav-text">阿拉伯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#波斯语"><span class="nav-number">1.3.34.</span> <span class="nav-text">波斯语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乌尔都语"><span class="nav-number">1.3.35.</span> <span class="nav-text">乌尔都语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#印地语"><span class="nav-number">1.3.36.</span> <span class="nav-text">印地语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孟加拉"><span class="nav-number">1.3.37.</span> <span class="nav-text">孟加拉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泰卢固语"><span class="nav-number">1.3.38.</span> <span class="nav-text">泰卢固语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#马拉"><span class="nav-number">1.3.39.</span> <span class="nav-text">马拉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#旁遮普"><span class="nav-number">1.3.40.</span> <span class="nav-text">旁遮普</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泰米尔人"><span class="nav-number">1.3.41.</span> <span class="nav-text">泰米尔人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#马拉雅拉姆语"><span class="nav-number">1.3.42.</span> <span class="nav-text">马拉雅拉姆语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奥里亚语-奥里亚语"><span class="nav-number">1.3.43.</span> <span class="nav-text">奥里亚语/奥里亚语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泰国"><span class="nav-number">1.3.44.</span> <span class="nav-text">泰国</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#印度尼西亚"><span class="nav-number">1.3.45.</span> <span class="nav-text">印度尼西亚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#越南"><span class="nav-number">1.3.46.</span> <span class="nav-text">越南</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日本"><span class="nav-number">1.3.47.</span> <span class="nav-text">日本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中文"><span class="nav-number">1.3.48.</span> <span class="nav-text">中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#俄语"><span class="nav-number">1.3.49.</span> <span class="nav-text">俄语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斯瓦希里"><span class="nav-number">1.3.50.</span> <span class="nav-text">斯瓦希里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恩德贝勒"><span class="nav-number">1.3.51.</span> <span class="nav-text">恩德贝勒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#科萨"><span class="nav-number">1.3.52.</span> <span class="nav-text">科萨</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#祖鲁"><span class="nav-number">1.3.53.</span> <span class="nav-text">祖鲁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#塞佩蒂语"><span class="nav-number">1.3.54.</span> <span class="nav-text">塞佩蒂语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#塞索托语"><span class="nav-number">1.3.55.</span> <span class="nav-text">塞索托语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#茨瓦纳语"><span class="nav-number">1.3.56.</span> <span class="nav-text">茨瓦纳语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斯瓦蒂语"><span class="nav-number">1.3.57.</span> <span class="nav-text">斯瓦蒂语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文达"><span class="nav-number">1.3.58.</span> <span class="nav-text">文达</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xitsonga"><span class="nav-number">1.3.59.</span> <span class="nav-text">Xitsonga</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉丁"><span class="nav-number">1.3.60.</span> <span class="nav-text">拉丁</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

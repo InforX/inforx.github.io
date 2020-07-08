@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据调查,商业调查,开源情报,调查工具," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="进入大数据时代，调查报道愈加成为信息战。从哪里收集有效数据？如何抽取、筛选、整合、分类大量琐碎的信息？如何分享、存储数据，并实现随取随用？深度君整理了一张数据收集和处理工具清单，分为八大类，方便实用，各有所长，供大家选择。  1.全文本搜索和挖掘的搜索引擎： 包括：搜索方法、技术：全文本搜索，信息检索，桌面搜索，企业搜索和分面搜索 开源搜索工具：  Open Semantic Search：专门用">
+<meta name="keywords" content="数据调查,商业调查,开源情报,调查工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="干货 | 数据收集和处理工具一览">
+<meta property="og:url" content="https://inforscan.com/2015/11/05/干货  数据收集和处理工具一览/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="进入大数据时代，调查报道愈加成为信息战。从哪里收集有效数据？如何抽取、筛选、整合、分类大量琐碎的信息？如何分享、存储数据，并实现随取随用？深度君整理了一张数据收集和处理工具清单，分为八大类，方便实用，各有所长，供大家选择。  1.全文本搜索和挖掘的搜索引擎： 包括：搜索方法、技术：全文本搜索，信息检索，桌面搜索，企业搜索和分面搜索 开源搜索工具：  Open Semantic Search：专门用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/1-Open-Semantic-Search-771x283.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/2-Elastic-771x359.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/3-Zoerto-771x402.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/4-Drupal-771x314.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/5-Annotator1-771x460.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/6-NLP.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/7-Jigsaw.jpg">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/7-TAPOR-logo-771x178.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/8-Gephi.jpg">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/9-tika.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/FireShot-Capture-411-11-tesseract-ocr.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/12-CMU-Sphinx1-771x264.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/FireShot-Capture-404-Scrapy-I-A-Fast-and-Powerful-Scraping-and-Web-Crawling-_-http___scrapy.org_-771x211.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/13-talend-logo.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/14-PDF-Redact-Tools.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/16-hue-771x282.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/18-Python-771x282.png">
+<meta property="og:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/19-Debian-771x278.png">
+<meta property="og:updated_time" content="2019-04-24T02:00:09.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="干货 | 数据收集和处理工具一览">
+<meta name="twitter:description" content="进入大数据时代，调查报道愈加成为信息战。从哪里收集有效数据？如何抽取、筛选、整合、分类大量琐碎的信息？如何分享、存储数据，并实现随取随用？深度君整理了一张数据收集和处理工具清单，分为八大类，方便实用，各有所长，供大家选择。  1.全文本搜索和挖掘的搜索引擎： 包括：搜索方法、技术：全文本搜索，信息检索，桌面搜索，企业搜索和分面搜索 开源搜索工具：  Open Semantic Search：专门用">
+<meta name="twitter:image" content="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/1-Open-Semantic-Search-771x283.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2015/11/05/干货  数据收集和处理工具一览/"/>
+
+
+
+
+
+  <title>干货 | 数据收集和处理工具一览 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2015/11/05/干货  数据收集和处理工具一览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">干货 | 数据收集和处理工具一览</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-05T19:25:47+08:00">
+                2015-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据调查/" itemprop="url" rel="index">
+                    <span itemprop="name">数据调查</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/干货资源合集/" itemprop="url" rel="index">
+                    <span itemprop="name">干货资源合集</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>进入大数据时代，调查报道愈加成为信息战。从哪里收集有效数据？如何抽取、筛选、整合、分类大量琐碎的信息？如何分享、存储数据，并实现随取随用？深度君整理了一张数据收集和处理工具清单，分为八大类，方便实用，各有所长，供大家选择。</p>
+<hr>
+<p><strong>1.全文本搜索和挖掘的搜索引擎：</strong></p>
+<p>包括：搜索方法、技术：全文本搜索，<a href="http://en.wikipedia.org/wiki/Information_retrieval" target="_blank" rel="noopener">信息检索</a>，<a href="http://en.wikipedia.org/wiki/Desktop_search" target="_blank" rel="noopener">桌面搜索</a>，<a href="http://en.wikipedia.org/wiki/Enterprise_search" target="_blank" rel="noopener">企业搜索</a>和<a href="http://en.wikipedia.org/wiki/Faceted_search" target="_blank" rel="noopener">分面搜索</a></p>
+<p><strong>开源搜索工具：</strong></p>
+<ul>
+<li><a href="http://www.opensemanticsearch.org/" target="_blank" rel="noopener">Open Semantic Search</a>：专门用于搜索自己文件的搜索引擎，同样的还有<a href="http://www.opensemanticsearch.org/doc/desktop_search" target="_blank" rel="noopener">Open Semantic Desktop Search</a>:可用于搜索单一一台笔记本电脑或单一用户的文件资源。</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/1-Open-Semantic-Search-771x283.png" alt="1 Open Semantic Search"></p>
+<ul>
+<li><a href="http://www.mandalka.name/investigateix/" target="_blank" rel="noopener">InvestigateIX</a>: 用于搜索加密外部设备</li>
+<li><a href="http://www.lesbonscomptes.com/recoll/" target="_blank" rel="noopener">Recoll</a>: 适用于Linux系统的桌面搜索引擎</li>
+<li><a href="http://www.opensemanticsearch.org/doc/search/list" target="_blank" rel="noopener">Fuzzy search with lists</a>：清单搜索、模糊搜索</li>
+</ul>
+<p><strong>搜素数据库和**</strong>API**</p>
+<ul>
+<li>如果你想编程，你可以试用以下强大的搜索引擎：<a href="http://lucene.apache.org/solr" target="_blank" rel="noopener">Solr</a>和<a href="https://www.elastic.co/products/elasticsearch" target="_blank" rel="noopener">Elastic Search</a>，支持索引和API搜索，更多全文搜索、实时检索、数据分析、多格式数据读取（JSON, SML, CSV或HTTP）等强大功能等你开发。</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/2-Elastic-771x359.png" alt="2 Elastic"></p>
+<p><strong>2.数据库、数字文档、数据管理系统、文件管理系统和内容管理系统：</strong></p>
+<ul>
+<li>还在为不同格式的脚注、尾注、文中引用和文献参考大费脑筋吗？资源整理神器<a href="http://www.zotero.org/" target="_blank" rel="noopener">Zotero</a>的标注和引用功能帮你解决难题。它可以在Word，Open Office添加引用，在Google doc和电子邮件中插入文献参考，或者为数据库添加标记。</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/3-Zoerto-771x402.png" alt="3 Zoerto"></p>
+<ul>
+<li><a href="http://www.libreoffice.org/discover/calc/" target="_blank" rel="noopener">LibreOffice Calc</a>:开源表格程序</li>
+<li><a href="http://www.documentcloud.org/" target="_blank" rel="noopener">Document cloud</a>:文档管理系统，管理纸质文件扫描版本或者PDF 格式文件</li>
+<li><a href="http://www.semantic-mediawiki.org/" target="_blank" rel="noopener">Semantic MediaWiki</a>: MediaWiki(著名开源引擎，可用于构建企业/个人知识库，维基百科就是使用MediaWiki的成功范例)的免费开源扩展，可供用户存储、调用数据</li>
+<li><a href="https://www.drupal.org/documentation/modules/field-ui" target="_blank" rel="noopener">Drupal CMS</a>:内容管理模块，可以让你快速便捷地以用户界面创制自己的内容格式、数据字段和表格</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/4-Drupal-771x314.png" alt="4 Drupal"></p>
+<ul>
+<li><p>想从大量文件中单独抽取金额来分析？专业的文件管理系统<a href="http://www.agorum.com/homepage/english/product-overview-of-open-source-dms-ecm.html" target="_blank" rel="noopener">Agorum</a>可以自动从账单抽取金钱数额，帮你轻松解决。</p>
+</li>
+<li><p>想标记图片中的文字？<a href="http://www.thepund.it/" target="_blank" rel="noopener">Pundit</a>帮你办到，它同时支持文本和图片标记。</p>
+</li>
+<li>想在网站加注释？<a href="http://annotatorjs.org/" target="_blank" rel="noopener">Annotator.js</a>帮你在任何网页加注释，而且可以添加评论、标签、链接、用户或者更多不同种类的信息，第三方插件还能帮你在难以搞定的PDF、EPUB、视频、图片、声音甚至更多格式的文件上添加标注。</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/5-Annotator1-771x460.png" alt="5 Annotator"></p>
+<ul>
+<li>标注了信息，想收到更新提醒？<a href="https://hypothes.is/" target="_blank" rel="noopener">Hypothesis</a>可供用户订阅一系列已标注的活动信息，而且能按照自己的兴趣获取通知，而且还能分享评注、链接词典。程序员还可以获取有限的网站许可，通过第三方应用创建、更新、删除、搜索注释。</li>
+</ul>
+<p><strong>3. 文本文件挖掘、分析</strong></p>
+<ul>
+<li><a href="http://www.opensemanticsearch.org/doc/analyze/textmining" target="_blank" rel="noopener">Text mining tutorial: How to analyze large document collections</a>：文本挖掘教程：如何分析大容量文件集（使用Open Semantic Search来挖掘文本）</li>
+<li><a href="http://entopix.com/so-you-need-to-understand-language-data-open-source-nlp-software-can-help/" target="_blank" rel="noopener">Understanding language data</a>: 理解语言数据：可以使用开源NLP（自然语言处理）软件</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/6-NLP.png" alt="6 NLP"></p>
+<ul>
+<li>统计词频有困难？<a href="http://www.overviewproject.org/" target="_blank" rel="noopener">Overview project</a>可以显示文本最常用的词和它们的词群分布</li>
+<li><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/7-Jigsaw.jpg" alt="7 Jigsaw">想以图解的方式查看文本检索结果？文本搜索工具<a href="http://www.cc.gatech.edu/gvu/ii/jigsaw/" target="_blank" rel="noopener">Jigsaw</a>:（非开源软件，但可免费下载）可统计文本中最重要的人物、地点、组织等实体的出现频率，并将他们之间的关系以列表、图表、时间表和关系图的形式呈现出来，提高文本分析效率。</li>
+</ul>
+<p><strong>如果你觉得不够，我们还推荐：</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_text_mining_software#Open_source" target="_blank" rel="noopener">Wikipedia list</a> of open source text mining software：维基百科上整合的开源文本挖掘软件列表</li>
+<li><a href="http://tapor.ca/" target="_blank" rel="noopener"><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/7-TAPOR-logo-771x178.png" alt="7 TAPOR-logo">Tapor</a>: 研究专用的文本分析门户，提供大量文本分析工具，你可以按照类型或标记找到最适合的一款。</li>
+</ul>
+<p><strong>4. 图表和关系网络分析（SNA）</strong></p>
+<p><strong>帮助分析关联并将其可视化的工具：</strong></p>
+<ul>
+<li><a href="http://opensemanticsearch.local/doc/analyze/graph" target="_blank" rel="noopener">关系网分析教程</a>：教你如何用Open Semantic Search可视化关联</li>
+<li><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/8-Gephi.jpg" alt="8 Gephi"></li>
+<li><a href="http://js.cytoscape.org/" target="_blank" rel="noopener">Cytoscape.js</a>: Javascript数据库，能将关系网、事物分属和图表可视化</li>
+<li><a href="http://www.semantic-mediawiki.org/" target="_blank" rel="noopener">Semantic Mediawiki</a>:上面介绍过，不仅是数据库，也是适用于关联数据、非常灵活的内容管理系统</li>
+<li><a href="http://www.detective.io/" target="_blank" rel="noopener">Detective</a>: 以Python/Django和neo4j图像数据库为基础的内容管理系统，适用于分析关系。</li>
+</ul>
+<p><strong>5. 抽取、转换数据</strong></p>
+<p>包括数据整合、抽取、转换、转移、ETL（数据提取、转换和加载）网络爬虫采集等等</p>
+<p><strong>从文件抽取结构化数据：</strong></p>
+<ul>
+<li><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/9-tika.png" alt="9 tika"> <a href="http://tika.apache.org/" target="_blank" rel="noopener">Tika content analysis toolkit</a>: 从文档和文件抽取文本和元数据</li>
+<li><a href="http://www.opensemanticsearch.org/doc/search/csv" target="_blank" rel="noopener">CSV Manager</a>:将csv表格输入Solr为基础的搜索引擎</li>
+<li>想从PDF文件抽取数据、转化为可编辑的文本？免费软件Tabula可以直接从PDF文件抽取数据表格，神奇吧？</li>
+<li>图片识别和文本扫描：<a href="http://www.mandalka.name/investigative_journalism/#ocr" target="_blank" rel="noopener">光学字符识别（OCR）</a></li>
+</ul>
+<p><strong>从图片识别文本（**</strong>OCR<strong>**）</strong></p>
+<ul>
+<li><a href="https://code.google.com/p/tesseract-ocr/" target="_blank" rel="noopener">Tesseract</a>: 光学识别软件，从图片识别文本</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/FireShot-Capture-411-11-tesseract-ocr.png" alt="FireShot Capture 411 -11 tesseract-ocr"></p>
+<ul>
+<li>低质量扫描没法看？<a href="http://scantailor.org/" target="_blank" rel="noopener">Scantailor</a>帮你分页、矫正文本、添加/删除页边，可以将原始文本传换成PDF或者DJVU格式的文件，便于打印。</li>
+</ul>
+<p><strong>从声音识别、抽取文本：</strong></p>
+<ul>
+<li><a href="http://cmusphinx.sourceforge.net/" target="_blank" rel="noopener">CMU Sphinx</a>: 开源声音识别工具，支持英语、法语、中文、德语、荷兰语、俄语。该开发商还提供关键词识别和读音识别等实用工具，可以多多关注。</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/12-CMU-Sphinx1-771x264.png" alt="12 CMU Sphinx"></p>
+<p><strong>从网站抽取数据（网络信息采集**</strong>/<strong>**网络爬虫）</strong></p>
+<ul>
+<li>网络采集哪家强？简易 <a href="http://www.scrapy.org/" target="_blank" rel="noopener">Scrapy</a>帮你忙：你可以依托<a href="http://www.scrapy.org/" target="_blank" rel="noopener">Scrapy</a>建立自己的网络爬虫工具，编写Python代码，在Windows,Mac,Linux和BSD系统上都可运行。</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/FireShot-Capture-404-Scrapy-I-A-Fast-and-Powerful-Scraping-and-Web-Crawling-_-http___scrapy.org_-771x211.png" alt="FireShot Capture 404 - Scrapy I A Fast and Powerful Scraping and Web Crawling _ - http___scrapy.org_"></p>
+<p><strong>6. 输入、修改、转换数据</strong></p>
+<ul>
+<li>将数据转换成纯文本的超强工具： <a href="http://tika.apache.org/" target="_blank" rel="noopener">Tika content analysis toolkit</a></li>
+<li><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/13-talend-logo.png" alt="13 talend-logo">将数据转换成其他格式的工具：<a href="https://www.talend.com/resource/etl-tool.html" target="_blank" rel="noopener">Talend Open Studio</a>和<a href="http://community.pentaho.com/projects/data-integration/" target="_blank" rel="noopener">Kettle</a></li>
+</ul>
+<p><strong>编写文件和删除元数据</strong></p>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/14-PDF-Redact-Tools.png" alt="14 PDF Redact Tools">记者为了保护信息，往往需要编写文件、清除敏感文件、删除隐藏在文件或图片里的元数据，例如软件的序列号或软件、用户名，以下工具可供参考：</p>
+<ul>
+<li><a href="https://firstlook.org/code/project/pdf-redact-tools/" target="_blank" rel="noopener">PDF Redact Tools</a>: 以最安全的方式删除PDF中的元数据</li>
+<li><a href="https://mat.boum.org/" target="_blank" rel="noopener">MAT: Metadata Anonymisation Toolkit</a>:从不同的文件格式和图片格式中删除元数据</li>
+</ul>
+<p><strong>7. 统计与分析</strong></p>
+<p>包括数据<a href="https://en.wikipedia.org/wiki/Data_analysis" target="_blank" rel="noopener">分析</a>、<a href="https://en.wikipedia.org/wiki/Statistics" target="_blank" rel="noopener">统计</a>、图表、<a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" rel="noopener">数据可视化</a></p>
+<ul>
+<li>开源表格程序<a href="http://www.libreoffice.org/discover/calc/" target="_blank" rel="noopener">LibreOffice Calc</a></li>
+<li>上面介绍过的<a href="http://gethue.com/solr-search-ui-only/" target="_blank" rel="noopener">HUE Solr search</a>和<a href="https://www.elastic.co/products/kibana" target="_blank" rel="noopener">Kibana for Elastic Search</a>，除了能检索数据库和API，也能完成数据分析<img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/16-hue-771x282.png" alt="16 hue"></li>
+<li>适用于数据分析和计量经济分析的专业电脑程序：<a href="https://en.wikipedia.org/wiki/List_of_statistical_packages#Open-source_statistical_packages" target="_blank" rel="noopener">Statistical software</a></li>
+<li>统计和分析的工具大全：<a href="https://en.wikipedia.org/wiki/Business_intelligence_tools" target="_blank" rel="noopener">Business Intelligence</a></li>
+<li>用<a href="http://www.r-project.org/" target="_blank" rel="noopener">R</a> 、 <a href="http://www.python.org/" target="_blank" rel="noopener">Python</a>或其他编程语言编程分析数据</li>
+</ul>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/18-Python-771x282.png" alt="18 Python"></p>
+<ul>
+<li>以上数据分析太复杂？刚入门，想理解数据分析原理？推荐阅读解释数据挖掘方法的书<a href="http://infolab.stanford.edu/~ullman/mmds/book.pdf" target="_blank" rel="noopener">Mining of massive datasets</a>（请点击链接，下载免费PDF格式）</li>
+</ul>
+<p><strong>8. 通用开源软件工具包</strong></p>
+<p><img src="https://35fmis1l7rwm1rqwis4fnzi6-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/19-Debian-771x278.png" alt="19 Debian">最强大的通用开源工具包，例如 <a href="http://www.debian.org/" target="_blank" rel="noopener">Debian GNU/Linux</a>或Ubuntu Linux，涵盖了成千上万个免费软件和开源工具、软件数据库和编程语言。</p>
+<p>运行时，用户无需移除现有的操作系统：安装适用于Windows和Mac的<a href="http://www.virtualbox.org/" target="_blank" rel="noopener">Virtual Box</a>，你就可以在现有操作环境下的单独的窗口运行上述Linux软件。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2015/11/05/干货  数据收集和处理工具一览/" title="干货 | 数据收集和处理工具一览">干货 | 数据收集和处理工具一览</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2015/11/05/干货  数据收集和处理工具一览/" title="干货 | 数据收集和处理工具一览">https://inforscan.com/2015/11/05/干货  数据收集和处理工具一览/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2015年11月5日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据调查/" rel="tag"><i class="fa fa-tag"></i> 数据调查</a>
+          
+            <a href="/tags/商业调查/" rel="tag"><i class="fa fa-tag"></i> 商业调查</a>
+          
+            <a href="/tags/开源情报/" rel="tag"><i class="fa fa-tag"></i> 开源情报</a>
+          
+            <a href="/tags/调查工具/" rel="tag"><i class="fa fa-tag"></i> 调查工具</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/02/SemanticScholar 高大上的免费学术搜索引擎/" rel="next" title="SemanticScholar高大上的免费学术搜索引擎">
+                <i class="fa fa-chevron-left"></i> SemanticScholar高大上的免费学术搜索引擎
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/13/干货 跨国调查资源检索大全/" rel="prev" title="干货 | 跨国调查资源检索大全">
+                干货 | 跨国调查资源检索大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">424</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">659</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://byteclicks.com" title="前沿科技" target="_blank" rel="external nofollow">前沿科技</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://sharetext.co/" title="Sharetext" target="_blank" rel="external nofollow">Sharetext</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://toffeeshare.com/" title="toffeeshare" target="_blank" rel="external nofollow">toffeeshare</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

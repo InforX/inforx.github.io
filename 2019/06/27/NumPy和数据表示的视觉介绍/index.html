@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NumPy," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="NumPy和数据表示的视觉介绍  NumPy的包是数据分析，机器学习，并在蟒生态系统科学计算的主力。它极大地简化了向量和矩阵的操作和处理。python的一些主要软件包依赖于NumPy作为其基础架构的基础部分（例如scikit-learn，SciPy，pandas和tensorflow）。除了对数字数据进行切片和切块的能力之外，在使用这些库中的高级用例进行处理和调试时，掌握numpy将为您提供优势。">
+<meta name="keywords" content="NumPy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NumPy和数据表示的视觉介绍">
+<meta property="og:url" content="https://inforscan.com/2019/06/27/NumPy和数据表示的视觉介绍/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="NumPy和数据表示的视觉介绍  NumPy的包是数据分析，机器学习，并在蟒生态系统科学计算的主力。它极大地简化了向量和矩阵的操作和处理。python的一些主要软件包依赖于NumPy作为其基础架构的基础部分（例如scikit-learn，SciPy，pandas和tensorflow）。除了对数字数据进行切片和切块的能力之外，在使用这些库中的高级用例进行处理和调试时，掌握numpy将为您提供优势。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-array.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/create-numpy-array-1.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/create-numpy-array-ones-zeros-random.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-arrays-example-1.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-arrays-adding-1.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-array-subtract-multiply-divide.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-array-broadcast.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-array-slice.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-array-aggregation.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-array-create-2d.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-ones-zeros-random.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-arithmetic.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-broadcast.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-dot-product-1.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-dot-product-2.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-indexing.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-aggregation-1.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-matrix-aggregation-4.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-transpose.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-reshape.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-3d-array.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-3d-array-creation.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/mean-square-error-formula.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-mean-square-error-formula.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-mse-1.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-mse-2.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-mse-3.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-mse-4.png">
+<meta property="og:image" content="https://jalammar.github.io/images/pandas-intro/0%20excel-to-pandas.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-audio.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-grayscale-image.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-color-image.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-nlp-vocabulary.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-nlp-tokenization.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-nlp-ids.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-nlp-embeddings.png">
+<meta property="og:image" content="https://jalammar.github.io/images/numpy/numpy-nlp-bert-shape.png">
+<meta property="og:updated_time" content="2019-06-27T11:03:23.492Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NumPy和数据表示的视觉介绍">
+<meta name="twitter:description" content="NumPy和数据表示的视觉介绍  NumPy的包是数据分析，机器学习，并在蟒生态系统科学计算的主力。它极大地简化了向量和矩阵的操作和处理。python的一些主要软件包依赖于NumPy作为其基础架构的基础部分（例如scikit-learn，SciPy，pandas和tensorflow）。除了对数字数据进行切片和切块的能力之外，在使用这些库中的高级用例进行处理和调试时，掌握numpy将为您提供优势。">
+<meta name="twitter:image" content="https://jalammar.github.io/images/numpy/numpy-array.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2019/06/27/NumPy和数据表示的视觉介绍/"/>
+
+
+
+
+
+  <title>NumPy和数据表示的视觉介绍 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2019/06/27/NumPy和数据表示的视觉介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">NumPy和数据表示的视觉介绍</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-27T09:45:47+08:00">
+                2019-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NumPy和数据表示的视觉介绍"><a href="#NumPy和数据表示的视觉介绍" class="headerlink" title="NumPy和数据表示的视觉介绍"></a>NumPy和数据表示的视觉介绍</h1><p><img src="https://jalammar.github.io/images/numpy/numpy-array.png" alt="img"> </p>
+<p><a href="https://www.numpy.org/" target="_blank" rel="noopener">NumPy的</a>包是数据分析，机器学习，并在蟒生态系统科学计算的主力。它极大地简化了向量和矩阵的操作和处理。python的一些主要软件包依赖于NumPy作为其基础架构的基础部分（例如scikit-learn，SciPy，pandas和tensorflow）。除了对数字数据进行切片和切块的能力之外，在使用这些库中的高级用例进行处理和调试时，掌握numpy将为您提供优势。</p>
+<p>在这篇文章中，我们将介绍一些使用NumPy的主要方法，以及在我们为机器学习模型提供服务之前它如何表示不同类型的数据（表格，图像，文本等）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><p>我们可以通过将python列表传递给它并使用<code>np.array（）</code> 来创建一个NumPy数组（也就是强大的<a href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html" target="_blank" rel="noopener">ndarray</a>）。在这种情况下，python创建了我们在右边可以看到的数组：</p>
+<p><img src="https://jalammar.github.io/images/numpy/create-numpy-array-1.png" alt="img"> </p>
+<p>通常情况下，我们希望NumPy为我们初始化数组的值。NumPy为这些情况提供了诸如ones（），zeros（）和random.random（）之类的方法。我们只是传递它们要生成的元素数量：</p>
+<p><img src="https://jalammar.github.io/images/numpy/create-numpy-array-ones-zeros-random.png" alt="img"></p>
+<p>一旦我们创建了数组，我们就可以开始以有趣的方式操作它们。</p>
+<h2 id="数组算术"><a href="#数组算术" class="headerlink" title="数组算术"></a>数组算术</h2><p>让我们创建两个NumPy数组来展示它们的用处。我们会打电话给他们<code>data</code>，并<code>ones</code>：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-arrays-example-1.png" alt="img"></p>
+<p>在位置上添加它们（即添加每行的值）就像键入一样简单<code>data + ones</code>：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-arrays-adding-1.png" alt="img"> </p>
+<p>当我开始学习这些工具时，我发现这样的抽象让我不必在循环中编写这样的计算。这是一个很棒的抽象，可以让你在更高层次上思考问题。</p>
+<p>这不仅是我们可以这样做的补充：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-array-subtract-multiply-divide.png" alt="img"></p>
+<p>通常情况下，我们希望在数组和单个数字之间执行操作（我们也可以将其称为向量和标量之间的操作）。比如说，我们的数组表示以英里为单位的距离，我们希望将其转换为公里数。我们简单地说<code>data * 1.6</code>：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-array-broadcast.png" alt="img"></p>
+<p>看看NumPy如何理解这种操作意味着每个细胞都会发生相乘？这个概念叫做<em>广播</em>，它非常有用。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>我们可以通过切片python列表的所有方式对NumPy数组进行索引和切片：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-array-slice.png" alt="img"></p>
+<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p>NumPy为我们提供的其他好处是聚合功能：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-array-aggregation.png" alt="img"></p>
+<p>此外<code>min</code>，<code>max</code>和<code>sum</code>，你得到所有的伟人像<code>mean</code>，以获得平均，<code>prod</code>得到所有的元素相乘，结果<code>std</code>得到的标准偏差，和<a href="https://jakevdp.github.io/PythonDataScienceHandbook/02.04-computation-on-arrays-aggregates.html" target="_blank" rel="noopener">其他很多的</a>。</p>
+<h2 id="在更多方面"><a href="#在更多方面" class="headerlink" title="在更多方面"></a>在更多方面</h2><p>我们所看到的所有例子都在一个维度上处理向量。NumPy之美的一个关键部分是它能够将我们目前所看到的所有内容应用到任意数量的维度。</p>
+<h3 id="创建矩阵"><a href="#创建矩阵" class="headerlink" title="创建矩阵"></a>创建矩阵</h3><p>我们可以传递以下形状的python列表列表，让NumPy创建一个矩阵来表示它们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.array([[1,2],[3,4]])</span><br></pre></td></tr></table></figure>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-array-create-2d.png" alt="img"> </p>
+<p>我们也可以使用上面提到的相同方法（<code>ones()</code>，<code>zeros()</code>和<code>random.random()</code>），只要我们给它们一个元组来描述我们正在创建的矩阵的维度：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-ones-zeros-random.png" alt="img"></p>
+<h3 id="矩阵算术"><a href="#矩阵算术" class="headerlink" title="矩阵算术"></a>矩阵算术</h3><p><code>+-*/</code>如果两个矩阵的大小相同，我们可以使用算术运算符（）来添加和乘以矩阵。NumPy将这些作为位置操作处理：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-arithmetic.png" alt="img"> </p>
+<p>只有当不同维度为1时（例如矩阵只有一列或一行），我们才能在不同大小的矩阵上进行这些算术运算，在这种情况下，NumPy将其广播规则用于该操作：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-broadcast.png" alt="img"></p>
+<h3 id="点产品"><a href="#点产品" class="headerlink" title="点产品"></a>点产品</h3><p>与算术相关的一个关键区别是使用点积的<a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank" rel="noopener">矩阵乘法</a>。NumPy为每个矩阵提供了一种<code>dot()</code>方法，可用于与其他矩阵进行点积运算：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-dot-product-1.png" alt="img"></p>
+<p>我在这个图的底部添加了矩阵尺寸，以强调两个矩阵在它们彼此面对的一侧必须具有相同的尺寸。您可以将此操作可视化为如下所示：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-dot-product-2.png" alt="img"></p>
+<h3 id="矩阵索引"><a href="#矩阵索引" class="headerlink" title="矩阵索引"></a>矩阵索引</h3><p>当我们操作矩阵时，索引和切片操作变得更加有用：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-indexing.png" alt="img"> </p>
+<h3 id="矩阵聚合"><a href="#矩阵聚合" class="headerlink" title="矩阵聚合"></a>矩阵聚合</h3><p>我们可以像聚合向量一样聚合矩阵：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-aggregation-1.png" alt="img"></p>
+<p>我们不仅可以聚合矩阵中的所有值，还可以使用以下<code>axis</code>参数在行或列之间进行聚合：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-matrix-aggregation-4.png" alt="img"></p>
+<h2 id="转置和重塑"><a href="#转置和重塑" class="headerlink" title="转置和重塑"></a>转置和重塑</h2><p>处理矩阵时的一个共同需求是需要旋转矩阵。当我们需要采用两个矩阵的点积并需要对齐它们共享的维度时，通常就是这种情况。NumPy数组有一个方便的属性，<code>T</code>用于获取矩阵的转置：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-transpose.png" alt="img"> </p>
+<p>在更高级的用例中，您可能会发现自己需要切换某个矩阵的维度。在机器学习应用程序中通常就是这种情况，其中某个模型期望输入的某个形状与您的数据集不同。NumPy的<code>reshape()</code>方法在这些情况下很有用。您只需将矩阵所需的新尺寸传递给它即可。您可以为维度传递-1，NumPy可以根据您的矩阵推断出正确的维度：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-reshape.png" alt="img"></p>
+<h2 id="更多维度"><a href="#更多维度" class="headerlink" title="更多维度"></a>更多维度</h2><p>NumPy可以完成我们在任何维度上提到的所有内容。其中心数据结构称为ndarray（N维数组），原因很简单。</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-3d-array.png" alt="img"> </p>
+<p>在很多方面，处理新维度只是在NumPy函数的参数中添加逗号：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-3d-array-creation.png" alt="img"></p>
+<h2 id="实际用法"><a href="#实际用法" class="headerlink" title="实际用法"></a>实际用法</h2><p>现在为了收益。以下是NumPy将帮助您完成的有用事项的一些示例。</p>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>实现适用于矩阵和向量的数学公式是考虑NumPy的关键用例。这就是为什么NumPy是科学蟒蛇社区的宠儿。例如，考虑平均误差公式，它是监督机器学习模型处理回归问题的核心：</p>
+<p><img src="https://jalammar.github.io/images/numpy/mean-square-error-formula.png" alt="img"></p>
+<p>在NumPy中实现这一点是轻而易举的：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-mean-square-error-formula.png" alt="img"></p>
+<p>这样做的好处是，numpy的不关心，如果<code>predictions</code>与<code>labels</code>含有一个或一千值（只要他们都是相同的大小）。我们可以通过一个示例逐步执行该代码行中的四个操作：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-mse-1.png" alt="img"></p>
+<p>预测和标签向量都包含三个值。这意味着n的值为3。在我们执行减法后，我们最终得到如下值：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-mse-2.png" alt="img"></p>
+<p>然后我们可以对矢量中的值进行平方：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-mse-3.png" alt="img"></p>
+<p>现在我们总结这些值：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-mse-4.png" alt="img"> </p>
+<p>这导致该预测的误差值和模型质量的分数。</p>
+<h3 id="数据表示"><a href="#数据表示" class="headerlink" title="数据表示"></a>数据表示</h3><p>想想你需要紧缩和构建模型所需的所有数据类型（电子表格，图像，音频……等）。其中很多都非常适合在n维数组中表示：</p>
+<h4 id="表格和电子表格"><a href="#表格和电子表格" class="headerlink" title="表格和电子表格"></a>表格和电子表格</h4><ul>
+<li>电子表格或值表是二维矩阵。电子表格中的每个工作表都可以是自己的变量。python中最受欢迎的抽象是<a href="https://jalammar.github.io/gentle-visual-intro-to-data-analysis-python-pandas/" target="_blank" rel="noopener">pandas数据帧</a>，它实际上使用NumPy并在其上构建。</li>
+</ul>
+<p><img src="https://jalammar.github.io/images/pandas-intro/0%20excel-to-pandas.png" alt="img"></p>
+<h4 id="音频和时间序列"><a href="#音频和时间序列" class="headerlink" title="音频和时间序列"></a>音频和时间序列</h4><ul>
+<li>音频文件是一维样本数组。每个样本都是一个代表音频信号的一小部分的数字。CD质量的音频每秒可能有44,100个样本，每个样本是-65535到65536之间的整数。这意味着如果你有一个10秒的CD质量的WAVE文件，你可以将它加载到长度为10 * 44,100的NumPy数组中= 441,000个样本。想要提取音频的第一秒？只需将文件加载到我们将调用的NumPy数组中<code>audio</code>，然后获取<code>audio[:44100]</code>。</li>
+</ul>
+<p>以下是一段音频文件：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-audio.png" alt="img"></p>
+<p>时间序列数据也是如此（例如，股票价格随时间变化）。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><ul>
+<li>图像是尺寸（高度×宽度）的像素矩阵。<ul>
+<li>如果图像是黑白（也称为灰度），则每个像素可以由单个数字表示（通常在0（黑色）和255（白色）之间）。想要裁剪图像的左上角10 x 10像素部分？告诉NumPy要你<code>image[:10,:10]</code>。</li>
+</ul>
+</li>
+</ul>
+<p>这是一个图像文件的片段：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-grayscale-image.png" alt="img"></p>
+<ul>
+<li><p>如果图像是彩色的，则每个像素由三个数字表示 - 红色，绿色和蓝色各自的值。在这种情况下，我们需要第三维（因为每个单元格只能包含一个数字）。因此彩色图像由尺寸的ndarray表示:(高x宽x 3）。</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-color-image.png" alt="img"></p>
+</li>
+</ul>
+<h4 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h4><p>如果我们处理文本，故事就会有所不同。文本的数字表示需要一个构建词汇表的步骤（模型知道的所有唯一单词的清单）和<a href="https://jalammar.github.io/illustrated-word2vec/" target="_blank" rel="noopener">嵌入步骤</a>。让我们看看用古代精神用数字表示这个（翻译的）引用的步骤：</p>
+<p>“让我之前的吟游诗人留下任何主题吗？”</p>
+<p>模型需要先查看大量文本才能在数字上代表这位战士诗人的焦虑话语。我们可以继续处理一个<a href="http://mattmahoney.net/dc/textdata.html" target="_blank" rel="noopener">小数据集</a>并使用它来构建一个词汇表（71,290个单词）：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-nlp-vocabulary.png" alt="img"> </p>
+<p>然后可以将句子分成一系列标记（基于通用规则的单词或单词部分）：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-nlp-tokenization.png" alt="img"></p>
+<p>然后我们用词汇表中的id替换每个单词：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-nlp-ids.png" alt="img"></p>
+<p>这些ID仍然不能为模型提供太多信息价值。因此，在将一系列单词提供给模型之前，需要使用嵌入来替换标记/单词（在这种情况下，50维<a href="https://jalammar.github.io/illustrated-word2vec/" target="_blank" rel="noopener">word2vec嵌入</a>）：</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-nlp-embeddings.png" alt="img"></p>
+<p>您可以看到此NumPy数组的维度为[embedding_dimension x sequence_length]。在实践中，这些将是另一种方式，但我以这种方式呈现它的视觉一致性。出于性能原因，深度学习模型倾向于保留批量大小的第一维（因为如果并行训练多个示例，则可以更快地训练模型）。这是一个<code>reshape()</code>非常有用的明显案例。例如，像<a href="https://jalammar.github.io/illustrated-bert/" target="_blank" rel="noopener">BERT</a>这样的模型会期望其输入形状为：[batch_size，sequence_length，embedding_size]。</p>
+<p><img src="https://jalammar.github.io/images/numpy/numpy-nlp-bert-shape.png" alt="img"></p>
+<p>现在这是一个数字卷，模型可以处理并执行有用的操作。我将其他行留空了，但是他们会填充其他示例以供模型训练（或预测）。</p>
+<p>（事实证明，在我们的例子中，<a href="https://en.wikisource.org/wiki/The_Poem_of_Antara" target="_blank" rel="noopener">诗人的话语</a>比其他引起他焦虑的<a href="https://en.wikisource.org/wiki/The_Poem_of_Antara" target="_blank" rel="noopener">诗人的言论</a>更具永生性。出生于父亲所拥有的奴隶，<a href="https://en.wikipedia.org/wiki/Antarah_ibn_Shaddad" target="_blank" rel="noopener">安塔拉的</a>英勇和语言能力使他获得了自由和神话般的地位。诗作为前伊斯兰阿拉伯半岛中<a href="https://en.wikipedia.org/wiki/Mu%27allaqat" target="_blank" rel="noopener">悬挂</a>的<a href="https://en.wikipedia.org/wiki/Mu%27allaqat" target="_blank" rel="noopener">七首诗</a>之一。</p>
+<p>写于2019年6月26日</p>
+<p>原文来源：<a href="https://jalammar.github.io/visual-numpy/" target="_blank" rel="noopener">https://jalammar.github.io/visual-numpy/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2019/06/27/NumPy和数据表示的视觉介绍/" title="NumPy和数据表示的视觉介绍">NumPy和数据表示的视觉介绍</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2019/06/27/NumPy和数据表示的视觉介绍/" title="NumPy和数据表示的视觉介绍">https://inforscan.com/2019/06/27/NumPy和数据表示的视觉介绍/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2019年6月27日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NumPy/" rel="tag"><i class="fa fa-tag"></i> NumPy</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/25/一个自由开放的在线古籍图书馆/" rel="next" title="一个自由开放的在线古籍图书馆">
+                <i class="fa fa-chevron-left"></i> 一个自由开放的在线古籍图书馆
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/30/推荐一个纠正英语口语发音的神器/" rel="prev" title="推荐一个纠正英语口语发音的神器">
+                推荐一个纠正英语口语发音的神器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">424</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">659</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://byteclicks.com" title="前沿科技" target="_blank" rel="external nofollow">前沿科技</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://sharetext.co/" title="Sharetext" target="_blank" rel="external nofollow">Sharetext</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://toffeeshare.com/" title="toffeeshare" target="_blank" rel="external nofollow">toffeeshare</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NumPy和数据表示的视觉介绍"><span class="nav-number">1.</span> <span class="nav-text">NumPy和数据表示的视觉介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组"><span class="nav-number">1.1.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组算术"><span class="nav-number">1.2.</span> <span class="nav-text">数组算术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.3.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合"><span class="nav-number">1.4.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在更多方面"><span class="nav-number">1.5.</span> <span class="nav-text">在更多方面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建矩阵"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵算术"><span class="nav-number">1.5.2.</span> <span class="nav-text">矩阵算术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点产品"><span class="nav-number">1.5.3.</span> <span class="nav-text">点产品</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵索引"><span class="nav-number">1.5.4.</span> <span class="nav-text">矩阵索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵聚合"><span class="nav-number">1.5.5.</span> <span class="nav-text">矩阵聚合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转置和重塑"><span class="nav-number">1.6.</span> <span class="nav-text">转置和重塑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多维度"><span class="nav-number">1.7.</span> <span class="nav-text">更多维度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际用法"><span class="nav-number">1.8.</span> <span class="nav-text">实际用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式"><span class="nav-number">1.8.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表示"><span class="nav-number">1.8.2.</span> <span class="nav-text">数据表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表格和电子表格"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">表格和电子表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#音频和时间序列"><span class="nav-number">1.8.2.2.</span> <span class="nav-text">音频和时间序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片"><span class="nav-number">1.8.2.3.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语言"><span class="nav-number">1.8.2.4.</span> <span class="nav-text">语言</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

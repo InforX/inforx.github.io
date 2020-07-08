@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="开放数据源," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开放数据源（一），全球地理、自然、经济数据等。 世界银行,数据网站: data.worldbank.org gapminder,编译数据源,包括世界卫生组织和世界银行覆盖经济、医疗和社会统计数据。 美国中央情报局,世界概况,包含267个国家的历史信息、人口、经济、政府、基设施和军事等信息。 国家气候数据中心,巨大的环境、气象和气候数据集来自美国国家气候数据中心。世界上最大的气象数据的归档。 Ope">
+<meta name="keywords" content="开放数据源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开放数据源-社会、经济、地理、空间，数据科学家的宝库">
+<meta property="og:url" content="https://inforscan.com/2020/05/11/开放数据源-社会、经济、地理、空间，数据科学家的宝库/index.html">
+<meta property="og:site_name" content="INFORX">
+<meta property="og:description" content="开放数据源（一），全球地理、自然、经济数据等。 世界银行,数据网站: data.worldbank.org gapminder,编译数据源,包括世界卫生组织和世界银行覆盖经济、医疗和社会统计数据。 美国中央情报局,世界概况,包含267个国家的历史信息、人口、经济、政府、基设施和军事等信息。 国家气候数据中心,巨大的环境、气象和气候数据集来自美国国家气候数据中心。世界上最大的气象数据的归档。 Ope">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-11T11:45:00.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开放数据源-社会、经济、地理、空间，数据科学家的宝库">
+<meta name="twitter:description" content="开放数据源（一），全球地理、自然、经济数据等。 世界银行,数据网站: data.worldbank.org gapminder,编译数据源,包括世界卫生组织和世界银行覆盖经济、医疗和社会统计数据。 美国中央情报局,世界概况,包含267个国家的历史信息、人口、经济、政府、基设施和军事等信息。 国家气候数据中心,巨大的环境、气象和气候数据集来自美国国家气候数据中心。世界上最大的气象数据的归档。 Ope">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inforscan.com/2020/05/11/开放数据源-社会、经济、地理、空间，数据科学家的宝库/"/>
+
+
+
+
+
+  <title>开放数据源-社会、经济、地理、空间，数据科学家的宝库 | INFORX</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">INFORX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-词云">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            词云
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-说说">
+          <a href="/shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inforscan.com/2020/05/11/开放数据源-社会、经济、地理、空间，数据科学家的宝库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="InforX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xning.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="INFORX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">开放数据源-社会、经济、地理、空间，数据科学家的宝库</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T14:25:47+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="开放数据源（一），全球地理、自然、经济数据等。"><a href="#开放数据源（一），全球地理、自然、经济数据等。" class="headerlink" title="开放数据源（一），全球地理、自然、经济数据等。"></a>开放数据源（一），全球地理、自然、经济数据等。</h2><ul>
+<li><a href="http://www.worldbank.org.cn/" target="_blank" rel="noopener">世界银行</a>,数据网站: <a href="https://supergis.gitbooks.io/git_notebook/content/doc/data.worldbank.org" target="_blank" rel="noopener">data.worldbank.org</a></li>
+<li><a href="http://www.gapminder.org/data/" target="_blank" rel="noopener">gapminder</a>,编译数据源,包括世界卫生组织和世界银行覆盖经济、医疗和社会统计数据。</li>
+<li><a href="https://www.cia.gov/library/publications/the-world-factbook/" target="_blank" rel="noopener">美国中央情报局,世界概况</a>,包含267个国家的历史信息、人口、经济、政府、基设施和军事等信息。</li>
+<li><a href="http://www.ncdc.noaa.gov/data-access/quick-links#loc-clim" target="_blank" rel="noopener">国家气候数据中心</a>,巨大的环境、气象和气候数据集来自美国国家气候数据中心。世界上最大的气象数据的归档。</li>
+<li><a href="http://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a>,全球范围的免费地图数据，每周动态更新。</li>
+<li><a href="http://aws.amazon.com/datasets" target="_blank" rel="noopener">亚马逊网络服务公共数据集</a>,巨大的公共数据资源,包括1000基因组计划,试图构建人类遗传信息的最全面的数据库和NASA的地球的卫星图像的数据库。</li>
+<li><a href="http://www.google.com/trends/explore" target="_blank" rel="noopener">谷歌趋势</a>,统计搜索量(搜索)总额的比例对于任何给定的期限,自2004年以来。</li>
+<li><a href="https://developers.facebook.com/docs/graph-api" target="_blank" rel="noopener">Facebook Graph</a> 虽然大部分的信息用户的Facebook的个人资料是私人的,很多不是——Facebook提供图形API的方式查询大量的信息,其用户乐于分享与世界(或无法隐藏,因为他们没有了隐私设置工作)。</li>
+<li><a href="http://wiki.dbpedia.org/" target="_blank" rel="noopener">DBPedia</a>,维基百科是由数百万块的数据,在每个主题在阳光下结构化和非结构化。DBPedia是一个雄心勃勃的项目目录,并创建一个公共、自由可分配的数据库允许任何人来分析这些数据。</li>
+<li><a href="http://topsy.com/" target="_blank" rel="noopener">社交媒体数据</a>,Topsy公共微博提供了一个可搜索的数据库2006年以及几个工具来分析对话。</li>
+<li><a href="http://likebutton.com/" target="_blank" rel="noopener">Likebutton</a>,矿山Facebook的公共数据——在全球范围内,从您自己的网络给人们“喜欢”的概述。</li>
+<li><a href="http://developer.nytimes.com/docs" target="_blank" rel="noopener">纽约时报</a>,索引归档的新闻文章回到1851年。</li>
+<li><a href="http://www.freebase.com/" target="_blank" rel="noopener">开放数据库</a>,community-compiled数据库结构化数据的人,地方和事情,与超过4500万个条目。</li>
+<li><a href="http://aws.amazon.com/datasets/6468931156960467" target="_blank" rel="noopener">百万歌曲数据集</a>,元数据超过一百万首歌曲和乐曲,亚马逊网络服务的一部分。</li>
+<li><a href="http://open-data.europa.eu/en/data/" target="_blank" rel="noopener">欧盟开放数据门户</a>,基于来自欧盟机构的数据。</li>
+<li><a href="https://sdmx.org/" target="_blank" rel="noopener">SDMX,欧洲央行</a>,</li>
+<li><a href="https://research.stlouisfed.org/fred2" target="_blank" rel="noopener">美联储</a></li>
+<li><a href="https://www.google.com/finance" target="_blank" rel="noopener">谷歌财经</a>,40年的股票市场数据,实时更新。</li>
+<li><a href="http://dataworks.thomson.com/Dataworks/Enterprise/1.0/" target="_blank" rel="noopener">金融量化:pydatastream</a></li>
+<li><a href="http://waditu.com/index.html" target="_blank" rel="noopener">中国金融,TuShare</a></li>
+<li>NASDAQ Data Store：提供市场数据。</li>
+<li><a href="https://supergis.gitbooks.io/git_notebook/content/doc/Datacatalogs.org" target="_blank" rel="noopener">美国、欧盟、加拿大、CKAN以及其他的公开政府数据</a></li>
+<li><a href="http://data.gov.uk/" target="_blank" rel="noopener">英国</a>,英国政府的数据,其中包括英国国家参考书目元数据(自1950年以来英国所有书籍和刊物)。</li>
+<li><a href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html" target="_blank" rel="noopener">Google Books ngram</a>,搜索和分析全文的数以百万计的图书数字化,作为谷歌图书项目的一部分。</li>
+<li><a href="http://data.gov/" target="_blank" rel="noopener">美国联邦政府数据网站</a>, 美国政府承诺可以免费在线所有政府数据,第一阶段已有各种数据。</li>
+<li><a href="http://www.census.gov/data.html" target="_blank" rel="noopener">美国人口普查局</a>,丰富对美国公民的生活人口地理数据和教育的信息。</li>
+<li><a href="https://www.healthdata.gov/" target="_blank" rel="noopener">Healthdata.gov</a>,125年的美国医疗数据包括claim-level医疗数据、流行病学和人口统计数据。</li>
+<li><a href="http://www.hscic.gov.uk/home" target="_blank" rel="noopener">国民健康和社会保健信息中心</a>,来自英国的国家卫生服务的健康数据集。</li>
+</ul>
+<h2 id="开放数据源（二），科研、论文，生物、网址、机器学习等。"><a href="#开放数据源（二），科研、论文，生物、网址、机器学习等。" class="headerlink" title="开放数据源（二），科研、论文，生物、网址、机器学习等。"></a>开放数据源（二），科研、论文，生物、网址、机器学习等。</h2><h6 id="编译自http-www-bigdata-madesimple-com-70-websites-to-get-large-data-repositories-for-free"><a href="#编译自http-www-bigdata-madesimple-com-70-websites-to-get-large-data-repositories-for-free" class="headerlink" title="编译自http://www.bigdata-madesimple.com/70-websites-to-get-large-data-repositories-for-free/"></a>编译自<a href="http://www.bigdata-madesimple.com/70-websites-to-get-large-data-repositories-for-free/" target="_blank" rel="noopener">http://www.bigdata-madesimple.com/70-websites-to-get-large-data-repositories-for-free/</a></h6><ul>
+<li>Wikipedia:Database ：向感兴趣的用户提供所有可用的内容的免费副本。可以得到多种语言的数据。内容连同图片可以下载。</li>
+<li>Common crawl：建立并维护一个所有人都可以访问的开放的网络。这个数据保存在亚马逊s3bucket中，请求者可能花费一些钱来访问它。</li>
+<li>EDRM File Formats Data Set：由381个文件夹200种文件格式组成。</li>
+<li>Apache Mahout TLP：项目创建一个可扩展的机器学习算法。Mahout有许多免费的和付费的语料库语料。</li>
+<li>StatLib,卡内基梅隆大学数据档案。</li>
+<li>STATOO Datasets part 1和 STATOO Datasets part 2，Time Series Data Library。</li>
+<li>Visual Analytics Benchmark Repository。</li>
+<li>UCI KDD Database Repository：适用于机器学习和知识发现研究的大数据集。</li>
+<li>UCI Machine Learning Repository.</li>
+<li>UCR Time Series Data Archive：提供数据集、论文、链接和代码。</li>
+<li>EDRM Enron Email Data Set v2：由安然公司邮件信息和附件组成，存在两组可下载的压缩文件中：XML和PST。</li>
+<li>ClueWeb09：用来支持信息检索和相关人类语言技术研究的资料库。它包含了从2009年1月到2月间收集的大约10亿个网页，包含10种语言。资料库被若干TREC会议的追踪检测使用。</li>
+<li>DMOZ：最大的、最全面的人工编辑的开放式网站目录。它收集了不同类型的网站链接。Dmoz是互联网搜索引擎的一个主要来源。</li>
+<li>theinfo.org：这是一个大数据集网站，在这里学者、设计师、艺术家等可以交流技巧和窍门，一起开发和共享工具，并开始整合他们独有的项目。</li>
+<li>Project Gutenberg：提供超过36000免费电子书的下载，可以下载到个人电脑、Kindle, Android, iOS or 或其他便携式设备。</li>
+<li>Million song data set：与tracks 和艺术家有关的数据。</li>
+<li>AWS (Amazon Web Services) Public Data Sets：提供了可以无缝融入AWS（亚马逊网络服务）云应用的公共数据集的集中存储库。</li>
+<li>GeoDa Center：地理和空间数据。</li>
+</ul>
+<h5 id="BigML-big-list-of-public-data-sources"><a href="#BigML-big-list-of-public-data-sources" class="headerlink" title="BigML big list of public data sources."></a>BigML big list of public data sources.</h5><ul>
+<li>Bioassay data：研究文章“生物测定数据的虚拟筛选”，由Amanda Schierz编写，有21个生物测定数据集（活性/非生理活性成分），可以下载。</li>
+<li>Bitly 1.usa.gov data：匿名点击链接。</li>
+<li>Canada Open Data：有许多政府和地理空间的数据集的试点项目。</li>
+<li>Causality Workbench：数据存储库。</li>
+<li>Corral Big Data repository：在德克萨斯高级计算中心，提供以数据为中心的技术。</li>
+</ul>
+<h5 id="Data-Source-Handbook-公开数据指南。"><a href="#Data-Source-Handbook-公开数据指南。" class="headerlink" title="Data Source Handbook:公开数据指南。"></a>Data Source Handbook:公开数据指南。</h5><ul>
+<li>Data.gov/Education：对于教育数据资源的主要指南，包括高价值的数据集、数据可视化、课堂资源、创建自公开数据的应用程序以及其他。</li>
+<li>DataMarket：可视化的世界经济、社会、自然和工业，拥有来自联合国，世界银行，欧盟统计局和其他重要数据提供者的一亿时间序列。</li>
+<li>Datamob：可以很好利用的公开数据。</li>
+<li>DataSF.org：可向City &amp; County of San Francisco, CA.购买的数据集信息交流中心。</li>
+<li>DataFerrett：一个用来访问和使用The Data Web的数据挖掘工具，许多网上美国政务数据集的集合。</li>
+<li>EconData：大量经济学的时间序列，由许多美国政府机构编制。</li>
+<li>Enron Email Dataset：来自大约150个用户的数据，这些用户大多数是安然公司高级管理人员。</li>
+<li>Europeana Data：包含2000万文字，图片，视频开放的元数据，以及由欧洲数位图书馆收集的声音，对于欧洲文化遗产内容值得信赖的、全面的资源。</li>
+<li>Europeana Data：FEDSTATS：一个美国统计资料的综合资源以及更多。</li>
+<li>FIMI repository for frequent itemset mining：工具和数据集。</li>
+<li>Financial Data Finder at OSU：大型财务数据集目录。</li>
+<li>GDELT:关于事件、位置和音调的全球数据，被英国卫报形容为“生命、宇宙和一切的大数据历史”。</li>
+<li>GEO (GEO Gene Expression Omnibus)：一个支持MIAME兼容数据提交的基因表达/分子丰度信息库，用于基因表达数据的浏览，查询和检索。</li>
+<li>Google ngrams datasets：来自数Google扫描的百万书籍文本。</li>
+<li>Grain Market Research：财务数据，包括股票、期货等。</li>
+<li>Hilary Mason research-quality Big Data sets: 收集许多文本和图片数据集.</li>
+<li>HitCompanies Datasets：HitCompanies随机取样的1万个英国公司全面的数据，采用人工智能/机器学习进行自动更新。</li>
+<li>ICWSM-2009 dataset：包含2008年8月1日到10月1日之间的4400万个博文。</li>
+<li>Infochimps：一个数据开放的目录和集合，允许分享、出售和下载关于任何内容的数据。</li>
+<li>Investor Links：包含财物数据。</li>
+<li>KDD Cup center：数据、工作表和结果。</li>
+<li>Kevin Chai list of datasets：文本、SNA和其他领域。</li>
+<li>KONECT：科布伦茨网络收集，拥有大量各种类型的网络数据集，以便在网络挖掘领域进行研究。</li>
+<li>Linking Open Data 工程，免费向所有人提供数据。</li>
+<li>MIT Cancer Genomics gene expression datasets and publications：来自麻省理工Whitehead Center用于基因组研究。</li>
+<li>ML Data：欧盟Pascal2网络数据储存库。</li>
+<li>National Government Statistical Web Sites：来自大约70个网站的数据、报告、统计年鉴、新闻和其他，包括非洲、欧洲、亚洲和拉丁美洲的国家。</li>
+<li>National Space Science Data Center (NSSDC)：美国国家航空航天局的数据集，包含行星探索、空间和太阳物理学、生命科学、天体物理学以及其他方面。</li>
+<li>Open Data Census：评估世界各地的开放数据的状态。</li>
+<li>OpenData from Socrata：允许访问超过10000个数据集，包括商业、教育、政府和娱乐。</li>
+<li>Open Source Sports：大量运动数据库，包括棒球、足球、篮球和曲棍球。</li>
+<li>Peter Skomoroch dataset Bookmarks PubGene(TM) Gene Database and Tools：基因组有关的出版物数据库。</li>
+<li>Quandl, a collaboratively curated portal to millions of financial and economic time-series datasets.</li>
+<li>qunb：一个用来发现和可视化的数据资料的平台。</li>
+<li>Robert Schiller data：住房建筑、股票市场和更多的来自于他的书 Irrational Exuberance的数据</li>
+<li>SMD: Stanford Microarray Database,存储来自微阵列实验的原始的和标准的数据。</li>
+<li>Jerry Smith dataset collection：财经、政府、机器学习、科学和其他数据。</li>
+<li>SourceForge.net Research Data：包含大约10万个项目和超过100万注册用户的活动的历史和现状的统计数据的项目管理网站。</li>
+<li>Wikiposit：一个（虚拟的）融合了来自许多不同网站的数据（大多数是金融的），允许用户合并来自不同来源的数据。</li>
+<li>Wolfram Alpha disease and patient level dat.</li>
+<li>Yahoo Sandbox datasets：语言、图表、评级、广告与营销、竞赛。</li>
+<li>Yelp Academic Dataset：30家大学的250个最接近商业的所有数据和评论，为学生和学者来探讨和研究。</li>
+</ul>
+<h2 id="开放数据源（三），中国，经济为主。"><a href="#开放数据源（三），中国，经济为主。" class="headerlink" title="开放数据源（三），中国，经济为主。"></a>开放数据源（三），中国，经济为主。</h2><h3 id="一、政府类"><a href="#一、政府类" class="headerlink" title="一、政府类"></a>一、政府类</h3><ul>
+<li><a href="http://data.stats.gov.cn/" target="_blank" rel="noopener">1、国家统计局</a>,如果你需要一应俱全的最新宏观经济数据，一个宝贵的来源是国家统计局提供的《进度统计数据》，网址是<a href="http://www.stats.gov.cn/tjsj/%E3%80%82" target="_blank" rel="noopener">http://www.stats.gov.cn/tjsj/。</a> 如果想要从数据收集之日起的完整国民经济核算资料，权威的来源是国家统计局国民经济核算司出版的《中国国内生产总值核算历史资料》（1952-1995） 和《中国国内生产总值核算历史资料》（1996-2002）。在这两本年鉴里，提供了核算中国GDP的详实数据。特别是《中国国内生产总值核算历史资料》 （1996-2002）提供了电子版，电子版数据不仅提供1996-2002年的详实数据，还大致回溯了1952-1995年间的数据，非常好用。如果你想要从数据收集之日起的较为完整的宏观经济数据，《新中国五十年统计资料汇编》和《新中国55年统计资料汇编》是一个不错的选择。遗憾的是，它们都没有提供电子版，但后者可以在中国资讯行下载。</li>
+<li><a href="http://www.miit.gov.cn/" target="_blank" rel="noopener">2、工业和信息化部</a>, 较多数据在此发布，尤其是有关工业运行及信息化相关数据。</li>
+<li><a href="http://www.pbc.gov.cn/" target="_blank" rel="noopener">3、中国人民银行</a>, 中国金融市场政策及运行相关数据。</li>
+<li><a href="http://www.cbrc.gov.cn/" target="_blank" rel="noopener">4、银监会</a>,银行金融相关数据。</li>
+<li><a href="http://www.customs.gov.cn/" target="_blank" rel="noopener">5、中国海关</a>,中国进出口相关数据。</li>
+<li><a href="http://www.sipo.gov.cn/" target="_blank" rel="noopener">6、国家知识产权局</a>,专利相关查询。</li>
+<li><a href="http://www.csrc.gov.cn/" target="_blank" rel="noopener">7、中国证监会</a>,相关政策及招股书披露平台，以及拟上市公司排队每周披露。</li>
+<li><a href="http://www.datashanghai.gov.cn/gds/home!toHome.action" target="_blank" rel="noopener">8、上海市政府数据服务网</a>, 上海市政府数据服务网（dataShanghai）集中发布政府部门及第三方机构的数据产品以及数据应用，数据将涉及经济、教育、卫生、交通、地理、法 律、规划等。上海市政府数据服务网（dataShanghai）中，政府部门提供的数据产品目前都是免费的，保留收费的权利。所有的数据与服务都是无需注册可以直接使用的。搜索到需要的数据标题后，点击进入详细页面，可以看到下载图标。就可以按照需求来下载。</li>
+<li><a href="http://db.sgst.cn/" target="_blank" rel="noopener">9、上海公共研发平台</a>,可以注册，人工审核，内包含较多数据库。</li>
+</ul>
+<h3 id="二、综合类"><a href="#二、综合类" class="headerlink" title="二、综合类"></a>二、综合类</h3><ul>
+<li><a href="http://www.ceicdata.com/zh-hans/countries/china" target="_blank" rel="noopener">1、中国经济数据库</a>,司尔亚司数据信息有限公司（CEIC）成立于1992年，由经济学家和分析师组成，提供有关世界发达经济和发展中经济的最广泛、最精确的信息。作为欧洲货币机构投资公司的一个产物，我们已经成为世界各地经济学家、分析师、投资者、企业以及院校经济和投资研究的首选。</li>
+<li><a href="http://www.cei.gov.cn/" target="_blank" rel="noopener">2、中国经济信息网</a>,行业研究报告，宏观数据较全。中国经济信息网简称中经网，是国家信息中心组建的、以提供经济信息为主要业务的专业性信息服务网络。</li>
+<li><a href="http://www.bjinfobank.com/indexShow.do?method=index" target="_blank" rel="noopener">3、中国资讯行数据库</a>,收费宏观经济数据。</li>
+<li><a href="http://fjgyw.fjinfo.gov.cn/DRCNet.OLAP.BI/web/default.aspx" target="_blank" rel="noopener">4、国研网</a>, 数据较为权威，有些报告可以一看。</li>
+<li><a href="http://www.nlc.gov.cn/" target="_blank" rel="noopener">5、中国国家图书馆</a></li>
+</ul>
+<h3 id="三、金融类"><a href="#三、金融类" class="headerlink" title="三、金融类"></a>三、金融类</h3><h4 id="证券"><a href="#证券" class="headerlink" title="证券"></a>证券</h4><ul>
+<li><a href="http://www.sse.com.cn/" target="_blank" rel="noopener">1、上海证券交易所</a>,其中研究出版栏目中有些研究报告.</li>
+<li><a href="http://www.szse.cn/" target="_blank" rel="noopener">2、深圳证券交易所</a>,其中研究/刊物中有研究报告</li>
+<li><a href="http://www.neeq.com.cn/" target="_blank" rel="noopener">3、全国中小企业股份转让系统（新三板）</a>,新三板挂牌公司的转让及信息披露.</li>
+<li><a href="http://www.hkexnews.hk/index_c.htm" target="_blank" rel="noopener">4、香港证券交易所</a></li>
+<li><a href="http://www.tse.com.tw/ch/index.php" target="_blank" rel="noopener">5、台湾证券交易所</a></li>
+<li><a href="http://www.sgx.com/" target="_blank" rel="noopener">6、新加坡证券交易所</a></li>
+<li><a href="http://www.nyse.com/" target="_blank" rel="noopener">7、纽约证券交易所</a></li>
+<li><a href="http://www.nasdaq.com/" target="_blank" rel="noopener">8、纳斯达克证券交易所</a></li>
+</ul>
+<h4 id="金融"><a href="#金融" class="headerlink" title="金融"></a>金融</h4><ul>
+<li><a href="http://www.wind.com.cn/" target="_blank" rel="noopener">1、万德数据库（金融）</a> 中国大陆领先的金融数据、信息和软件服务企业，Wind资讯的客户包括超过90%的中国证券公司、基金管理公司、保险公司、银行和投资公司等金融企业；在 国际市场，已经被中国证监会批准的合格境外机构投资者（QFII）中75%的机构是Wind资讯的客户。同时国内多数知名的金融学术研究机构和权威的监管 机构也是我们的客户，大量中英文媒体、研究报告、学术论文等经常引用Wind资讯提供的数据。 定位：高端机构客户 机构市场占有率：80%<br>优势：（1）数据表结构还是比较科学，而且还有很多不同工具，例如WACC计算小插件、贝塔计算小插件、另外还有直接在EXCEL估值的模版。 （2）用户体现非常好，界面体验一流，符合中国人的使用习惯。 （3）特色数据库有中国A\B股数据、基金数据、债券数据和期货数据都非常突出。 （4）资讯内容结构严重模仿BLOOMBERG （5）支持API插件 缺点 （1）其实我想突出数据质量只是一般，有一些还是很多错误、例如指数的数据库的错误和雅虎Finance几乎是一样的。 （2）世界指数等国际数据库还是一般。 （3）主要是提供资讯，下单通道没有Bloomberg没有那么强大。 （4）行业数据严重缺乏，而且质量真的不太好。</li>
+<li><a href="http://www.gildata.com.cn/" target="_blank" rel="noopener">2、恒生聚缘（金融）</a> 这个数据库其实也是定位为机构的，还有一套完全的信息技术系统解决方法。但是这个数据库不太出名，但是这是我用过价格便宜然后质量非常高的数据库。 优点：<br>（1）界面设计虽然没有万德那么花哨，但是非常实在，非常实用，而且很方便。数据结构也科学，不会出现过多冗余的状况。 （2）价格比万德便宜，但是性价比挺高的。 （3）A\B股数据是强项 （4）研究报告更新速度比较快，比较全面、质量比万德好。 （5）数据质量过硬。</li>
+<li><a href="http://www.gtarsc.com/" target="_blank" rel="noopener">3、CSMAR数据库（金融）</a> 定位：中国80%的学术机构和香港高校都是使用CSMAR，美国大部分的大学例如沃顿等是使用CSMAR数据库 优点 （1）公司金融数据是强项，非常强大和齐全，我经常使用哈哈。 （2）数据库做学术还是比较全面的。年份比较早的数据都会有收录。 （3）高频数据是全国第二好。 （4）公司治理数据比较好，详细，包括公司控制链图均有收录。 缺点： （1）由于是学术数据库关系，更新速度不够快。机构是绝对不会使用的。 （2）数据结构有些设计是有问题。 （3）缺乏资讯类的数据。 （4）行业数据是更新速度是所有数据库中最慢的，建议不要使用行业数据库。</li>
+<li><a href="http://www.resset.cn/cn/" target="_blank" rel="noopener">4、锐思数据库（金融）</a> 定位：学术机构 特点： 基本上是Copy外国的数据库结构，而且数据字段不够丰富，建议不要使用。</li>
+<li><a href="http://www.cninfo.com.cn/" target="_blank" rel="noopener">5、巨潮数据库（金融）</a> 深交所旗下的一个数据库公司，有这个得天独厚的优势. （1）交易所的公告、董事会决议总是最快可以知道。 （2）异动数据库中的异动记录肯定不止前十名，获取还能看到前15名，哈哈！ 缺点 （1）数据结构太老的了，严重有问题，见过5个字段来做表主键的，无语。 （2）好像异动数据库，把所有的债券、股票、衍生证、涡轮全部放在一起，结果有一次踩地雷，把债券和股票都提了出来，原因是股票的代码=债券的代码，真的囧死了。 （3）异动数据中的计算方法严重不正确，如果你查阅交易所对涨跌幅偏离值的计算方法，你会发现在2006年8月4日前后会非常不同。结果又一次让我踩到地雷。 （4）数据质量一般，算不上好。</li>
+<li><a href="http://www.pedaily.cn/" target="_blank" rel="noopener">6、清科数据库（金融）</a> 清科研究数据库包含风险投资,私募股权,创业者相关投资,私募,并购,上市数据库,范围涉及投资机构,企业,投资人物相关TMT、传统行业、清洁技术、生技健康等行业市场事件用的比较少，专做Pe,风险投资数据的。</li>
+<li><a href="http://bbs.pinggu.org/forum-5-1.html" target="_blank" rel="noopener">7、人大经济论坛</a> <a href="http://bbs.pinggu.org/forum-55-1.html" target="_blank" rel="noopener">http://bbs.pinggu.org/forum-55-1.html</a> 有许多数据叫卖，提供大量的可供下载的经济学资源，而且还有许多有用的连接。当然，这是一个免费的网站，但下载某些资源时，说不定要求一定的所谓积分限制。这个强力推荐~~</li>
+</ul>
+<h3 id="四、互联网类"><a href="#四、互联网类" class="headerlink" title="四、互联网类"></a>四、互联网类</h3><ul>
+<li><a href="http://shu.taobao.com/" target="_blank" rel="noopener">1、淘宝指数</a></li>
+<li><a href="http://www.199it.com/" target="_blank" rel="noopener">2、互联网TMT数据</a></li>
+<li><a href="http://index.baidu.com/" target="_blank" rel="noopener">3、百度指数（综合）</a></li>
+</ul>
+<h3 id="五、自然卫生类"><a href="#五、自然卫生类" class="headerlink" title="五、自然卫生类"></a>五、自然卫生类</h3><ul>
+<li><p><a href="http://wwwnana.gov.cn/2011qxfw/2011qsjcx/" target="_blank" rel="noopener">1、中国气象局</a></p>
+</li>
+<li><p><a href="http://cdcnana.gov.cn/home.do" target="_blank" rel="noopener">2、中国气象科学数据共享服务网</a> 在<a href="http://cdcNaNa.gov.cn%E6%B3%A8%E5%86%8C%E4%B8%BA%E7%94%A8%E6%88%B7%E5%90%8E%EF%BC%88%E5%AF%86%E7%A0%81%E4%BC%9A%E5%8F%91%E9%80%81%E8%87%B3%E4%BD%A0%E7%9A%84%E9%82%AE%E7%AE%B1%EF%BC%89%E7%99%BB%E5%BD%95%EF%BC%8C%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E7%A7%8D%E7%B1%BB%EF%BC%88%E5%85%B114%E5%A4%A7%E7%B1%BB%EF%BC%89%EF%BC%8C%E5%9C%A8%E6%AF%8F%E7%B1%BB%E4%B8%AD%E9%80%89%E6%8B%A9%E4%BD%A0%E6%89%80%E5%85%B3%E5%BF%83%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%8C%E8%BF%99%E6%97%B6%E5%BC%B9%E5%87%BA%E6%AF%8F%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%E4%BF%A1%E6%81%AF%E9%A1%B5%E9%9D%A2%E3%80%82%E9%A1%B5%E9%9D%A2%E6%AD%A3%E4%B8%AD%E6%9C%89%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%8C%E9%80%89%E5%8F%B0%E7%AB%99%E6%88%96%E7%A9%BA%E9%97%B4%E3%80%81%E6%97%B6%E9%97%B4%E5%B0%B1%E5%8F%AF%E5%BE%97%E5%88%B0%E6%A3%80%E7%B4%A2%E7%BB%93%E6%9E%9C%EF%BC%8C%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD%E5%8D%B3%E5%8F%AF%E3%80%82CDC%E7%BD%91%E7%AB%99%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AA%E8%A6%81%E6%98%AF%E5%85%B1%E4%BA%AB%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%B0%B1%E6%98%AF%E5%85%8D%E8%B4%B9%E7%9A%84%E3%80%82/" target="_blank" rel="noopener">http://cdcNaNa.gov.cn注册为用户后（密码会发送至你的邮箱）登录，选择数据种类（共14大类），在每类中选择你所关心的数据集，这时弹出每个数据集的元数据信息页面。页面正中有检索方式，选台站或空间、时间就可得到检索结果，点击下载即可。CDC网站的数据只要是共享的数据，就是免费的。</a></p>
+</li>
+<li><p>3、公共卫生科学数据中心</p>
+<h3 id="房地产"><a href="#房地产" class="headerlink" title="房地产"></a>房地产</h3></li>
+<li><p>克尔瑞（房地产）</p>
+<p>,中国最大、最先进的房地产数据库，易居中国旗下。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3></li>
+<li><p><a href="http://datatang.com/" target="_blank" rel="noopener">1、数据堂</a></p>
+</li>
+<li><p><a href="http://www.datapanda.net/123/" target="_blank" rel="noopener">2、数据熊猫（导航）</a></p>
+</li>
+</ul>
+<h2 id="开放数据源（四），遥感、地理信息"><a href="#开放数据源（四），遥感、地理信息" class="headerlink" title="开放数据源（四），遥感、地理信息"></a>开放数据源（四），遥感、地理信息</h2><ul>
+<li><p><a href="http://www.nsoas.gov.cn/zx/channel/dmyy_01.asp" target="_blank" rel="noopener">中国国家海洋卫星应用中心</a></p>
+</li>
+<li><p><a href="http://219.143.215.3/home.jsp" target="_blank" rel="noopener">中国资源卫星应用中心</a></p>
+</li>
+<li><p><a href="http://www2.jpl.nasa.gov/srtm" target="_blank" rel="noopener">SRTM全球地形高程测量</a>,<a href="http://dds.cr.usgs.gov/srtm/,http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1,http://dwtkns.com/srtm/,http://elevation.bopen.eu/en/stable/quickstart.html" target="_blank" rel="noopener">http://dds.cr.usgs.gov/srtm/,http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1,http://dwtkns.com/srtm/,http://elevation.bopen.eu/en/stable/quickstart.html</a></p>
+</li>
+<li><p><a href="http://glcfapp.umiacs.umd.edu:8080/esdi/index.jsp" target="_blank" rel="noopener">TM全球15米存档多波段专题影像</a>,貌似已无法访问。</p>
+</li>
+<li><p>German Aerospace Center (DLR)</p>
+<h5 id="其它TM和MSS"><a href="#其它TM和MSS" class="headerlink" title="其它TM和MSS:"></a>其它TM和MSS:</h5></li>
+<li><p><a href="http://earthexplorer.usgs.gov/" target="_blank" rel="noopener">http://earthexplorer.usgs.gov/</a></p>
+</li>
+<li><p><a href="http://edcsns17.cr.usgs.gov/earthexplorer" target="_blank" rel="noopener">http://edcsns17.cr.usgs.gov/earthexplorer</a></p>
+</li>
+<li><p><a href="http://glovis.usgs.gov/" target="_blank" rel="noopener">http://glovis.usgs.gov/</a></p>
+</li>
+<li><p><a href="http://landsat.datamirror.csdb.cn/" target="_blank" rel="noopener">http://landsat.datamirror.csdb.cn/</a></p>
+<p>, 这是中科院的国际科学数据服务平台。</p>
+<h5 id="多光谱卫星影像："><a href="#多光谱卫星影像：" class="headerlink" title="多光谱卫星影像："></a>多光谱卫星影像：</h5></li>
+<li><p><a href="http://speclab.cr.usgs.gov/" target="_blank" rel="noopener">http://speclab.cr.usgs.gov</a></p>
+</li>
+<li><p><a href="http://asterweb.jplnasa.gov" target="_blank" rel="noopener">http://asterweb.jplnasa.gov</a></p>
+<h5 id="遥感数据免费下载网址："><a href="#遥感数据免费下载网址：" class="headerlink" title="遥感数据免费下载网址："></a>遥感数据免费下载网址：</h5></li>
+<li><p>1.<a href="http://www.landsat.org/ortho/index.htm" target="_blank" rel="noopener">http://www.landsat.org/ortho/index.htm</a></p>
+</li>
+<li><p>2.<a href="http://edcdaac.usgs.gov/datapool/datatypes.asp" target="_blank" rel="noopener">http://edcdaac.usgs.gov/datapool/datatypes.asp</a></p>
+</li>
+<li><p><a href="http://daac.gsfc.nasa.gov/data/dataset/MODIS/01_Level_1/index.html" target="_blank" rel="noopener">3.modis L1B 1km</a>,免费注册，免费下载，daily data.</p>
+</li>
+<li><p>4.<a href="http://edcimswww.cr.usgs.gov/pub/imswelcome/" target="_blank" rel="noopener">http://edcimswww.cr.usgs.gov/pub/imswelcome/</a></p>
+</li>
+<li><p>5.<a href="http://glovis.usgs.gov/" target="_blank" rel="noopener">http://glovis.usgs.gov/</a></p>
+</li>
+<li><p>6.landsat etm+ and tm images for</p>
+</li>
+<li><p><a href="http://www.landsat.org/ortho/index.htm" target="_blank" rel="noopener">http://www.landsat.org/ortho/index.htm</a></p>
+<h5 id="全球DEM、遥感图像、矢量图像免费下载"><a href="#全球DEM、遥感图像、矢量图像免费下载" class="headerlink" title="全球DEM、遥感图像、矢量图像免费下载"></a>全球DEM、遥感图像、矢量图像免费下载</h5></li>
+<li><p>全球各国shape数据下载，包括矢量要素、dem数据、遥感图片，免费，精度不知。 <a href="http://biogeo.berkeley.edu/bgm/gdata.php" target="_blank" rel="noopener">http://biogeo.berkeley.edu/bgm/gdata.php</a></p>
+</li>
+<li><p>全球各国eoo格式数据下载，包括矢量要素、dem数据、遥感图片，需付费，也有部分类型数据免费，精度不知道。 <a href="http://data.geocomm.com/" target="_blank" rel="noopener">http://data.geocomm.com/</a></p>
+</li>
+<li><p>公开的DEM数据,SRTM3/SRTM,数据主要是由美国太空总署(NASA)和国防部国家测绘局(NIMA)</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>来了，老弟</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="InforX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+	<div>
+  
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+	
+    <footer class="post-footer">
+	
+        
+         <div>    
+          
+          <ul class="post-copyright">
+             <li class="post-copyright-link">
+              <strong>本文作者：</strong>
+              <a href="/" title="欢迎访问 InforX 的个人博客">InforX</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文标题：</strong>
+              <a href="https://inforscan.com/2020/05/11/开放数据源-社会、经济、地理、空间，数据科学家的宝库/" title="开放数据源-社会、经济、地理、空间，数据科学家的宝库">开放数据源-社会、经济、地理、空间，数据科学家的宝库</a>
+            </li>
+
+            <li class="post-copyright-link">
+              <strong>本文链接：</strong>
+              <a href="https://inforscan.com/2020/05/11/开放数据源-社会、经济、地理、空间，数据科学家的宝库/" title="开放数据源-社会、经济、地理、空间，数据科学家的宝库">https://inforscan.com/2020/05/11/开放数据源-社会、经济、地理、空间，数据科学家的宝库/</a>
+            </li>
+
+            <li class="post-copyright-date">
+                <strong>发布时间： </strong>2020年5月11日
+            </li>  
+
+            <li class="post-copyright-license">
+              <strong>版权声明： </strong>
+             本博客所有文章除特别声明外，均采用  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        
+      </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/开放数据源/" rel="tag"><i class="fa fa-tag"></i> 开放数据源</a>
+          
+        </div>
+      
+      
+       
+	   
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/11/科学数据开放存取途径/" rel="next" title="科学数据开放存取途径">
+                <i class="fa fa-chevron-left"></i> 科学数据开放存取途径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/xning.jpg"
+                alt="InforX" />
+            
+              <p class="site-author-name" itemprop="name">InforX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">424</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">659</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inforscan.com" title="Inforx" target="_blank" rel="external nofollow">Inforx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://byteclicks.com" title="前沿科技" target="_blank" rel="external nofollow">前沿科技</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://github.com/" title="Github" target="_blank" rel="external nofollow">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.remove.bg/" title="抠图神奇" target="_blank" rel="external nofollow">抠图神奇</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://send.firefox.com/" title="临时网盘" target="_blank" rel="external nofollow">临时网盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://monitor.firefox.com" title="firefox monitor" target="_blank" rel="external nofollow">firefox monitor</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.notion.so/" title="Notion" target="_blank" rel="external nofollow">Notion</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://towardsdatascience.com/" title="走向数据科学" target="_blank" rel="external nofollow">走向数据科学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlwhiz.com/" title="深度学习、数据科学和NLP爱好者" target="_blank" rel="external nofollow">深度学习、数据科学和NLP爱好者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.datastuff.tech/" title="数据科学不错的博客" target="_blank" rel="external nofollow">数据科学不错的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://pasted.co" title="文字加密分享工具" target="_blank" rel="external nofollow">文字加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.pastery.net/" title="加密分享工具" target="_blank" rel="external nofollow">加密分享工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://telegra.ph" title="匿名文字分享" target="_blank" rel="external nofollow">匿名文字分享</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://sharetext.co/" title="Sharetext" target="_blank" rel="external nofollow">Sharetext</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://itty.bitty.site/edit" title="itty.bitty" target="_blank" rel="external nofollow">itty.bitty</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://txt.fyi/" title="txt.fyi" target="_blank" rel="external nofollow">txt.fyi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mailspre.com" title="隐私邮件" target="_blank" rel="external nofollow">隐私邮件</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.publishthis.email/zh" title="邮件转网页" target="_blank" rel="external nofollow">邮件转网页</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.scholarcy.com/" title="摘要提取" target="_blank" rel="external nofollow">摘要提取</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.altmetric.com/" title="Altmetrics" target="_blank" rel="external nofollow">Altmetrics</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.theurlist.com/" title="UlrList" target="_blank" rel="external nofollow">UlrList</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://voicer.com" title="Voicer" target="_blank" rel="external nofollow">Voicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://postadollar.com/" title="postadollar" target="_blank" rel="external nofollow">postadollar</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://toffeeshare.com/" title="toffeeshare" target="_blank" rel="external nofollow">toffeeshare</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1406869763&auto=1&height=66"></iframe>
+		  
+          
+		 </div>
+		  
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开放数据源（一），全球地理、自然、经济数据等。"><span class="nav-number">1.</span> <span class="nav-text">开放数据源（一），全球地理、自然、经济数据等。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放数据源（二），科研、论文，生物、网址、机器学习等。"><span class="nav-number">2.</span> <span class="nav-text">开放数据源（二），科研、论文，生物、网址、机器学习等。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#编译自http-www-bigdata-madesimple-com-70-websites-to-get-large-data-repositories-for-free"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">编译自http://www.bigdata-madesimple.com/70-websites-to-get-large-data-repositories-for-free/</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BigML-big-list-of-public-data-sources"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">BigML big list of public data sources.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Data-Source-Handbook-公开数据指南。"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Data Source Handbook:公开数据指南。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放数据源（三），中国，经济为主。"><span class="nav-number">3.</span> <span class="nav-text">开放数据源（三），中国，经济为主。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、政府类"><span class="nav-number">3.1.</span> <span class="nav-text">一、政府类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、综合类"><span class="nav-number">3.2.</span> <span class="nav-text">二、综合类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、金融类"><span class="nav-number">3.3.</span> <span class="nav-text">三、金融类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#证券"><span class="nav-number">3.3.1.</span> <span class="nav-text">证券</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#金融"><span class="nav-number">3.3.2.</span> <span class="nav-text">金融</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、互联网类"><span class="nav-number">3.4.</span> <span class="nav-text">四、互联网类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、自然卫生类"><span class="nav-number">3.5.</span> <span class="nav-text">五、自然卫生类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#房地产"><span class="nav-number">3.6.</span> <span class="nav-text">房地产</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.7.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放数据源（四），遥感、地理信息"><span class="nav-number">4.</span> <span class="nav-text">开放数据源（四），遥感、地理信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#其它TM和MSS"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">其它TM和MSS:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多光谱卫星影像："><span class="nav-number">4.0.0.2.</span> <span class="nav-text">多光谱卫星影像：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#遥感数据免费下载网址："><span class="nav-number">4.0.0.3.</span> <span class="nav-text">遥感数据免费下载网址：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全球DEM、遥感图像、矢量图像免费下载"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">全球DEM、遥感图像、矢量图像免费下载</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">InforX</span>
+
+  
+</div>
+
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已在此等候你"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+
+  
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 我的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位朋友
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 历经
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
